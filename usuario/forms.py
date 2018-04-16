@@ -12,6 +12,8 @@ class UsuarioForm(forms.ModelForm):
             'apellidos',
             'email',
             'password',
+            'escuela',
+            'roles'
         ]
 
         labels={
@@ -20,6 +22,8 @@ class UsuarioForm(forms.ModelForm):
             'apellidos':'Apellidos',
             'email':'Correo Electronico',
             'password': 'Password',
+            'escuela':'Escuela',
+            'roles': 'Roles'
         }
 
 
@@ -29,6 +33,8 @@ class UsuarioForm(forms.ModelForm):
             'apellidos': forms.TextInput(attrs={'class':'form-control','id':'apellidos', 'placeholder': 'Ingrese los apellidos del usuario'}),
             'email': forms.EmailInput(attrs={'class':'form-control','id':'email', 'placeholder': 'Ingrese el correo electronico'}),
             'password': forms.PasswordInput(attrs={'class':'form-control','id':'password'}),
+            'escuela': forms.Select(attrs={'class':'form-control','id':'escuela'}),
+            'roles': forms.CheckboxSelectMultiple(),
         }
 
 
