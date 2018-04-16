@@ -86,12 +86,15 @@
                             <form action="/action_page.php"> 
                                 <div class="form-group" align="middle">
                                     <label for="cod-completo">Buscar usuario: </label>
-                                    <input type="search" id="buscar-id">
+                                    <select required="yes">
+                                        <option value="" selected>usuario 1</option>
+                                        <option value="">usuario 2</option>
+                                    </select>
                                     <button id="buscar" type="button" class="btn btn-default">Buscar</button>
                                 </div> 
                                 <div class="form-group">
-                                    <label for="cod-completo">Nombre Completo:</label>
-                                    <input type="text" class="form-control" id="cod-completo">
+                                    <label for="nom-completo">Nombre Completo:</label>
+                                    <input type="text" class="form-control" id="nom-completo" autocomplete="on">
                                 </div>
                                 <div class="form-group">
                                     <label for="id">Identificación:</label>
@@ -99,11 +102,11 @@
                                 </div>                            
                                 <div class="form-group">
                                     <label for="nom-corto">Nombre Corto:</label>
-                                    <input type="text" class="form-control" id="nom-corto">
+                                    <input type="text" class="form-control" id="nom-corto" autocomplete="on">
                                 </div>  
                                 <div class="form-group">
                                     <label for="correo">Correo Electrónico:</label>
-                                    <input type="email" class="form-control" id="correo">
+                                    <input type="email" class="form-control" id="correo" autocomplete="on">
                                 </div>   
                                 <div class="form-group">
                                     <label for="pass">Contraseña:</label>
@@ -114,7 +117,7 @@
                                     <input type="password" class="form-control" id="pass-conf">
                                 </div>                                         
                                 <div class="text-center form-group">
-                                    <button id="agregar" type="submit" class="btn btn-default">Modificar</button>
+                                    <button id="modificar" type="submit" class="btn btn-default">Modificar</button>
                                     <button id="limpiar" type="reset" class="btn btn-default">Limpiar</button>
                                     <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
                                 </div>

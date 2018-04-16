@@ -49,7 +49,24 @@
                             </ul>
                         </div>                                
                     </section>
-                </div>                    
+                </div>  
+                <div id="acordion-programas" class="panel-group">
+                    <li>
+                        <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programa Académico</a>
+                    </li>
+                    <section> 
+                        <div id="programa" class="panel-collapse collapse in">
+                            <ul>
+                                <li>
+                                    <a href="#">Agregar Programa</a>
+                                    <a href="#">Modificar Programa</a>
+                                    <a href="#">Eliminar Programa</a>
+                                    <a href="#">Consultar Programa</a>
+                                </li>
+                            </ul>
+                        </div>                                
+                    </section>
+                </div>                   
                 <li>
                     <a href="#">Cerrar sesión</a>
                 </li>
@@ -67,7 +84,7 @@
             <nav class="navbar navbar-default" style="background-color: #CD2035">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <h3 class="navbar-brand" style="color: #FFFFFF">Cursos</h3>
+                        <h3 class="navbar-brand" style="color: #FFFFFF">Programa Académico</h3>
                     </div>  
                     <ul class="nav navbar-nav">
                         <li class="active">
@@ -77,61 +94,32 @@
                 </div>
             </nav>          
 
-            <div style="background-image:url('images/fondo.jpg')">                
+            <div style="background-image:url('images/fondo.jpg')">
                 <section id="formulario">
                     <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
                         <div id="iniciar" class="panel-group">
-                            <h2>Modificar Curso</h2>      
-                            <div>
-                                <div align="middle">
-                                    <label>Seleccione un curso:</label>
-                                    <select required="yes">
-                                        <option value="" selected>Nombre curso</option>
-                                        <option value="" >Nombre curso</option>                                    
-                                    </select>
-                                </div>
-                            </div>                      
+                            <h2>Consultar Programa</h2>   
+                            <label>Programa Académico: nombre</label>                          
                             <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
                             <form action="/action_page.php"> 
                                 <div class="form-group">
-                                    <label for="cod-curso">Código del Curso:</label>
-                                    <input type="text" class="form-control" id="cod-curso" placeholder="Ingrese el código del curso">
-                                </div>
-                                <div class="form-group">
                                     <label for="cod-programa">Código del Programa:</label>
-                                    <input type="text" class="form-control" id="cod-programa" placeholder="Código del programa al que pertenece el curso">
-                                </div>
+                                    <input type="text" class="form-control" id="cod-programa" readonly>
+                                </div>                            
                                 <div class="form-group">
-                                    <label for="nom-curso">Nombre del Curso:</label>
-                                    <input type="text" class="form-control" id="nom-curso" autocomplete="on" placeholder="Ingrese el nombre del curso">
+                                    <label for="nom-programa">Nombre del Programa:</label>
+                                    <input type="text" class="form-control" id="nom-programa" readonly>
                                 </div>  
                                 <div class="form-group">
-                                    <label for="cred-curso">Créditos del Curso:</label>
-                                    <input type="number" min="1" max="24" class="form-control" id="cred-curso" placeholder="Ingrese el número de créditos del curso">
+                                    <label for="cred-programa">Créditos del Programa:</label>
+                                    <input type="number" min="1" class="form-control" id="cred-programa" readonly>
                                 </div>   
                                 <div class="form-group">
-                                    <label for="horas-magistral">Número de horas de clase magistral:</label>
-                                    <input type="number" min="1" class="form-control" id="horas-magistral" placeholder="Ingrese el número de horas de clase">
-                                </div>  
-                                <div class="form-group">
-                                    <label for="horas-ind">Número de horas de estudio independiente:</label>
-                                    <input type="number" min="0" class="form-control" id="horas-ind" placeholder="Ingrese el número de horas de estudio">
-                                </div>  
-                                <div id="acordion-tipo-curso" class="panel-group">
-                                    <div>
-                                        <label>Tipo de Curso:</label>
-                                    </div>
-                                    <select required="yes">
-                                        <option value="AB" selected>Asignatura básica</option>
-                                        <option value="AP">Asignatura profesional</option>
-                                        <option value="EC">Electiva complementaria</option>
-                                        <option value="EP">Electiva profesional</option>
-                                    </select>                                                                                        
-                                </div>               
+                                    <label for="semestres">Número de semestres:</label>
+                                    <input type="number" min="1" class="form-control" id="semestres" readonly>
+                                </div>                                          
                                 <div class="text-center form-group">
-                                    <button type="submit" class="btn btn-default">Modificar</button>
-                                    <button type="reset" class="btn btn-default">Limpiar</button>
-                                    <button type="button" class="btn btn-default">Cancelar</button>
+                                    <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
                                 </div>
                             </form>
                         </div>
