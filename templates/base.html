@@ -1,0 +1,96 @@
+ {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Proyecto Desarrollo II</title>
+    <link rel="shortcut icon" href="{% static 'images/icon_uv.jpg' %}">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
+
+</head>
+
+<div id="wrapper">
+    {% block sidebar %} {% endblock %}
+
+    <div class="page-content-wrapper">
+        <div class="container-fluid">
+            <img class="image-responsive" src="{% static 'images/logo.jpg' %}" alt="univalle" width="62" height="63">
+            <h1>Universidad del Valle</h1>
+        </div>
+
+        <nav class="navbar navbar-default" style="background-color: #CD2035">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h3 class="navbar-brand" style="color: #FFFFFF"> {% block rolename %} Rol {% endblock %}</h3>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menú</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block content %} {% endblock %}
+
+        <section id="footer">
+            <div class="footer text-center" style="background-color: #CD2035">
+                <div class="container-fluid col-md-12 mx-auto">
+                    <div class="row mx-auto my-auto">
+                        <div class="col-md-3 mx-2 my-3">
+                            <img class="image-responsive" align="middle" src="{% static 'images/logo-footer.png' %}" alt="univalle" width="110" height="156">
+                        </div>
+                        <div class="col-md-4 mx-2 my-3">
+                            <p style="color: #FFFFFF">
+                                <b style="color: #FFFFFF">Universidad del Valle
+                                    <br>
+                                </b>
+                                <label style="color: #FFFFFF">Cali - Colombia</label>
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 mx-2 my-3">
+                            <p style="color: #FFFFFF">
+                                <b style="color: #FFFFFF">Dirección:
+                                    <br>
+                                </b>
+                                <label style="color: #FFFFFF">Ciudad Universitaria Meléndez</label>
+                                <br>Calle 13 # 100-00
+                                <br>Sede San Fernando
+                                <br>Calle 4B # 36-00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+</body>
+
+</html>
