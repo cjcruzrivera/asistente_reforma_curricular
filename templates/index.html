@@ -1,1 +1,51 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load staticfiles %} 
+
+
+{% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+ <!-- Sidebar -->
+ <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+            </li>
+            <li>
+                <a href="#">Perfil</a>
+            </li>
+            <li>
+                <a href="#">Configuración</a>
+            </li>
+            <div id="acordion-usuarios" class="panel-group">
+                <li>
+                    <a href="#usuario" data-toggle="collapse" data-parent="#acordion-usuarios">Usuarios</a>
+                </li>
+                <section> 
+                    <div id="usuario" class="panel-collapse collapse in">
+                        <ul>
+                            <li>
+                                <a href="#">Agregar Usuario</a>
+                                <a href="#">Modificar Usuario</a>
+                                <a href="#">Eliminar Usuario</a>
+                                <a href="#">Consultar Usuario</a>
+                            </li>
+                        </ul>
+                    </div>                                
+                </section>
+            </div>                    
+            <li>
+                <a href="#">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+{% endblock %}
+
+{% block rolename %} 
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR 
+{% endblock %}
+{% block content %} 
+<div class="text-center">
+    <img src="{% static 'images/reforma.jpg' %}">
+</div>
+{% endblock %}
