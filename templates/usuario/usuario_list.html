@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div style="background-image:url('images/fondo.jpg')">
+    <section id="formulario">
+        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Consultar Usuarios</h2>
+                <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
+                <hr> {% if object_list %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="text-primary">Nombre Corto</td>
+                            <td class="text-primary">Nombre</td>
+                            <td class="text-primary">Apellidos</td>
+                            <td class="text-primary">Correo Electronico</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in object_list %}
+                        <tr>
+                            <td class="text-primary">{{ usuario.username }}</td>
+                            <td class="text-primary">{{ usuario.nombre }}</td>
+                            <td class="text-primary">{{ usuario.apellidos }}</td>
+                            <td class="text-primary">{{ usuario.email }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>NO HAY USUARIOS REGISTRADOS</h4>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
