@@ -13,21 +13,27 @@ ADMINISTRADOR {% endblock %} {% block content %}
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-primary">Nombre Corto</td>
-                            <td class="text-primary">Nombre</td>
-                            <td class="text-primary">Apellidos</td>
-                            <td class="text-primary">Correo Electronico</td>
-                            <td></td>
+                            <td style="color: black">Nombre Corto</td>
+                            <td style="color: black">Nombre</td>
+                            <td style="color: black">Apellidos</td>
+                            <td style="color: black">Correo Electronico</td>
+                            <td> Acciones</td>
                         </tr>
                     </thead>
                     <tbody>
                         {% for usuario in object_list %}
+                        {% if usuario.estado %}
                         <tr>
-                            <td class="text-primary">{{ usuario.username }}</td>
-                            <td class="text-primary">{{ usuario.nombre }}</td>
-                            <td class="text-primary">{{ usuario.apellidos }}</td>
-                            <td class="text-primary">{{ usuario.email }}</td>
+                            <td>{{ usuario.username }}</td>
+                            <td>{{ usuario.nombre }}</td>
+                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.email }}</td>
+                            <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'usuario:usuario_editar' usuario.id %}">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="{% url 'usuario:usuario_eliminar' usuario.id %}">Eliminar</a>
+                            </td>
                         </tr>
+                        {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>

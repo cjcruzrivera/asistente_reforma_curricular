@@ -21,16 +21,16 @@ class UsuarioCreateView(CreateView):
     model = Usuario
     form_class = UsuarioForm
     template_name = "usuario/usuario_form.html"
-    succes_url = reverse_lazy('usuario:usuario_listar')
+    success_url = reverse_lazy('usuario:usuario_listar')
 
 class UsuarioUpdateView(UpdateView):
     model = Usuario
     form_class = UsuarioForm
     template_name = "usuario/usuario_form.html"
-    succes_url = reverse_lazy('usuario:usuario_listar')
+    success_url = reverse_lazy('usuario:usuario_listar')
 
 class UsuarioDeleteView(DeleteView):
     model = Usuario
     form_class = UsuarioForm
     template_name = "usuario/usuario_delete.html"
-    succes_url = reverse_lazy('usuario:usuario_listar')
+    success_url = reverse_lazy('usuario:usuario_listar')

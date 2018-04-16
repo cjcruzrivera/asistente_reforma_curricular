@@ -17,16 +17,16 @@
                     <div id="usuario" class="panel-collapse collapse in">
                         <ul>
                             <li>
-                                <a href="#">Agregar Usuario</a>
+                                <a href="{% url 'usuario:usuario_crear' %}">Agregar Usuario</a>
                             </li>
                             <li>
-                                <a href="#">Modificar Usuario</a>
+                                <a href="{% url 'usuario:usuario_listar' %}">Modificar Usuarios</a>
                             </li>
                             <li>
-                                <a href="#">Eliminar Usuario</a>
+                                <a href="{% url 'usuario:usuario_listar' %}">Eliminar Usuarios</a>
                             </li>
                             <li>
-                                <a href="#">Consultar Usuario</a>
+                                <a href="{% url 'usuario:usuario_listar' %}">Consultar Usuarios</a>
                             </li>
                             
                         </ul>

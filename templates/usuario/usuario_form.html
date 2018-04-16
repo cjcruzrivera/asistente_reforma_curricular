@@ -13,7 +13,7 @@ ADMINISTRADOR {% endblock %} {% block content %}
                     {% csrf_token %}
                     {{ form.as_p }}
                     <div class="text-center form-group">
-                        <button id="agregar" type="submit" class="btn btn-default">Agregar</button>
+                        <button id="agregar" type="submit" class="btn btn-default">Guardar</button>
                         <button id="limpiar" type="reset" class="btn btn-default">Limpiar</button>
                         <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
                     </div>
