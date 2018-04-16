@@ -33,40 +33,23 @@
                 <li>
                     <a href="#">Configuración</a>
                 </li>
-                <div id="acordion-cursos" class="panel-group">
+                <div id="acordion-usuarios" class="panel-group">
                     <li>
-                        <a href="#curso" data-toggle="collapse" data-parent="#acordion-cursos">Cursos</a>
+                        <a href="#usuario" data-toggle="collapse" data-parent="#acordion-usuarios">Usuarios</a>
                     </li>
                     <section> 
-                        <div id="curso" class="panel-collapse collapse in">
+                        <div id="usuario" class="panel-collapse collapse in">
                             <ul>
                                 <li>
-                                    <a href="#">Agregar Curso</a>
-                                    <a href="#">Modificar Curso</a>
-                                    <a href="#">Eliminar Curso</a>
-                                    <a href="#">Consultar Curso</a>
+                                    <a href="#">Agregar Usuario</a>
+                                    <a href="#">Modificar Usuario</a>
+                                    <a href="#">Eliminar Usuario</a>
+                                    <a href="#">Consultar Usuario</a>
                                 </li>
                             </ul>
                         </div>                                
                     </section>
-                </div>  
-                <div id="acordion-programas" class="panel-group">
-                    <li>
-                        <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programa Académico</a>
-                    </li>
-                    <section> 
-                        <div id="programa" class="panel-collapse collapse in">
-                            <ul>
-                                <li>
-                                    <a href="#">Agregar Programa</a>
-                                    <a href="#">Modificar Programa</a>
-                                    <a href="#">Eliminar Programa</a>
-                                    <a href="#">Consultar Programa</a>
-                                </li>
-                            </ul>
-                        </div>                                
-                    </section>
-                </div>                   
+                </div>                    
                 <li>
                     <a href="#">Cerrar sesión</a>
                 </li>
@@ -84,7 +67,7 @@
             <nav class="navbar navbar-default" style="background-color: #CD2035">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <h3 class="navbar-brand" style="color: #FFFFFF">Programa Académico</h3>
+                        <h3 class="navbar-brand" style="color: #FFFFFF">Administración</h3>
                     </div>  
                     <ul class="nav navbar-nav">
                         <li class="active">
@@ -93,40 +76,23 @@
                     </ul>                  
                 </div>
             </nav>          
-
-            <div style="background-image:url('images/fondo.jpg')">
-                <section id="formulario">
-                    <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
-                        <div id="iniciar" class="panel-group">
-                            <h2>Modificar Programa</h2>   
-                            <label>Programa Académico: nombre</label>                          
-                            <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
-                            <form action="/action_page.php"> 
-                                <div class="form-group">
-                                    <label for="cod-programa">Código del Programa:</label>
-                                    <input type="text" class="form-control" id="cod-programa" autocomplete="on">
-                                </div>                            
-                                <div class="form-group">
-                                    <label for="nom-programa">Nombre del Programa:</label>
-                                    <input type="text" class="form-control" id="nom-programa" autocomplete="on">
-                                </div>  
-                                <div class="form-group">
-                                    <label for="cred-programa">Créditos del Programa:</label>
-                                    <input type="number" min="1" class="form-control" id="cred-programa">
-                                </div>   
-                                <div class="form-group">
-                                    <label for="semestres">Número de semestres:</label>
-                                    <input type="number" min="1" class="form-control" id="semestres">
-                                </div>                                          
-                                <div class="text-center form-group">
-                                    <button id="modificar" type="submit" class="btn btn-default">Modificar</button>
-                                    <button id="limpiar" type="reset" class="btn btn-default">Limpiar</button>
-                                    <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> 
-                </section>
+            <!-- Tabla de usuarios -->
+            <div style="background-image:url('images/fondo.jpg')">  
+                <div style="background-color: #FFFFFF" class="col-md-10 mx-auto">
+                    <div>
+                        <h2>Usarios registrados:</h2>
+                    </div>
+                    <div style="overflow-x:auto;" align="middle">
+                        <table>
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombre Completo</th>
+                                <th>Nombre Corto</th>
+                                <th>Correo Electrónico</th>
+                            </tr>                            
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <section id="footer" >

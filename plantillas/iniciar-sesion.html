@@ -20,42 +20,7 @@
 
 <body>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                </li>
-                <li>
-                    <a href="#">Perfil</a>
-                </li>
-                <li>
-                    <a href="#">Configuración</a>
-                </li>
-                <div id="acordion-cursos" class="panel-group">
-                    <li>
-                        <a href="#curso" data-toggle="collapse" data-parent="#acordion-cursos">Cursos</a>
-                    </li>
-                    <section> 
-                        <div id="curso" class="panel-collapse collapse in">
-                            <ul>
-                                <li>
-                                    <a href="#">Agregar Curso</a>
-                                    <a href="#">Modificar Curso</a>
-                                    <a href="#">Eliminar Curso</a>
-                                    <a href="#">Consultar Curso</a>
-                                </li>
-                            </ul>
-                        </div>                                
-                    </section>
-                </div>                    
-                <li>
-                    <a href="#">Cerrar sesión</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+    <div id="wrapper">    
 
 		<!-- Page Content -->
         <div id="page-content-wrapper">
@@ -72,29 +37,31 @@
                 </div>
             </nav>        	
 
-        	<section id="formularios">
-                <div  class="col-md-6 mx-auto">
-                    <div id="iniciar" class="panel-group">
-                        <h2>Iniciar Sesión</h2>                            
-                        <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
-                        <form action="/action_page.php"> 
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Ingrese el email">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">Contraseña:</label>
-                                <input type="password" class="form-control" id="pwd" placeholder="Ingrese la contraseña">
-                            </div>                    
-                            <div class="text-center form-group">
-                                <button type="submit" class="btn btn-default">Iniciar sesión</button>
-                                <button type="reset" class="btn btn-default">Limpiar</button>
-                                <button type="button" class="btn btn-default">Cancelar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div> 
-        	</section>
+            <div style="background-image:url('images/fondo.jpg')">
+            	<section id="formularios">
+                    <div  class="col-md-6 mx-auto" style="background-color: #FFFFFF">
+                        <div id="iniciar" class="panel-group">
+                            <h2>Iniciar Sesión</h2>                            
+                            <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
+                            <form action="/action_page.php"> 
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Ingrese el email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Contraseña:</label>
+                                    <input type="password" class="form-control" id="pwd" placeholder="Ingrese la contraseña">
+                                </div>                    
+                                <div class="text-center form-group">
+                                    <button type="submit" class="btn btn-default">Iniciar sesión</button>
+                                    <button type="reset" class="btn btn-default">Limpiar</button>
+                                    <button type="button" class="btn btn-default">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
+            	</section>
+            </div>
 
         	<section id="footer" >
                 <div class="footer text-center" style="background-color: #CD2035">                    

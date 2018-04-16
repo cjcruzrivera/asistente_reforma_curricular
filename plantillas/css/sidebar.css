@@ -47,6 +47,25 @@ a {
   font-family: "Open Sans";
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 8px;  
+}
+
+th {
+  text-align: center;
+  background-color: #525471;
+  color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+  background-color: #E1E1E1;
+}
+
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
