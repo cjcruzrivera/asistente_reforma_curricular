@@ -1,1 +1,27 @@
-<h1>HOLA MUNDO</h1>
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div class="container">
+    <h3 class="text-center">
+        Gestión de Usuarios
+    </h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a id="cargador" href="#" style="color:white;" class="btn">CREAR USUARIOS</a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a id="cargador" href="#" style="color:white;" class="btn">CONSULTAR USUARIOS</a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a id="cargador" href="#" style="color:white;" class="btn">MODIFICAR USUARIOS</a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a id="cargador" href="#" style="color:white;" class="btn">ELIMINAR USUARIOS</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

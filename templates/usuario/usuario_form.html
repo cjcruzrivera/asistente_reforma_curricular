@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div style="background-image:url('images/fondo.jpg')">
+    <section id="formulario">
+        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Agregar Usuario</h2>
+                <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center form-group">
+                        <button id="agregar" type="submit" class="btn btn-default">Guardar</button>
+                        <button id="limpiar" type="reset" class="btn btn-default">Limpiar</button>
+                        <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

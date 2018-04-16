@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div style="background-image:url('images/fondo.jpg')">
+    <section id="formulario">
+        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Consultar Usuarios</h2>
+                <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
+                <hr> {% if object_list %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="color: black">Nombre Corto</td>
+                            <td style="color: black">Nombre</td>
+                            <td style="color: black">Apellidos</td>
+                            <td style="color: black">Correo Electronico</td>
+                            <td> Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in object_list %}
+                        {% if usuario.estado %}
+                        <tr>
+                            <td>{{ usuario.username }}</td>
+                            <td>{{ usuario.nombre }}</td>
+                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.email }}</td>
+                            <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'usuario:usuario_editar' usuario.id %}">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="{% url 'usuario:usuario_eliminar' usuario.id %}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>NO HAY USUARIOS REGISTRADOS</h4>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

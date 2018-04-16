@@ -106,33 +106,34 @@
                                         <option value="" selected>Nombre curso</option>
                                         <option value="" >Nombre curso</option>                                    
                                     </select>
+                                    <button id="buscar" type="button" class="btn btn-default">Buscar</button>
                                 </div>
                             </div>                      
                             <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
                             <form action="/action_page.php"> 
                                 <div class="form-group">
                                     <label for="cod-curso">Código del Curso:</label>
-                                    <input type="text" class="form-control" id="cod-curso" placeholder="Ingrese el código del curso">
+                                    <input type="text" class="form-control" id="cod-curso" autocomplete="on">
                                 </div>
                                 <div class="form-group">
                                     <label for="cod-programa">Código del Programa:</label>
-                                    <input type="text" class="form-control" id="cod-programa" placeholder="Código del programa al que pertenece el curso">
+                                    <input type="text" class="form-control" id="cod-programa" autocomplete="on">
                                 </div>
                                 <div class="form-group">
                                     <label for="nom-curso">Nombre del Curso:</label>
-                                    <input type="text" class="form-control" id="nom-curso" autocomplete="on" placeholder="Ingrese el nombre del curso">
+                                    <input type="text" class="form-control" id="nom-curso" autocomplete="on">
                                 </div>  
                                 <div class="form-group">
                                     <label for="cred-curso">Créditos del Curso:</label>
-                                    <input type="number" min="1" max="24" class="form-control" id="cred-curso" placeholder="Ingrese el número de créditos del curso">
+                                    <input type="number" min="1" max="24" class="form-control" id="cred-curso">
                                 </div>   
                                 <div class="form-group">
                                     <label for="horas-magistral">Número de horas de clase magistral:</label>
-                                    <input type="number" min="1" class="form-control" id="horas-magistral" placeholder="Ingrese el número de horas de clase">
+                                    <input type="number" min="1" class="form-control" id="horas-magistral">
                                 </div>  
                                 <div class="form-group">
                                     <label for="horas-ind">Número de horas de estudio independiente:</label>
-                                    <input type="number" min="0" class="form-control" id="horas-ind" placeholder="Ingrese el número de horas de estudio">
+                                    <input type="number" min="0" class="form-control" id="horas-ind">
                                 </div>  
                                 <div id="acordion-tipo-curso" class="panel-group">
                                     <div>
@@ -146,9 +147,9 @@
                                     </select>                                                                                        
                                 </div>               
                                 <div class="text-center form-group">
-                                    <button type="submit" class="btn btn-default">Modificar</button>
-                                    <button type="reset" class="btn btn-default">Limpiar</button>
-                                    <button type="button" class="btn btn-default">Cancelar</button>
+                                    <button id="modificar" type="submit" class="btn btn-default">Modificar</button>
+                                    <button id="limpiar" type="reset" class="btn btn-default">Limpiar</button>
+                                    <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
                                 </div>
                             </form>
                         </div>

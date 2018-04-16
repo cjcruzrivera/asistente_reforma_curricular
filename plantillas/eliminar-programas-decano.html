@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Proyecto Desarrollo II</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                </li>
+                <li>
+                    <a href="#">Perfil</a>
+                </li>
+                <li>
+                    <a href="#">Configuración</a>
+                </li>
+                <div id="acordion-programas" class="panel-group">
+                    <li>
+                        <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programas Académicos</a>
+                    </li>
+                    <section> 
+                        <div id="programa" class="panel-collapse collapse in">
+                            <ul>
+                                <li>
+                                    <a href="#">Agregar Programa</a>
+                                    <a href="#">Modificar Programa</a>
+                                    <a href="#">Eliminar Programa</a>
+                                    <a href="#">Consultar Programa</a>
+                                </li>
+                            </ul>
+                        </div>                                
+                    </section>
+                </div>                    
+                <li>
+                    <a href="#">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <img class="image-responsive" src="images/logo.jpg" alt="univalle" width="62" height="63">
+                <h1>Universidad del Valle</h1>
+            </div>
+
+            <nav class="navbar navbar-default" style="background-color: #CD2035">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h3 class="navbar-brand" style="color: #FFFFFF">Programa Académico</h3>
+                    </div>  
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menú</a>
+                        </li>                        
+                    </ul>                  
+                </div>
+            </nav>          
+
+            <div style="background-image:url('images/fondo.jpg')">
+                <section id="formulario">
+                    <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+                        <div id="iniciar" class="panel-group">
+                            <h2>Eliminar Programa</h2>   
+                            <div>
+                                <div align="middle">  
+                                    <label>Seleccione un Programa:</label>                                  
+                                    <select required="yes">
+                                        <option value="" selected>Nombre programa</option>
+                                        <option value="" >Nombre programa</option>                                    
+                                    </select>
+                                    <button id="buscar" type="button" class="btn btn-default">Buscar</button>
+                                </div>
+                            </div>                          
+                            <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
+                            <form action="/action_page.php"> 
+                                <div class="form-group">
+                                    <label for="cod-programa">Código del Programa:</label>
+                                    <input type="text" class="form-control" id="cod-programa" readonly>
+                                </div>                            
+                                <div class="form-group">
+                                    <label for="nom-programa">Nombre del Programa:</label>
+                                    <input type="text" class="form-control" id="nom-programa" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label for="cred-programa">Créditos del Programa:</label>
+                                    <input type="number" min="1" class="form-control" id="cred-programa" readonly>
+                                </div>   
+                                <div class="form-group">
+                                    <label for="semestres">Número de semestres:</label>
+                                    <input type="number" min="1" class="form-control" id="semestres" readonly>
+                                </div>                                          
+                                <div class="text-center form-group">
+                                    <button id="eliminar" type="submit" class="btn btn-default">Eliminar</button>
+                                    <button id="cancelar" type="button" class="btn btn-default">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
+                </section>
+            </div>
+
+            <section id="footer" >
+                <div class="footer text-center" style="background-color: #CD2035">                    
+                    <div class="container-fluid col-md-12 mx-auto">                          
+                        <div class="row mx-auto my-auto">
+                            <div class="col-md-3 mx-2 my-3">
+                                <img class="image-responsive" align="middle" src="images/logo-footer.png" alt="univalle" width="110" height="156">
+                            </div>
+                            <div class="col-md-4 mx-2 my-3">
+                                <p style="color: #FFFFFF">
+                                    <b style="color: #FFFFFF">Universidad del Valle<br></b>
+                                    <label style="color: #FFFFFF">Cali - Colombia</label> 
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 mx-2 my-3">
+                                <p style="color: #FFFFFF">                
+                                    <b style="color: #FFFFFF">Dirección:<br></b>
+                                    <label style="color: #FFFFFF">Ciudad Universitaria Meléndez</label>                    
+                                    <br>Calle 13 # 100-00<br>Sede San Fernando<br>Calle 4B # 36-00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>  
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
