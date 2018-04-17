@@ -1,6 +1,9 @@
-{% extends 'base.html' %} {% block sidebar %}
+{% extends 'base.html' %} 
+{% block sidebar %}
 <!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+{% include 'nav_bar/nav_admin.html' %} 
+{% endblock %} 
+{% block rolename %}
 <!-- Se debe cargar dinamicamente -->
 ADMINISTRADOR {% endblock %} {% block content %}
 <div style="background-image:url('images/fondo.jpg')">
@@ -9,7 +12,8 @@ ADMINISTRADOR {% endblock %} {% block content %}
             <div id="iniciar" class="panel-group">
                 <h2>Consultar Usuarios</h2>
                 <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
-                <hr> {% if object_list %}
+                <hr> 
+                {% if object_list %}
                 <table class="table table-bordered">
                     <thead>
                         <tr>
