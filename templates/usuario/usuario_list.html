@@ -6,14 +6,12 @@
 {% block rolename %}
 <!-- Se debe cargar dinamicamente -->
 ADMINISTRADOR {% endblock %} {% block content %}
-<div style="background-image:url('images/fondo.jpg')">
+<div style="background-color: #E1E1E1">
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Consultar Usuarios</h2>
-                <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
-                <hr> 
-                {% if object_list %}
+                <h2>Consultar Usuarios</h2>                
+                <hr> {% if object_list %}
                 <table class="table table-bordered">
                     <thead>
                         <tr>
