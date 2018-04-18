@@ -1,13 +1,10 @@
 <!-- Sidebar -->
-<div id="sidebar-wrapper">
+    <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
             </li>
             <li>
                 <a href="#">Perfil</a>
-            </li>
-            <li>
-                <a href="#">Configuración</a>
             </li>
             <div id="acordion-usuarios" class="panel-group">
                 <li>
@@ -20,13 +17,25 @@
                                 <a href="{% url 'usuario:usuario_crear' %}">Agregar Usuario</a>
                             </li>
                             <li>
-                                <a href="{% url 'usuario:usuario_listar' %}">Modificar Usuarios</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'usuario:usuario_listar' %}">Eliminar Usuarios</a>
-                            </li>
-                            <li>
                                 <a href="{% url 'usuario:usuario_listar' %}">Consultar Usuarios</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div id="acordion-escuelas" class="panel-group">
+                <li>
+                    <a href="#escuela" data-toggle="collapse" data-parent="#acordion-escuelas">Escuelas</a>
+                </li>
+                <section>
+                    <div id="escuela" class="panel-collapse collapse in">
+                        <ul>
+                            <li>
+                                <a href="{% url 'escuela:escuela_crear' %}">Agregar Escuela</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'escuela:escuela_listar' %}">Consultar Escuelas</a>
                             </li>
                             
                         </ul>

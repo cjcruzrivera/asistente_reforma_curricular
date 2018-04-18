@@ -1,0 +1,31 @@
+<!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                </li>
+                <li>
+                    <a href="#">Perfil</a>
+                </li>
+                <div id="acordion-cursos" class="panel-group">
+                    <li>
+                        <a href="#curso" data-toggle="collapse" data-parent="#acordion-cursos">Cursos</a>
+                    </li>
+                    <section> 
+                        <div id="curso" class="panel-collapse collapse in">
+                            <ul>
+                                <li>
+                                    <a href="{% url  %}">Agregar Curso</a>                                    
+                                </li>
+                                <li>
+                                    <a href="{% url  %}">Consultar Curso</a>
+                                </li>
+                            </ul>
+                        </div>                                
+                    </section>
+                </div>                                
+                <li>
+                    <a href="#">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->

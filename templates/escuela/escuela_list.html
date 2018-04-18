@@ -10,29 +10,25 @@ ADMINISTRADOR {% endblock %} {% block content %}
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Consultar Usuarios</h2>                
+                <h2>Consultar Escuelas</h2>                
                 <hr> {% if object_list %}
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <td style="color: black">Nombre Corto</td>
-                            <td style="color: black">Nombre</td>
-                            <td style="color: black">Apellidos</td>
-                            <td style="color: black">Correo Electronico</td>
-                            <td> Acciones</td>
+                            <td style="color: black">Nombre Largo</td>
+                            <td style="color: black"> Acciones</td>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for usuario in object_list %}
-                        {% if usuario.estado %}
+                        {% for escuela in object_list %}
+                        {% if escuela.estado %}
                         <tr>
-                            <td>{{ usuario.username }}</td>
-                            <td>{{ usuario.nombre }}</td>
-                            <td>{{ usuario.apellidos }}</td>
-                            <td>{{ usuario.email }}</td>
-                            <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
-                                <a class="btn btn-primary btn-sm" href="{% url 'usuario:usuario_editar' usuario.id %}">Editar</a>
-                                <a class="btn btn-danger btn-sm" href="{% url 'usuario:usuario_eliminar' usuario.id %}">Eliminar</a>
+                            <td >{{ escuela.nombre_corto }}</td>
+                            <td>{{ escuela.nombre_largo }}</td>
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'escuela:escuela_editar' escuela.id %}">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="{% url 'escuela:escuela_eliminar' escuela.id %}">Eliminar</a>
                             </td>
                         </tr>
                         {% endif %}
@@ -40,7 +36,7 @@ ADMINISTRADOR {% endblock %} {% block content %}
                     </tbody>
                 </table>
                 {% else %}
-                <h4>NO HAY USUARIOS REGISTRADOS</h4>
+                <h4>NO HAY ESCUELAS REGISTRADAS</h4>
                 {% endif %}
             </div>
         </div>

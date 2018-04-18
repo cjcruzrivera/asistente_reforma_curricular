@@ -1,0 +1,31 @@
+<!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+            </li>
+            <li>
+                <a href="#">Perfil</a>
+            </li>                
+            <div id="acordion-programas" class="panel-group">
+                <li>
+                    <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programa Académico</a>
+                </li>
+                <section> 
+                    <div id="programa" class="panel-collapse collapse in">
+                        <ul>
+                            <li>
+                                <a href="{% url  %}">Agregar Programa</a>
+                            </li>
+                            <li>
+                                <a href="{% url  %}">Consultar Programa</a>
+                            </li>
+                        </ul>
+                    </div>                                
+                </section>
+            </div>                    
+            <li>
+                <a href="#">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
