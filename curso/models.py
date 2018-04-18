@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 from programa.models import Programa
+from usuario.models import Usuario
 # Create your models here.
 
 class Tipo_Curso(models.Model):
@@ -31,6 +32,7 @@ class Curso(models.Model):
     tipo = models.ForeignKey(Tipo_Curso, null=True)
     estado = models.BooleanField(default=True)
     prerrequisitos = models.ManyToManyField('self',blank=True)
+    docente_encargado = models.ForeignKey(Usuario, null=True)
 
     def delete(self):
         if self.estado:
