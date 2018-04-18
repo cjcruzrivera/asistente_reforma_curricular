@@ -5,25 +5,24 @@
             </li>
             <li>
                 <a href="#">Perfil</a>
-            </li>
-            <div id="acordion-usuarios" class="panel-group">
+            </li>                
+            <div id="acordion-programas" class="panel-group">
                 <li>
-                    <a href="#usuario" data-toggle="collapse" data-parent="#acordion-usuarios">Usuarios</a>
+                    <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programa Académico</a>
                 </li>
-                <section>
-                    <div id="usuario" class="panel-collapse collapse in">
+                <section> 
+                    <div id="programa" class="panel-collapse collapse in">
                         <ul>
                             <li>
-                                <a href="{% url 'usuario:usuario_crear' %}">Agregar Usuario</a>
+                                <a href="{% url  %}">Agregar Programa</a>
                             </li>
                             <li>
-                                <a href="{% url 'usuario:usuario_listar' %}">Consultar Usuarios</a>
+                                <a href="{% url  %}">Consultar Programa</a>
                             </li>
-                            
                         </ul>
-                    </div>
+                    </div>                                
                 </section>
-            </div>
+            </div>                    
             <li>
                 <a href="#">Cerrar sesión</a>
             </li>

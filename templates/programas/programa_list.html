@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_decano.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+DECANO {% endblock %} {% block content %}
+<div style="background-color: #E1E1E1">
+    <section id="formulario">
+        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Consultar Programas</h2>                
+                <hr> {% if object_list %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="color: black">Codigo</td>
+                            <td style="color: black">Nombre</td>
+                            <td style="color: black">Numero de semestres</td>
+                            <td style="color: black">Creditos</td>
+                            <td style="color: black">Escuela</td>
+                            <td> Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for programa in object_list %}
+                        {% if programa.estado %}
+                        <tr>
+                            <td>{{  }}</td>
+                            <td>{{ programa.nombre }}</td>
+                            <td>{{  }}</td>
+                            <td>{{  }}</td>
+                            <td>{{  }}</td>
+                            <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url  %}"> Editar </a>
+                                <a class="btn btn-danger btn-sm" href="{% url %}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>NO HAY PROGRAMAS REGISTRADOS</h4>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

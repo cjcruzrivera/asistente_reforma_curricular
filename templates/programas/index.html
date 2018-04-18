@@ -1,19 +1,19 @@
 {% extends 'base.html' %} {% block sidebar %}
 <!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+{% include 'nav_bar/nav_decano.html' %} {% endblock %} {% block rolename %}
 <!-- Se debe cargar dinamicamente -->
-ADMINISTRADOR {% endblock %} {% block content %}
+DECANO {% endblock %} {% block content %}
 <div class="container">
     <h3 class="text-center">
-        Gestión de Usuarios
+        Gestión de Programas
     </h3>
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <a id="cargador" href="#" style="color:white;" class="btn">CREAR USUARIOS</a>
+                <a id="cargador" href="#" style="color:white;" class="btn">CREAR PROGRAMAS</a>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <a id="cargador" href="#" style="color:white;" class="btn">CONSULTAR USUARIOS</a>
+                <a id="cargador" href="#" style="color:white;" class="btn">CONSULTAR PROGRAMAS</a>
             </div>
         </div>
     </div>
