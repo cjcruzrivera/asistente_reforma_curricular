@@ -24,6 +24,24 @@
                     </div>
                 </section>
             </div>
+            <div id="acordion-escuelas" class="panel-group">
+                <li>
+                    <a href="#escuela" data-toggle="collapse" data-parent="#acordion-escuelas">Escuelas</a>
+                </li>
+                <section>
+                    <div id="escuela" class="panel-collapse collapse in">
+                        <ul>
+                            <li>
+                                <a href="{% url 'escuela:escuela_crear' %}">Agregar Escuela</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'escuela:escuela_listar' %}">Consultar Escuelas</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </section>
+            </div>
             <li>
                 <a href="#">Cerrar sesión</a>
             </li>

@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
-from usuario.models import Usuario
-from usuario.forms import UsuarioForm
+from .models import Usuario
+from .forms import UsuarioForm
 
 # Create your views here.
 
@@ -15,6 +15,7 @@ def index(request):
 
 class UsuarioListView(ListView):
     model = Usuario
+    queryset = Usuario.objects.filter(estado=True)
     template_name = "usuario/usuario_list.html"
 
 class UsuarioCreateView(CreateView):

@@ -6,7 +6,8 @@ from django.db import models
 # Create your models here.
 
 class Escuela(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre_largo = models.CharField(max_length=50)
+    nombre_corto = models.CharField(max_length=10)
     estado = models.BooleanField(default=True)
 
     def delete(self):
@@ -18,4 +19,4 @@ class Escuela(models.Model):
             return False
 
     def __unicode__(self):
-        return '{}'.format(self.nombre)
+        return '{} {} {}'.format(self.nombre_corto, ' - ' , self.nombre_largo)
