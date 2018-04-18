@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div style="background-color:  #E1E1E1">
+    <div class="jumbotron" style="padding: 1rem 2rem">
+
+        <form method="POST">
+            {% csrf_token %}
+            <h3>¿Seguro que desea eliminar el registro de la escuela {{ object.nombre_corto }} - {{ object.nombre_largo}}? </h3>
+            <div class="text-center">
+                <button class="btn btn-danger" type="submit">Eliminar</button>
+                <a class="btn btn-info" href="{% url 'usuario:usuario_listar'%}">Cancelar</a>    
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
