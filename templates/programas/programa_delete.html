@@ -5,13 +5,12 @@
 DECANO {% endblock %} {% block content %}
 <div style="background-color: #E1E1E1">
     <div class="jumbotron" style="padding: 1rem 2rem">
-
         <form method="POST">
             {% csrf_token %}
             <h3> ¿Seguro que desea eliminar el registro del programa {{ object.nombre }}? </h3>
             <div class="text-center">
                 <button class="btn btn-danger" type="submit">Eliminar</button>
-                <a class="btn btn-info" href="{% url ''%}">Cancelar</a>    
+                <a class="btn btn-info" href="{% url 'programa:programa_listar' %}">Cancelar</a>    
             </div>
         </form>
         

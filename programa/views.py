@@ -21,16 +21,16 @@ class ProgramaCreateView(CreateView):
 	model = Programa
 	form_class = ProgramaForm
 	template_name = "programas/programa_form.html"
-	success_url = reverse_lazy('programas:programa_listar')
+	success_url = reverse_lazy('programa:programa_listar')
 
 class ProgramaUpdateView(UpdateView):
     	model = Programa
     	form_class = ProgramaForm
    	template_name = "programas/programa_form.html"
-    	success_url = reverse_lazy('programas:programa_listar')
+    	success_url = reverse_lazy('programa:programa_listar')
 
 class ProgramaDeleteView(DeleteView):
     	model = Programa
     	form_class = ProgramaForm
     	template_name = "programas/programa_delete.html"
-    	success_url = reverse_lazy('programas:programa_listar')
+    	success_url = reverse_lazy('programa:programa_listar')

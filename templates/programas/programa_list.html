@@ -12,11 +12,12 @@ DECANO {% endblock %} {% block content %}
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td style="color: black">Codigo</td>
+                            <!-- <td style="color: black">Codigo</td> -->
                             <td style="color: black">Nombre</td>
                             <td style="color: black">Numero de semestres</td>
                             <td style="color: black">Creditos</td>
                             <td style="color: black">Escuela</td>
+			    <td style="color: black">Director de Programa</td>
                             <td> Acciones</td>
                         </tr>
                     </thead>
@@ -24,14 +25,14 @@ DECANO {% endblock %} {% block content %}
                         {% for programa in object_list %}
                         {% if programa.estado %}
                         <tr>
-                            <td>{{  }}</td>
                             <td>{{ programa.nombre }}</td>
-                            <td>{{  }}</td>
-                            <td>{{  }}</td>
-                            <td>{{  }}</td>
+                            <td>{{ programa.semestres }}</td>
+                            <td>{{ programa.creditos }}</td>
+                            <td>{{ programa.cod_escuela }}</td>
+                            <td>{{ programa.dir_programa }}</td>
                             <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
-                                <a class="btn btn-primary btn-sm" href="{% url  %}"> Editar </a>
-                                <a class="btn btn-danger btn-sm" href="{% url %}">Eliminar</a>
+                                <a class="btn btn-primary btn-sm" href="{% url 'programa:programa_editar' programa.id  %}"> Editar </a>
+                                <a class="btn btn-danger btn-sm" href="{% url 'programa:programa_eliminar' programa.id %}">Eliminar</a>
                             </td>
                         </tr>
                         {% endif %}
