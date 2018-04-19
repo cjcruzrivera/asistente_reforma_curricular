@@ -25,6 +25,7 @@ class Tipo_Curso(models.Model):
 
 class Curso(models.Model):
     nombre = models.CharField(max_length=50)
+    codigo = models.CharField(max_length=6)
     creditos = models.IntegerField()
     programa = models.ForeignKey(Programa, null=True)
     horas_catedra = models.IntegerField()
@@ -33,6 +34,9 @@ class Curso(models.Model):
     estado = models.BooleanField(default=True)
     prerrequisitos = models.ManyToManyField('self',blank=True)
     docente_encargado = models.ForeignKey(Usuario, null=True)
+    semestre = models.IntegerField()
+    validable = models.BooleanField()
+    habilitable = models.BooleanField()
 
     def delete(self):
         if self.estado:
