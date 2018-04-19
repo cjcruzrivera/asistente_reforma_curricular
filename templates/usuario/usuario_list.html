@@ -24,7 +24,7 @@ ADMINISTRADOR {% endblock %} {% block content %}
                     </thead>
                     <tbody>
                         {% for usuario in object_list %}
-                        {% if usuario.estado and usuario.username != 'admin' %}
+                        {% if usuario.estado and usuario.is_superuser != True %}
                         <tr>
                             <td>{{ usuario.username }}</td>
                             <td>{{ usuario.first_name }}</td>

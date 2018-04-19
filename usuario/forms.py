@@ -33,7 +33,7 @@ class UsuarioForm(UserCreationForm):
             'apellidos': forms.TextInput(attrs={'class':'form-control','id':'apellidos', 'placeholder': 'Ingrese los apellidos del usuario'}),
             'email': forms.EmailInput(attrs={'class':'form-control','id':'email', 'placeholder': 'Ingrese el correo electronico'}),
             'escuela': forms.Select(attrs={'class':'form-control','id':'escuela'}),
-            'roles': forms.Select(),
+            'roles': forms.Select(attrs={'class':'form-control','id':'escuela'}),
         }
 
 

@@ -45,5 +45,5 @@ class Usuario(AbstractUser):
             return False
 
     def __unicode__(self):
-        return '{} {}'.format(self.nombre, self.apellidos)
+        return '{} {}'.format(self.first_name, self.last_name)
 

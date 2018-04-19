@@ -45,7 +45,8 @@
                             <h2>Iniciar Sesión</h2>                            
                             <!--acción que se ejecuta cuando se envía el formulario (ir a esa página)-->
                             <form method="POST"> 
-                                <div class="form-group">
+                                    {% csrf_token %}
+                                    <div class="form-group">
                                     <label for="email">Nombre de usuario:</label>
                                     <input type="username" name="username" class="form-control" id="username" placeholder="Ingrese el username">
                                 </div>
