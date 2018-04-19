@@ -1,8 +1,8 @@
-{% extends 'base.html' %} {% block sidebar %}
+{% extends 'base.html' %} 
+{% load staticfiles %}
+
 <!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
-<!-- Se debe cargar dinamicamente -->
-ADMINISTRADOR {% endblock %} {% block content %}
+ {% block content %}
 <div style="background-color:  #E1E1E1">
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
@@ -22,4 +22,8 @@ ADMINISTRADOR {% endblock %} {% block content %}
     </section>
 </div>
 
+{% endblock %}
+
+{% block extrajs %}
+<script src="{% static 'js/validation.js' %}"></script>
 {% endblock %}

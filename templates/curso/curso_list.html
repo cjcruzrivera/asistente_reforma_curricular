@@ -1,11 +1,7 @@
-{% extends 'base.html' %} {% block sidebar %}
-<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
-<!-- Se debe cargar dinamicamente -->
-ADMINISTRADOR {% endblock %} {% block content %}
+{% extends 'base.html' %}  {% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
-        <div style="background-color: #FFFFFF" class="col-md-112 mx-auto">
+        <div style="background-color: #FFFFFF" class="col-md-12 mx-auto">
             <div id="iniciar" class="panel-group">
                 <h2>Consultar Curso</h2>
                 <hr> {% if object_list %}

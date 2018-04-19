@@ -1,4 +1,4 @@
- {% load staticfiles %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -95,7 +95,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
-
+{% block extrajs %} {% endblock %}
 <!-- Menu Toggle Script -->
 <script>
     $("#menu-toggle").click(function (e) {
