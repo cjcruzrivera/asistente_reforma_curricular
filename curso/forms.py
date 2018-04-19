@@ -43,8 +43,8 @@ class CursoForm(forms.ModelForm):
             'horas_catedra': forms.NumberInput(attrs={'class':'form-control','id':'horas_magistral', 'placeholder': 'Ingrese el numero de horas de clase magistral'}),
             'horas_individual': forms.NumberInput(attrs={'class':'form-control','id':'creditos', 'placeholder': 'Ingrese el numero de horas de clase independiente'}),
             'semestre': forms.NumberInput(attrs={'class':'form-control','id':'creditos', 'placeholder': 'Ingrese el semestre al que pertenece el curso'}),
-            'validable': forms.Select(attrs={'class':'form-control','id':'validable'}),
-            'habilitable': forms.Select(attrs={'class':'form-control','id':'habilitable'}),
+            'validable': forms.CheckboxInput(attrs={'class':'form-control','id':'validable'}),
+            'habilitable': forms.CheckboxInput(attrs={'class':'form-control','id':'habilitable'}),
             'tipo': forms.Select(attrs={'class':'form-control','id':'tipo'}),
             'docente_encargado':forms.Select(attrs={'class':'form-control','id':'docente'}),
         }
