@@ -6,7 +6,7 @@ from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
 from .models import Usuario
-from .forms import UsuarioForm
+from .forms import UsuarioCreateForm, UsuarioForm
 
 # Create your views here.
 
@@ -20,7 +20,7 @@ class UsuarioListView(ListView):
 
 class UsuarioCreateView(CreateView):
     model = Usuario
-    form_class = UsuarioForm
+    form_class = UsuarioCreateForm
     template_name = "usuario/usuario_form.html"
     success_url = reverse_lazy('usuario:usuario_listar')
 
@@ -32,6 +32,5 @@ class UsuarioUpdateView(UpdateView):
 
 class UsuarioDeleteView(DeleteView):
     model = Usuario
-    form_class = UsuarioForm
     template_name = "usuario/usuario_delete.html"
     success_url = reverse_lazy('usuario:usuario_listar')

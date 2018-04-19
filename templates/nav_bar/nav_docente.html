@@ -14,17 +14,17 @@
                         <div id="curso" class="panel-collapse collapse in">
                             <ul>
                                 <li>
-                                    <a href="{% url  %}">Agregar Curso</a>                                    
+                                    <a href="{% url 'curso:curso_crear' %}">Agregar Curso</a>                                    
                                 </li>
                                 <li>
-                                    <a href="{% url  %}">Consultar Curso</a>
+                                    <a href="{% url 'curso:curso_listar' %}">Consultar Curso</a>
                                 </li>
                             </ul>
                         </div>                                
                     </section>
                 </div>                                
                 <li>
-                    <a href="#">Cerrar sesión</a>
+                    <a href="{% url 'salir' %}">Cerrar sesión</a>
                 </li>
             </ul>
         </div>

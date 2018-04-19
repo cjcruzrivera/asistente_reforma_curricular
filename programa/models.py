@@ -13,8 +13,8 @@ class Programa(models.Model):
     semestres = models.IntegerField()
     creditos = models.IntegerField()
     estado = models.BooleanField(default=True)
-    escuela = models.ForeignKey(Escuela, null=True)
-    director_programa = models.OneToOneField(Usuario, null=True)
+    cod_escuela = models.ForeignKey(Escuela, null=True)
+    dir_programa = models.OneToOneField(Usuario, null=True)
 
     def delete(self):
         if self.estado:

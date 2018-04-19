@@ -10,10 +10,10 @@ DECANO {% endblock %} {% block content %}
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <a id="cargador" href="#" style="color:white;" class="btn">CREAR PROGRAMAS</a>
+                <a id="cargador" href="{% url 'programa:programa_crear' %}" style="color:white;" class="btn">CREAR PROGRAMAS</a>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <a id="cargador" href="#" style="color:white;" class="btn">CONSULTAR PROGRAMAS</a>
+                <a id="cargador" href="{% url 'programa:programa_listar' %}" style="color:white;" class="btn">CONSULTAR PROGRAMAS</a>
             </div>
         </div>
     </div>
