@@ -1,12 +1,6 @@
 {% extends 'base.html' %} {% load staticfiles %} 
 
-{% block sidebar %}
-<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %}
-
-{% endblock %} {% block rolename %}
-<!-- Se debe cargar dinamicamente -->
-ADMINISTRADOR {% endblock %} {% block content %}
+{% block content %}
 <div class="text-center" style="background-color: #E1E1E1">
     <img src="{% static 'images/reforma.jpg' %}">
 </div>

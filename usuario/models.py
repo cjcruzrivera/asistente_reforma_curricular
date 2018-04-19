@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.auth.models import AbstractUser
+
 from django.db import models
 from escuela.models import Escuela
 
@@ -21,13 +23,16 @@ class Rol(models.Model):
     def __unicode__(self):
         return '{}'.format(self.nombre)
 
-class Usuario(models.Model):
+class Usuario(AbstractUser):
+    '''
+    estos campos se heredan de AbastractUser
     username = models.CharField(max_length=20)
     nombre = models.CharField(max_length=60)
     apellidos = models.CharField(max_length=60)
     email = models.EmailField()
     password = models.CharField(max_length=20)
-    roles = models.ManyToManyField(Rol)
+    '''
+    rol = models.ForeignKey(Rol, null=True)
     escuela = models.ForeignKey(Escuela, null=True)
     estado = models.BooleanField(default=True)
 
@@ -40,5 +45,5 @@ class Usuario(models.Model):
             return False
 
     def __unicode__(self):
-        return '{} {}'.format(self.nombre, self.apellidos)
+        return '{} {}'.format(self.first_name, self.last_name)
 

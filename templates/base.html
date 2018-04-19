@@ -23,7 +23,19 @@
 </head>
 
 <div id="wrapper">
-    {% block sidebar %} {% endblock %}
+    {% block sidebar %} 
+    
+    {% if usuario.rol.nombre == "Administrador" %}
+    {% include 'nav_bar/nav_admin.html' %}
+    {% elif usuario.rol.nombre == "Docente" %}
+    {% include 'nav_bar/nav_docente.html' %}
+    {% elif usuario.rol.nombre == "Decano" %}
+    {% include 'nav_bar/nav_decano.html' %}
+    {% elif usuario.rol.nombre == "Director de Programa" %}
+    {% include 'nav_bar/nav_director.html' %}
+    {% endif %}
+
+    {% endblock %}
 
     <div class="page-content-wrapper">
         <div class="container-fluid">
@@ -34,7 +46,7 @@
         <nav class="navbar navbar-default" style="background-color: #CD2035">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <h3 class="navbar-brand" style="color: #FFFFFF"> {% block rolename %} Rol {% endblock %}</h3>
+                    <h3 class="navbar-brand" style="color: #FFFFFF"> {% block rolename %} {{ usuario.rol }} {% endblock %}</h3>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active">
