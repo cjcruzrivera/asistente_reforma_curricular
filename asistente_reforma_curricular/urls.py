@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^usuario/', include('usuario.urls', namespace="usuario")),
     url(r'^programa/', include('programa.urls', namespace="programa")),
     url(r'^escuela/', include('escuela.urls', namespace="escuela")),
+    url(r'^curso/', include('curso.urls', namespace="curso")),
 ]

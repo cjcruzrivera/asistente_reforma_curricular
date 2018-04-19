@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block sidebar %}
 <!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_docente.html' %} {% endblock %} {% block rolename %}
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
 <!-- Se debe cargar dinamicamente -->
-DOCENTE {% endblock %} {% block content %}
+ADMINISTRADOR {% endblock %} {% block content %}
 <div class="container">
     <h3 class="text-center">
         Gestión de Cursos
@@ -10,10 +10,10 @@ DOCENTE {% endblock %} {% block content %}
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <a id="cargador" href="#" style="color:white;" class="btn">CREAR CURSOS</a>
+                <a id="cargador" href="{% url 'curso:curso_crear' %}" style="color:white;" class="btn">CREAR CURSOS</a>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <a id="cargador" href="#" style="color:white;" class="btn">CONSULTAR CURSOS</a>
+                <a id="cargador" href="{% url 'curso:curso_listar' %}" style="color:white;" class="btn">CONSULTAR CURSOS</a>
             </div>
         </div>
     </div>
