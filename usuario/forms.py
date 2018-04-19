@@ -1,29 +1,29 @@
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
+
 from .models import Usuario
 
-class UsuarioForm(forms.ModelForm):
+class UsuarioForm(UserCreationForm):
 
     class Meta:
         model = Usuario
 
         fields=[
             'username',
-            'nombre',
-            'apellidos',
+            'first_name',
+            'last_name',
             'email',
-            'password',
             'escuela',
-            'roles'
+            'rol'
         ]
 
         labels={
-            'username':'Nombre Corto',
-            'nombre':'Nombre',
-            'apellidos':'Apellidos',
+            'username':'Nombre de usuario',
+            'first_name':'Nombre',
+            'last_name':'Apellidos',
             'email':'Correo Electronico',
-            'password': 'Password',
             'escuela':'Escuela',
-            'roles': 'Roles'
+            'rol': 'Rol'
         }
 
 
@@ -32,9 +32,8 @@ class UsuarioForm(forms.ModelForm):
             'nombre': forms.TextInput(attrs={'class':'form-control','id':'nombre', 'placeholder': 'Ingrese el nombre del usuario'}),
             'apellidos': forms.TextInput(attrs={'class':'form-control','id':'apellidos', 'placeholder': 'Ingrese los apellidos del usuario'}),
             'email': forms.EmailInput(attrs={'class':'form-control','id':'email', 'placeholder': 'Ingrese el correo electronico'}),
-            'password': forms.PasswordInput(attrs={'class':'form-control','id':'password'}),
             'escuela': forms.Select(attrs={'class':'form-control','id':'escuela'}),
-            'roles': forms.CheckboxSelectMultiple(),
+            'roles': forms.Select(),
         }
 
 

@@ -8,14 +8,14 @@
 ADMINISTRADOR {% endblock %} {% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
-        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+        <div style="background-color: #FFFFFF" class="col-md-7 mx-auto">
             <div id="iniciar" class="panel-group">
                 <h2>Consultar Usuarios</h2>                
                 <hr> {% if object_list %}
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td style="color: black">Nombre Corto</td>
+                            <td style="color: black">Nombre de usuario</td>
                             <td style="color: black">Nombre</td>
                             <td style="color: black">Apellidos</td>
                             <td style="color: black">Correo Electronico</td>
@@ -24,11 +24,11 @@ ADMINISTRADOR {% endblock %} {% block content %}
                     </thead>
                     <tbody>
                         {% for usuario in object_list %}
-                        {% if usuario.estado %}
+                        {% if usuario.estado and usuario.username != 'admin' %}
                         <tr>
                             <td>{{ usuario.username }}</td>
-                            <td>{{ usuario.nombre }}</td>
-                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.first_name }}</td>
+                            <td>{{ usuario.last_name }}</td>
                             <td>{{ usuario.email }}</td>
                             <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
                                 <a class="btn btn-primary btn-sm" href="{% url 'usuario:usuario_editar' usuario.id %}">Editar</a>
