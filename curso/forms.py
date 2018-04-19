@@ -1,6 +1,27 @@
 from django import forms
 from .models import Curso
 
+class PrerrequisitosForm(forms.ModelForm):
+
+    class Meta:
+        model = Curso
+
+        fields=[
+            'nombre',
+            'prerrequisitos'
+        ]
+        
+        labels={
+            'nombre':'Nombre Curso',
+            'prerrequisitos':'Prerrequisitos',
+        }
+        widgets={
+            'nombre': forms.TextInput(attrs={'class':'form-control','id':'nombre','disabled':'true', 'placeholder': 'Ingrese el nombre del curso'}),
+            'prerrequisitos': forms.CheckboxSelectMultiple(),
+        }
+
+
+
 class CursoForm(forms.ModelForm):
 
     class Meta:

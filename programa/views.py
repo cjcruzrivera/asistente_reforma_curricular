@@ -15,6 +15,7 @@ def index(request):
 
 class ProgramaListView(ListView):
     model = Programa
+    queryset = Programa.objects.filter(estado=True)
     template_name = "programas/programa_list.html"
 
     def get_context_data(self, **kwargs):

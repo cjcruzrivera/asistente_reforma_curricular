@@ -7,7 +7,7 @@ from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
 from .models import Curso
-from .forms import CursoForm
+from .forms import CursoForm, PrerrequisitosForm
 # Create your views here.
 
 
@@ -49,6 +49,20 @@ class CursoUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         # Llamamos ala implementacion para traer un primer context
         context = super(CursoUpdateView, self).get_context_data(**kwargs)
+        # Agregamos un QuerySet de todos los books
+        context['usuario'] = self.request.user
+        return context
+
+
+class PrerrequisitosUpdateView(UpdateView):
+    model = Curso
+    form_class = PrerrequisitosForm
+    template_name = "curso/curso_form.html"
+    success_url = reverse_lazy('curso:curso_listar')
+
+    def get_context_data(self, **kwargs):
+        # Llamamos ala implementacion para traer un primer context
+        context = super(PrerrequisitosUpdateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
         return context
