@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div style="background-color: #E1E1E1">
+    <section id="formulario">
+        <div style="background-color: #FFFFFF" class="col-md-112 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Consultar Curso</h2>
+                <hr> {% if object_list %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="color: black">Codigo del curso</td>
+                            <td style="color: black">Nombre</td>
+                            <td style="color: black">Creditos</td>
+                            <td style="color: black">Horas de clase magistral</td>
+                            <td style="color: black">Horas de estudio individual</td>
+                            <td style="color: black">Tipo de curso</td>
+                            <td style="color: black">Validable</td>
+                            <td style="color: black">Habilitable</td>
+                            <td style="color: black">Programa</td>
+                            <td class="text-center" colspan="3"> Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for curso in object_list %} {% if curso.estado %}
+                        <tr>
+                            <td>{{ curso.codigo }}</td>
+                            <td>{{ curso.nombre }}</td>
+                            <td>{{ curso.creditos }}</td>
+                            <td>{{ curso.horas_catedra }}</td>
+                            <td>{{ curso.horas_individual }}</td>
+                            <td>{{ curso.tipo.nombre }}</td>
+                            <td>
+                                {% if curso.validable %} SI {% else %} NO {% endif %}
+                            </td>
+                            <td>
+                                {% if curso.habilitable %} SI {% else %} NO {% endif %}
+                            </td>
+                            <td>{{ curso.programa.nombre }}</td>
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
+                            </td>
+                            <td class="text-center">
+                                    <a class="btn btn-warning btn-sm" href="{% url 'curso:curso_listar' curso.id %}">Prerrequisitos</a>                                
+                            </td>
+                            <td class="text-center">
+                                    <a class="btn btn-danger btn-sm" href="{% url 'curso:curso_eliminar' curso.id %}">Eliminar</a>                                
+                            </td>
+                        </tr>
+                        {% endif %} {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>NO HAY CURSOS REGISTRADOS</h4>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

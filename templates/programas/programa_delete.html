@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block sidebar %}
 <!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_decano.html' %} {% endblock %} {% block rolename %}
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
 <!-- Se debe cargar dinamicamente -->
-DECANO {% endblock %} {% block content %}
+ADMINISTRADOR {% endblock %} {% block content %}
 <div style="background-color: #E1E1E1">
     <div class="jumbotron" style="padding: 1rem 2rem">
         <form method="POST">

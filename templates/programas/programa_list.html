@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block sidebar %}
 <!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_decano.html' %} {% endblock %} {% block rolename %}
+{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
 <!-- Se debe cargar dinamicamente -->
-DECANO {% endblock %} {% block content %}
+ADMINISTRADOR {% endblock %} {% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
-        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+        <div style="background-color: #FFFFFF" class="col-md-8 mx-auto">
             <div id="iniciar" class="panel-group">
                 <h2>Consultar Programas</h2>                
                 <hr> {% if object_list %}
@@ -28,9 +28,9 @@ DECANO {% endblock %} {% block content %}
                             <td>{{ programa.nombre }}</td>
                             <td>{{ programa.semestres }}</td>
                             <td>{{ programa.creditos }}</td>
-                            <td>{{ programa.cod_escuela }}</td>
+                            <td>{{ programa.cod_escuela.nombre_largo }}</td>
                             <td>{{ programa.dir_programa }}</td>
-                            <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
                                 <a class="btn btn-primary btn-sm" href="{% url 'programa:programa_editar' programa.id  %}"> Editar </a>
                                 <a class="btn btn-danger btn-sm" href="{% url 'programa:programa_eliminar' programa.id %}">Eliminar</a>
                             </td>
