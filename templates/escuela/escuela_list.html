@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+{% block sidebar %}
+<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
+{% include 'nav_bar/nav_admin.html' %} 
+{% endblock %} 
+{% block rolename %}
+<!-- Se debe cargar dinamicamente -->
+ADMINISTRADOR {% endblock %} {% block content %}
+<div style="background-color: #E1E1E1">
+    <section id="formulario">
+        <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Consultar Escuelas</h2>                
+                <hr> {% if object_list %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="color: black">Nombre Corto</td>
+                            <td style="color: black">Nombre Largo</td>
+                            <td style="color: black"> Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for escuela in object_list %}
+                        {% if escuela.estado %}
+                        <tr>
+                            <td >{{ escuela.nombre_corto }}</td>
+                            <td>{{ escuela.nombre_largo }}</td>
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'escuela:escuela_editar' escuela.id %}">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="{% url 'escuela:escuela_eliminar' escuela.id %}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>NO HAY ESCUELAS REGISTRADAS</h4>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
