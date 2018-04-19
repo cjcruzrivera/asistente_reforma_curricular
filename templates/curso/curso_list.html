@@ -44,7 +44,7 @@ ADMINISTRADOR {% endblock %} {% block content %}
                                 <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
                             </td>
                             <td class="text-center">
-                                    <a class="btn btn-warning btn-sm" href="{% url 'curso:curso_listar' curso.id %}">Prerrequisitos</a>                                
+                                    <a class="btn btn-warning btn-sm" href="{% url 'curso:curso_listar' %}">Prerrequisitos</a>                                
                             </td>
                             <td class="text-center">
                                     <a class="btn btn-danger btn-sm" href="{% url 'curso:curso_eliminar' curso.id %}">Eliminar</a>                                
