@@ -1,6 +1,27 @@
 from django import forms
 from .models import Curso
 
+class PrerrequisitosForm(forms.ModelForm):
+
+    class Meta:
+        model = Curso
+
+        fields=[
+            'nombre',
+            'prerrequisitos'
+        ]
+        
+        labels={
+            'nombre':'Nombre Curso',
+            'prerrequisitos':'Prerrequisitos',
+        }
+        widgets={
+            'nombre': forms.TextInput(attrs={'class':'form-control','id':'nombre','disabled':'true', 'placeholder': 'Ingrese el nombre del curso'}),
+            'prerrequisitos': forms.CheckboxSelectMultiple(),
+        }
+
+
+
 class CursoForm(forms.ModelForm):
 
     class Meta:
@@ -41,8 +62,8 @@ class CursoForm(forms.ModelForm):
             'creditos': forms.NumberInput(attrs={'class':'form-control','id':'creditos', 'placeholder': 'Ingrese el numero de creditos del curso'}),
             'programa': forms.Select(attrs={'class':'form-control','id':'programa'}),
             'horas_catedra': forms.NumberInput(attrs={'class':'form-control','id':'horas_magistral', 'placeholder': 'Ingrese el numero de horas de clase magistral'}),
-            'horas_individual': forms.NumberInput(attrs={'class':'form-control','id':'creditos', 'placeholder': 'Ingrese el numero de horas de clase independiente'}),
-            'semestre': forms.NumberInput(attrs={'class':'form-control','id':'creditos', 'placeholder': 'Ingrese el semestre al que pertenece el curso'}),
+            'horas_individual': forms.NumberInput(attrs={'class':'form-control','id':'horas_independientes', 'placeholder': 'Ingrese el numero de horas de clase independiente'}),
+            'semestre': forms.NumberInput(attrs={'class':'form-control','id':'semestre', 'placeholder': 'Ingrese el semestre al que pertenece el curso'}),
             'validable': forms.CheckboxInput(attrs={'class':'form-control','id':'validable'}),
             'habilitable': forms.CheckboxInput(attrs={'class':'form-control','id':'habilitable'}),
             'tipo': forms.Select(attrs={'class':'form-control','id':'tipo'}),

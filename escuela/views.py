@@ -19,6 +19,13 @@ class EscuelaListView(ListView):
     model = Escuela
     queryset = Escuela.objects.filter(estado=True)
     template_name = "escuela/escuela_list.html"
+    
+    def get_context_data(self, **kwargs):
+        # Llamamos ala implementacion para traer un primer context
+        context = super(EscuelaListView, self).get_context_data(**kwargs)
+        # Agregamos un QuerySet de todos los books
+        context['usuario'] = self.request.user
+        return context
 
 class EscuelaCreateView(CreateView):
     model = Escuela
@@ -26,14 +33,35 @@ class EscuelaCreateView(CreateView):
     template_name = "escuela/escuela_form.html"
     success_url = reverse_lazy('escuela:escuela_listar')
 
+    def get_context_data(self, **kwargs):
+        # Llamamos ala implementacion para traer un primer context
+        context = super(EscuelaCreateView, self).get_context_data(**kwargs)
+        # Agregamos un QuerySet de todos los books
+        context['usuario'] = self.request.user
+        return context
+
 class EscuelaUpdateView(UpdateView):
     model = Escuela
     form_class = EscuelaForm
     template_name = "escuela/escuela_form.html"
     success_url = reverse_lazy('escuela:escuela_listar')
 
+    def get_context_data(self, **kwargs):
+        # Llamamos ala implementacion para traer un primer context
+        context = super(EscuelaUpdateView, self).get_context_data(**kwargs)
+        # Agregamos un QuerySet de todos los books
+        context['usuario'] = self.request.user
+        return context
+
 class EscuelaDeleteView(DeleteView):
     model = Escuela
     form_class = EscuelaForm
     template_name = "escuela/escuela_delete.html"
     success_url = reverse_lazy('escuela:escuela_listar')
+
+    def get_context_data(self, **kwargs):
+        # Llamamos ala implementacion para traer un primer context
+        context = super(EscuelaDeleteView, self).get_context_data(**kwargs)
+        # Agregamos un QuerySet de todos los books
+        context['usuario'] = self.request.user
+        return context
