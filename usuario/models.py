@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import AbstractUser
 
 from django.db import models
-from escuela.models import Escuela
+from programa.models import Programa
 
 # Create your models here
 
@@ -33,7 +33,7 @@ class Usuario(AbstractUser):
     password = models.CharField(max_length=20)
     '''
     rol = models.ForeignKey(Rol, null=True)
-    escuela = models.ForeignKey(Escuela, null=True)
+    escuela = models.ForeignKey(Programa, null=True)
     estado = models.BooleanField(default=True)
 
     def delete(self):
