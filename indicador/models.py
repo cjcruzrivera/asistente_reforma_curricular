@@ -3,14 +3,16 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-from curso.models import Curso
+from resultado_aprendizaje.models import ResultadoAprendizaje
+from actividad.models import Actividad
 
 # Create your models here.
 
-class Competencia(models.Model):
+class IndicadorLogro(models.Model):
     descripcion = models.CharField(max_length=250)
-    curso = models.ForeignKey(Curso)
+    resultado = models.ForeignKey(ResultadoAprendizaje)
     estado = models.BooleanField(default=True)
+    actividades = models.ManyToManyField(Actividad)
 
     def delete(self):
         if self.estado:

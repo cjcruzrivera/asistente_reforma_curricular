@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'login',
     'competencia',
     'resultado_aprendizaje',
+    'indicador',
+    'actividad',
 ]
 
 MIDDLEWARE = [
