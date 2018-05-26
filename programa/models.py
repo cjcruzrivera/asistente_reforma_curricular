@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 from escuela.models import Escuela
-from usuario.models import Usuario
+from usuario.models import Usuario    
 
 # Create your models here.
 
