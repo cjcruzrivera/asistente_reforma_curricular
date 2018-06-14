@@ -6,7 +6,7 @@ from django.db import models
 # Create your models here.
 
 class Escuela(models.Model):
-    nombre_largo = models.CharField(max_length=50, unique=True)
+    nombre_largo = models.CharField(max_length=100, unique=True)
     nombre_corto = models.CharField(max_length=10, unique=True)
     estado = models.BooleanField(default=True)
 

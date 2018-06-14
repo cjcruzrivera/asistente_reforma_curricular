@@ -33,7 +33,7 @@ class Usuario(AbstractUser):
     '''
 
     rol = models.ForeignKey(Rol, null=True)
-    escuela = models.ForeignKey('programa.Programa', null=True)
+    escuela = models.ForeignKey('escuela.Escuela', null=True)
     estado = models.BooleanField(default=True)
 
     def delete(self):
