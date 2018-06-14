@@ -8,7 +8,7 @@ from usuario.models import Usuario
 # Create your models here.
 
 class TipoCurso(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True)
     estado = models.BooleanField(default=True)
 
     def delete(self):

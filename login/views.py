@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from usuario.models import Rol
 from actividad.models import TipoActividad
 from escuela.models import Escuela
+from curso.models import TipoCurso
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def index(request):
 def carga_datos_inicial(request):
     roles = ['Docente', 'Decano', 'Director de Programa', 'Administrador']
     tipos_act = ['Formacion', 'Evaluacion']
+    tipos_cursos = ['Asignatura básica', 'Asignatura Profesional', 'Electiva Complementaria', 'Electiva Profesional']
     escuelas = [{'corto':'EISC','largo':'Escuela de Ingenieria en Sistemas y Computacion'},
                 {'corto':'EIEE','largo':'Escuela de Ingeniería Eléctrica y Electrónica'},
                 {'corto':'EICG','largo':'Escuela de Ingeniería Civil y Geomática'},
@@ -40,4 +42,9 @@ def carga_datos_inicial(request):
             registro = TipoActividad(nombre=tipo)
             registro.save()
 
+    for tipo in tipos_cursos:
+        if not TipoCurso.objects.filter(nombre=tipo).exists():
+            registro = TipoCurso(nombre=tipo)
+            registro.save()
+            
     return HttpResponse("Datos Cargados")
