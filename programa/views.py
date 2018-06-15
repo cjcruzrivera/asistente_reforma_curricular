@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
 
 from programa.models import Programa
 from programa.forms import ProgramaForm
@@ -50,6 +51,18 @@ class ProgramaUpdateView(UpdateView):
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
         return context
+
+
+def eliminar(request):
+    pk = request.POST.get('id_programa')
+    programa_borrar = Programa.objects.get(pk=pk)
+    if programa_borrar.delete():
+        response = {'resultado': 'exito','nombre':programa_borrar.nombre}
+    else:
+        response = {'resultado': 'error'}
+
+    return JsonResponse(response)
+
 
 class ProgramaDeleteView(DeleteView):
     model = Programa

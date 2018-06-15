@@ -13,20 +13,8 @@
             </div>               
             <div id="acordion-programas" class="panel-group">
                 <li>
-                    <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programa Académico</a>
+                    <a href="{% url 'programa:programa_listar' %}">Programas Académicos</a>
                 </li>
-                <section> 
-                    <div id="programa" class="panel-collapse collapse in">
-                        <ul>
-                            <li>
-                                <a href="{% url 'programa:programa_crear' %}">Agregar Programa</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'programa:programa_listar' %}">Consultar Programa</a>
-                            </li>
-                        </ul>
-                    </div>                                
-                </section>
             </div>                    
             <li>
                 <a href="{% url 'salir' %}">Cerrar sesión</a>
