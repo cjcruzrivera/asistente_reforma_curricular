@@ -5,7 +5,10 @@
     <section id="formulario">
         <div id="div_tabla"  class="col-md-7 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Consultar Escuelas</h2>                
+                <h2>Escuelas</h2>  
+                <div style="float: right;">
+                   <a class="btn btn-primary" href="{% url 'escuela:escuela_crear' %}"><i class='icon-plus-sign-alt icon-large'></i> Nueva Escuela</a> 
+                </div>              
                 <hr> {% if object_list %}
                 <table id="escuelas" class="table table-bordered">
                     <thead>
@@ -23,7 +26,7 @@
                             <td>{{ escuela.nombre_largo }}</td>
                             <td class="text-center" style="padding: 10px 10px 10px 10px">
                                 <a class="btn btn-primary btn-sm" href="{% url 'escuela:escuela_editar' escuela.id %}">Editar</a>
-                                <a class="btn btn-danger btn-sm" id="delete" data-id="{{ escuela.id }}" data-nombre="{{ escuela.nombre_corto }}" href="#">Eliminar</a>
+                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="escuela" data-id="{{ escuela.id }}" data-nombre="{{ escuela.nombre_corto }}" href="#">Eliminar</a>
                             </td>
                         </tr>
                         {% endif %}
@@ -42,6 +45,7 @@
 
 {% endblock %}
 {% block extrajs %}
-<script src="{% static 'js/escuela_main.js' %}"></script>
-
+<script>
+    $('#escuelas').DataTable();
+</script>
 {% endblock %}

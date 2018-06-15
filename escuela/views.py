@@ -61,7 +61,7 @@ def eliminar(request):
     pk = request.POST.get('id_escuela')
     escuela_borrar = Escuela.objects.get(pk=pk)
     if escuela_borrar.delete():
-        response = {'resultado': 'exito'}
+        response = {'resultado': 'exito','nombre':escuela_borrar.nombre_corto}
     else:
         response = {'resultado': 'error'}
 
