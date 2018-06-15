@@ -19,6 +19,8 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'DataTables/DataTables-1.10.16/css/jquery.dataTables.css' %}" rel="stylesheet" type="text/css" />
+
 
 </head>
 
@@ -45,14 +47,14 @@
 
         <nav class="navbar navbar-default" style="background-color: #CD2035">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <h3 class="navbar-brand" style="color: #FFFFFF"> {% block rolename %} {{ usuario.rol }} {% endblock %}</h3>
-                </div>
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menú</a>
                     </li>
                 </ul>
+                <div class="navbar-header">
+                    <h3 class="navbar-brand" style="color: #FFFFFF"> {% block rolename %} {{ usuario.rol }} {% endblock %}</h3>
+                </div>
             </div>
         </nav>
         {% block content %} {% endblock %}
@@ -95,6 +97,12 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/sweetalert.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'DataTables/DataTables-1.10.16/js/jquery.dataTables.js' %}" type="text/javascript"></script>
+<script src="{% static 'DataTables/DataTables-1.10.16/js/dataTables.jqueryui.js' %}" type="text/javascript"></script>
+<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script> -->
+<script src="{% static 'js/django_ajax.js' %}" type="text/javascript"></script>
+
 {% block extrajs %} {% endblock %}
 <!-- Menu Toggle Script -->
 <script>
