@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
 
 from .models import Escuela
 from .forms import EscuelaForm
@@ -19,13 +20,14 @@ class EscuelaListView(ListView):
     model = Escuela
     queryset = Escuela.objects.filter(estado=True)
     template_name = "escuela/escuela_list.html"
-    
+
     def get_context_data(self, **kwargs):
         # Llamamos ala implementacion para traer un primer context
         context = super(EscuelaListView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
         return context
+
 
 class EscuelaCreateView(CreateView):
     model = Escuela
@@ -40,6 +42,7 @@ class EscuelaCreateView(CreateView):
         context['usuario'] = self.request.user
         return context
 
+
 class EscuelaUpdateView(UpdateView):
     model = Escuela
     form_class = EscuelaForm
@@ -52,6 +55,18 @@ class EscuelaUpdateView(UpdateView):
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
         return context
+
+
+def eliminar(request):
+    pk = request.POST.get('id_escuela')
+    escuela_borrar = Escuela.objects.get(pk=pk)
+    if escuela_borrar.delete():
+        response = {'resultado': 'exito','nombre':escuela_borrar.nombre_corto}
+    else:
+        response = {'resultado': 'error'}
+
+    return JsonResponse(response)
+
 
 class EscuelaDeleteView(DeleteView):
     model = Escuela

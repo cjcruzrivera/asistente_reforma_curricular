@@ -5,3 +5,8 @@
     border-radius: 7px !important;
     margin-top: 10px !important;
   }
+
+  #div_tabla{
+    background-color: #FFFFFF;
+    max-width: 1000px
+  }
