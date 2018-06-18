@@ -26,7 +26,7 @@ def carga_datos_inicial(request):
                 {'corto':'EIEE','largo':'Escuela de Ingeniería Eléctrica y Electrónica'},
                 {'corto':'EICG','largo':'Escuela de Ingeniería Civil y Geomática'},
                 {'corto':'EIDENAR','largo':'Escuela de Ingenieria de Recursos Naturales y del Ambiente'},]
-
+    usuarios = [{'username':'raul_g', 'first_name':'Raul','last_name':'Gutierrez', 'rol': 'Director de Programa'}]
     for escuela in escuelas:
         if not Escuela.objects.filter(nombre_corto=escuela['corto']).exists():
             registro= Escuela(nombre_largo=escuela['largo'],nombre_corto=escuela['corto'])

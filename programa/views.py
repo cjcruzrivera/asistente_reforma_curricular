@@ -73,12 +73,7 @@ def listar_dir(request):
     rol = Rol.objects.get(nombre='Director de Programa')
     data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela, rol=rol), fields=('id', 'first_name', 'last_name'))
 
-    if True:#no vacio
-        response = data
-    else:
-        response = {'resultado': 'error'}
-
-    return JsonResponse(response, safe=False)
+    return JsonResponse(data, safe=False)
 
 class ProgramaDeleteView(DeleteView):
     model = Programa
