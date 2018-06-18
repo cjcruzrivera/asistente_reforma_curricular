@@ -1,20 +1,24 @@
 {% extends 'base.html' %}  {% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
-        <div style="background-color: #FFFFFF" class="col-md-8 mx-auto">
+        <div id="div_tabla" style="background-color: #FFFFFF" class="col-md-8 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Consultar Programas</h2>                
-                <hr> {% if object_list %}
-                <table class="table table-bordered">
+                <h2>Programas</h2>                
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'programa:programa_crear' %}">
+                        <i class='icon-plus-sign-alt icon-large'></i> Nuevo Programa</a>
+                </div>
+                 {% if object_list %}
+                <table id="programas" class="table table-bordered">
                     <thead>
                         <tr>
                             <!-- <td style="color: black">Codigo</td> -->
-                            <td style="color: black">Nombre</td>
-                            <td style="color: black">Numero de semestres</td>
-                            <td style="color: black">Creditos</td>
+                            <td style="color: black; width:220px">Nombre</td>
+                            <td class="text-center" style="color: black; width: 6px">Número semestres</td>
+                            <td class="text-center" style="color: black; width: 6px">Creditos</td>
                             <td style="color: black">Escuela</td>
 			    <td style="color: black">Director de Programa</td>
-                            <td> Acciones</td>
+                            <td style="width: 130px"> Acciones</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,14 +26,14 @@
                         {% if programa.estado %}
                         <tr>
                             <td>{{ programa.nombre }}</td>
-                            <td>{{ programa.semestres }}</td>
-                            <td>{{ programa.creditos }}</td>
+                            <td class="text-center">{{ programa.semestres }}</td>
+                            <td class="text-center">{{ programa.creditos }}</td>
                             <td>{{ programa.cod_escuela.nombre_largo }}</td>
                             <td>{{ programa.dir_programa }}</td>
                             <td class="text-center" style="padding: 10px 10px 10px 10px">
                                 <a class="btn btn-primary btn-sm" href="{% url 'programa:programa_editar' programa.id  %}"> Editar </a>
-                                <a class="btn btn-danger btn-sm" href="{% url 'programa:programa_eliminar' programa.id %}">Eliminar</a>
-                            </td>
+                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="programa" data-id="{{ programa.id }}" data-nombre="{{ programa.nombre }}"
+                                href="#">Eliminar</a>                            </td>
                         </tr>
                         {% endif %}
                         {% endfor %}
@@ -45,3 +49,19 @@
 
 
 {% endblock %}
+{% block extrajs %}
+<script>
+    $('#programas').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        }
+    });
+</script> {% endblock %}

@@ -8,7 +8,10 @@ $(document).on('click', '#delete', function () {
             escuela = $(this).attr('data-nombre');
             mensaje = 'la escuela ' + escuela;
             break;
-
+        case 'programa':
+            var programa = "";
+            programa = $(this).attr('data-nombre');
+            mensaje = 'el programa ' + programa;
         default:
             break;
     }
@@ -37,10 +40,50 @@ function deleteElement(id, tipo) {
         case 'escuela':
             return deleteEscuela(id);
             break;
-    
+        case 'programa':
+            return deletePrograma(id);
+            break;
         default:
             break;
     }
+}
+
+function deletePrograma(id){
+    borrado = false;
+    $.ajax({
+        type: "POST",
+        data: {
+            id_programa: id
+        },
+        url: "/programa/eliminar/",
+        success: function (msg) {
+            borrado = true;
+            swal({
+                title: "Borrado con éxito",
+                text: "El programa " + msg.nombre + " ha sido borrado con éxito",
+                icon: "success",
+                buttons: false,
+                timer: 1500,
+            });
+        },
+        async: false,
+        dataType: "json",
+        cache: "false",
+        error: function (msg) {
+            swal({
+                title: "Error AJAX",
+                text: msg.responseText,
+                html: true,
+                type: "warning",
+                confirmButtonColor: "#d51b23"
+            });
+            console.log("AJAXerror");
+            console.log(msg);
+
+        },
+    });
+    return borrado;
+
 }
 
 function deleteEscuela(id) {

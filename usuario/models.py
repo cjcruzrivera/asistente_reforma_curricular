@@ -13,6 +13,7 @@ class Rol(models.Model):
 
     def delete(self):
         if self.estado:
+            self.nombre = self.nombre+'_borrado'            
             self.estado = False
             self.save()
             return True
@@ -38,6 +39,7 @@ class Usuario(AbstractUser):
 
     def delete(self):
         if self.estado:
+            self.username = self.username+'_borrado'
             self.estado = False
             self.save()
             return True

@@ -9,6 +9,9 @@ from usuario.models import Rol
 from actividad.models import TipoActividad
 from escuela.models import Escuela
 from curso.models import TipoCurso
+from usuario.models import Usuario
+from curso.models import Curso
+from programa.models import Programa
 
 # Create your views here.
 
@@ -26,7 +29,30 @@ def carga_datos_inicial(request):
                 {'corto':'EIEE','largo':'Escuela de Ingeniería Eléctrica y Electrónica'},
                 {'corto':'EICG','largo':'Escuela de Ingeniería Civil y Geomática'},
                 {'corto':'EIDENAR','largo':'Escuela de Ingenieria de Recursos Naturales y del Ambiente'},]
+    usuarios = [{'username':'raul_g', 'first_name':'Raul','last_name':'Gutierrez', 'rol': 'Director de Programa', 'password':'eisc_dir', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},
+                {'username':'diego_g', 'first_name':'Diego Fernando','last_name':'Garcia', 'rol': 'Director de Programa', 'password':'eiee_dir', 'email':'raul_g@eisc.com', 'escuela': 'EIEE'},
+                {'username':'cjcruzrivera', 'first_name':'Camilo José','last_name':'Cruz Rivera', 'rol': 'Administrador', 'password':'admin_cj', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},
+                {'username':'beatriz_f', 'first_name':'Beatriz','last_name':'Florian', 'rol': 'Docente', 'password':'eisc_1234', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},
+                {'username':'carlos_loz', 'first_name':'Carlos Arturo','last_name':'Lozano Moncada', 'rol': 'Decano', 'password':'eisc_1234', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},]
+    
+    programas = [{'nombre':'Ingenieria en Sistemas',
+                  'semestres': 10,
+                  'creditos': 159,
+                  'escuela': 'EISC',
+                  'dir_programa': 'raul_g'}]
 
+    cursos = [{'nombre':'Desarrollo de Software 2',
+               'codigo': '750092M',
+               'creditos':4, 
+               'programa': 'Ingenieria en Sistemas', 
+               'horas_catedra': 4, 
+               'horas_individual':8, 
+               'tipo':'Asignatura Profesional', 
+               'docente_encargado': 'beatriz_f', 
+               'semestre':7,
+               'validable':True, 
+               'habilitable':False},]
+    
     for escuela in escuelas:
         if not Escuela.objects.filter(nombre_corto=escuela['corto']).exists():
             registro= Escuela(nombre_largo=escuela['largo'],nombre_corto=escuela['corto'])
@@ -35,6 +61,17 @@ def carga_datos_inicial(request):
     for rol in roles:
         if not Rol.objects.filter(nombre=rol).exists():
             registro = Rol(nombre=rol)
+            registro.save()
+
+    for usuario in usuarios:
+        if not Usuario.objects.filter(username=usuario['username']).exists():
+            registro = Usuario(username=usuario['username'], 
+                               first_name=usuario['first_name'], 
+                               last_name=usuario['last_name'], 
+                               password=usuario['password'], 
+                               email=usuario['email'], 
+                               rol=Rol.objects.get(nombre=usuario['rol']), 
+                               escuela=Escuela.objects.get(nombre_corto=usuario['escuela']))
             registro.save()
    
     for tipo in tipos_act:
@@ -46,5 +83,29 @@ def carga_datos_inicial(request):
         if not TipoCurso.objects.filter(nombre=tipo).exists():
             registro = TipoCurso(nombre=tipo)
             registro.save()
-            
+
+    for programa in programas:
+        if not Programa.objects.filter(nombre=programa['nombre']).exists():
+            registro = Programa(nombre=programa['nombre'],
+                                semestres=programa['semestres'],
+                                creditos=programa['creditos'],
+                                cod_escuela= Escuela.objects.get(nombre_corto=programa['escuela']),
+                                dir_programa=Usuario.objects.get(username=programa['dir_programa']),)
+            registro.save()
+
+    for curso in cursos:
+        if not Curso.objects.filter(codigo=curso['codigo']).exists():
+            registro = Curso(codigo=curso['codigo'],
+                            nombre=curso['nombre'],
+                            creditos=curso['creditos'],
+                            horas_catedra=curso['horas_catedra'],
+                            horas_individual=curso['horas_individual'],
+                            programa=Programa.objects.get(nombre=curso['programa']),
+                            tipo=TipoCurso.objects.get(nombre=curso['tipo']),
+                            docente_encargado=Usuario.objects.get(username=curso['docente_encargado']), 
+                            semestre=curso['semestre'], 
+                            validable=curso['validable'], 
+                            habilitable=curso['habilitable'],)
+            registro.save()
+
     return HttpResponse("Datos Cargados")

@@ -1,0 +1,450 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../actividad/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../competencia/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../curso/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../escuela/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../indicador/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../programa/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../resultado_aprendizaje/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../usuario/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_auto_20180614_1958.py	../curso/migrations/0002_auto_20180614_1958.py	1;"	kind:file	line:1
+0002_competencia_curso.py	../competencia/migrations/0002_competencia_curso.py	1;"	kind:file	line:1
+0002_programa_dir_programa.py	../programa/migrations/0002_programa_dir_programa.py	1;"	kind:file	line:1
+ALLOWED_HOSTS	../asistente_reforma_curricular/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:30
+AUTH_PASSWORD_VALIDATORS	../asistente_reforma_curricular/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:108
+AUTH_USER_MODEL	../asistente_reforma_curricular/settings.py	/^AUTH_USER_MODEL = 'usuario.Usuario'$/;"	kind:variable	line:123
+Actividad	../actividad/models.py	/^class Actividad(models.Model):$/;"	kind:class	line:24
+ActividadConfig	../actividad/apps.py	/^class ActividadConfig(AppConfig):$/;"	kind:class	line:7
+BASE_DIR	../asistente_reforma_curricular/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:18
+Competencia	../competencia/models.py	/^class Competencia(models.Model):$/;"	kind:class	line:10
+CompetenciaConfig	../competencia/apps.py	/^class CompetenciaConfig(AppConfig):$/;"	kind:class	line:7
+Curso	../curso/models.py	/^class Curso(models.Model):$/;"	kind:class	line:26
+CursoConfig	../curso/apps.py	/^class CursoConfig(AppConfig):$/;"	kind:class	line:7
+CursoCreateView	../curso/views.py	/^class CursoCreateView(CreateView):$/;"	kind:class	line:30
+CursoDeleteView	../curso/views.py	/^class CursoDeleteView(DeleteView):$/;"	kind:class	line:70
+CursoForm	../curso/forms.py	/^class CursoForm(forms.ModelForm):$/;"	kind:class	line:25
+CursoListView	../curso/views.py	/^class CursoListView(ListView):$/;"	kind:class	line:18
+CursoUpdateView	../curso/views.py	/^class CursoUpdateView(UpdateView):$/;"	kind:class	line:43
+DATABASES	../asistente_reforma_curricular/settings.py	/^DATABASES = {$/;"	kind:variable	line:88
+DEBUG	../asistente_reforma_curricular/settings.py	/^DEBUG = True$/;"	kind:variable	line:28
+Escuela	../escuela/models.py	/^class Escuela(models.Model):$/;"	kind:class	line:8
+EscuelaConfig	../escuela/apps.py	/^class EscuelaConfig(AppConfig):$/;"	kind:class	line:7
+EscuelaCreateView	../escuela/views.py	/^class EscuelaCreateView(CreateView):$/;"	kind:class	line:32
+EscuelaDeleteView	../escuela/views.py	/^class EscuelaDeleteView(DeleteView):$/;"	kind:class	line:71
+EscuelaForm	../escuela/forms.py	/^class EscuelaForm(forms.ModelForm):$/;"	kind:class	line:4
+EscuelaListView	../escuela/views.py	/^class EscuelaListView(ListView):$/;"	kind:class	line:19
+EscuelaUpdateView	../escuela/views.py	/^class EscuelaUpdateView(UpdateView):$/;"	kind:class	line:46
+INSTALLED_APPS	../asistente_reforma_curricular/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:35
+IndicadorConfig	../indicador/apps.py	/^class IndicadorConfig(AppConfig):$/;"	kind:class	line:7
+IndicadorLogro	../indicador/models.py	/^class IndicadorLogro(models.Model):$/;"	kind:class	line:11
+LANGUAGE_CODE	../asistente_reforma_curricular/settings.py	/^LANGUAGE_CODE = 'es-col'$/;"	kind:variable	line:127
+LOGIN_REDIRECT_URL	../asistente_reforma_curricular/settings.py	/^LOGIN_REDIRECT_URL = reverse_lazy('index')$/;"	kind:variable	line:147
+LoginConfig	../login/apps.py	/^class LoginConfig(AppConfig):$/;"	kind:class	line:7
+MIDDLEWARE	../asistente_reforma_curricular/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:54
+Meta	../curso/forms.py	/^    class Meta:$/;"	kind:class	line:27
+Meta	../curso/forms.py	/^    class Meta:$/;"	kind:class	line:6
+Meta	../escuela/forms.py	/^    class Meta:$/;"	kind:class	line:6
+Meta	../programa/forms.py	/^    class Meta:$/;"	kind:class	line:7
+Meta	../usuario/forms.py	/^    class Meta:$/;"	kind:class	line:41
+Meta	../usuario/forms.py	/^    class Meta:$/;"	kind:class	line:8
+Migration	../actividad/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../competencia/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../competencia/migrations/0002_competencia_curso.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../curso/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../curso/migrations/0002_auto_20180614_1958.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:10
+Migration	../escuela/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../indicador/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../programa/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../programa/migrations/0002_programa_dir_programa.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:10
+Migration	../resultado_aprendizaje/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../usuario/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:12
+PrerrequisitosForm	../curso/forms.py	/^class PrerrequisitosForm(forms.ModelForm):$/;"	kind:class	line:4
+PrerrequisitosUpdateView	../curso/views.py	/^class PrerrequisitosUpdateView(UpdateView):$/;"	kind:class	line:57
+Programa	../programa/models.py	/^class Programa(models.Model):$/;"	kind:class	line:11
+ProgramaConfig	../programa/apps.py	/^class ProgramaConfig(AppConfig):$/;"	kind:class	line:7
+ProgramaCreateView	../programa/views.py	/^class ProgramaCreateView(CreateView):$/;"	kind:class	line:29
+ProgramaDeleteView	../programa/views.py	/^class ProgramaDeleteView(DeleteView):$/;"	kind:class	line:67
+ProgramaForm	../programa/forms.py	/^class ProgramaForm(forms.ModelForm):$/;"	kind:class	line:5
+ProgramaListView	../programa/views.py	/^class ProgramaListView(ListView):$/;"	kind:class	line:17
+ProgramaUpdateView	../programa/views.py	/^class ProgramaUpdateView(UpdateView):$/;"	kind:class	line:42
+ROOT_URLCONF	../asistente_reforma_curricular/settings.py	/^ROOT_URLCONF = 'asistente_reforma_curricular.urls'$/;"	kind:variable	line:64
+ResultadoAprendizaje	../resultado_aprendizaje/models.py	/^class ResultadoAprendizaje(models.Model):$/;"	kind:class	line:10
+ResultadoAprendizajeConfig	../resultado_aprendizaje/apps.py	/^class ResultadoAprendizajeConfig(AppConfig):$/;"	kind:class	line:7
+Rol	../usuario/models.py	/^class Rol(models.Model):$/;"	kind:class	line:10
+STATICFILES_DIRS	../asistente_reforma_curricular/settings.py	/^STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)$/;"	kind:variable	line:145
+STATIC_ROOT	../asistente_reforma_curricular/settings.py	/^STATIC_ROOT = 'staticfiles'$/;"	kind:variable	line:143
+STATIC_URL	../asistente_reforma_curricular/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:141
+TEMPLATES	../asistente_reforma_curricular/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:66
+TIME_ZONE	../asistente_reforma_curricular/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:129
+TipoActividad	../actividad/models.py	/^class TipoActividad(models.Model):$/;"	kind:class	line:8
+TipoCurso	../curso/models.py	/^class TipoCurso(models.Model):$/;"	kind:class	line:10
+USE_I18N	../asistente_reforma_curricular/settings.py	/^USE_I18N = True$/;"	kind:variable	line:131
+USE_L10N	../asistente_reforma_curricular/settings.py	/^USE_L10N = True$/;"	kind:variable	line:133
+USE_TZ	../asistente_reforma_curricular/settings.py	/^USE_TZ = True$/;"	kind:variable	line:135
+Usuario	../usuario/models.py	/^class Usuario(AbstractUser):$/;"	kind:class	line:25
+UsuarioConfig	../usuario/apps.py	/^class UsuarioConfig(AppConfig):$/;"	kind:class	line:7
+UsuarioCreateForm	../usuario/forms.py	/^class UsuarioCreateForm(UserCreationForm):$/;"	kind:class	line:6
+UsuarioCreateView	../usuario/views.py	/^class UsuarioCreateView(CreateView):$/;"	kind:class	line:21
+UsuarioDeleteView	../usuario/views.py	/^class UsuarioDeleteView(DeleteView):$/;"	kind:class	line:33
+UsuarioForm	../usuario/forms.py	/^class UsuarioForm(forms.ModelForm):$/;"	kind:class	line:39
+UsuarioListView	../usuario/views.py	/^class UsuarioListView(ListView):$/;"	kind:class	line:16
+UsuarioUpdateView	../usuario/views.py	/^class UsuarioUpdateView(UpdateView):$/;"	kind:class	line:27
+WSGI_APPLICATION	../asistente_reforma_curricular/settings.py	/^WSGI_APPLICATION = 'asistente_reforma_curricular.wsgi.application'$/;"	kind:variable	line:82
+__init__	../programa/forms.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:31
+__init__.py	../actividad/__init__.py	1;"	kind:file	line:1
+__init__.py	../actividad/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../asistente_reforma_curricular/__init__.py	1;"	kind:file	line:1
+__init__.py	../competencia/__init__.py	1;"	kind:file	line:1
+__init__.py	../competencia/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../curso/__init__.py	1;"	kind:file	line:1
+__init__.py	../curso/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../escuela/__init__.py	1;"	kind:file	line:1
+__init__.py	../escuela/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../indicador/__init__.py	1;"	kind:file	line:1
+__init__.py	../indicador/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../login/__init__.py	1;"	kind:file	line:1
+__init__.py	../programa/__init__.py	1;"	kind:file	line:1
+__init__.py	../programa/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../resultado_aprendizaje/__init__.py	1;"	kind:file	line:1
+__init__.py	../resultado_aprendizaje/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../usuario/__init__.py	1;"	kind:file	line:1
+__init__.py	../usuario/migrations/__init__.py	1;"	kind:file	line:1
+__unicode__	../actividad/models.py	/^    def __unicode__(self):$/;"	kind:member	line:20
+__unicode__	../actividad/models.py	/^    def __unicode__(self):$/;"	kind:member	line:38
+__unicode__	../competencia/models.py	/^    def __unicode__(self):$/;"	kind:member	line:23
+__unicode__	../curso/models.py	/^    def __unicode__(self):$/;"	kind:member	line:22
+__unicode__	../curso/models.py	/^    def __unicode__(self):$/;"	kind:member	line:49
+__unicode__	../escuela/models.py	/^    def __unicode__(self):$/;"	kind:member	line:21
+__unicode__	../indicador/models.py	/^    def __unicode__(self):$/;"	kind:member	line:25
+__unicode__	../programa/models.py	/^    def __unicode__(self):$/;"	kind:member	line:27
+__unicode__	../resultado_aprendizaje/models.py	/^    def __unicode__(self):$/;"	kind:member	line:24
+__unicode__	../usuario/models.py	/^    def __unicode__(self):$/;"	kind:member	line:22
+__unicode__	../usuario/models.py	/^    def __unicode__(self):$/;"	kind:member	line:47
+actividades	../indicador/models.py	/^    actividades = models.ManyToManyField(Actividad)$/;"	kind:variable	line:15
+actividades	../resultado_aprendizaje/models.py	/^    actividades = models.ManyToManyField(Actividad)$/;"	kind:variable	line:14
+admin.py	../actividad/admin.py	1;"	kind:file	line:1
+admin.py	../competencia/admin.py	1;"	kind:file	line:1
+admin.py	../curso/admin.py	1;"	kind:file	line:1
+admin.py	../escuela/admin.py	1;"	kind:file	line:1
+admin.py	../indicador/admin.py	1;"	kind:file	line:1
+admin.py	../login/admin.py	1;"	kind:file	line:1
+admin.py	../programa/admin.py	1;"	kind:file	line:1
+admin.py	../resultado_aprendizaje/admin.py	1;"	kind:file	line:1
+admin.py	../usuario/admin.py	1;"	kind:file	line:1
+application	../asistente_reforma_curricular/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../actividad/apps.py	1;"	kind:file	line:1
+apps.py	../competencia/apps.py	1;"	kind:file	line:1
+apps.py	../curso/apps.py	1;"	kind:file	line:1
+apps.py	../escuela/apps.py	1;"	kind:file	line:1
+apps.py	../indicador/apps.py	1;"	kind:file	line:1
+apps.py	../login/apps.py	1;"	kind:file	line:1
+apps.py	../programa/apps.py	1;"	kind:file	line:1
+apps.py	../resultado_aprendizaje/apps.py	1;"	kind:file	line:1
+apps.py	../usuario/apps.py	1;"	kind:file	line:1
+carga_datos_inicial	../login/views.py	/^def carga_datos_inicial(request):$/;"	kind:function	line:21
+cod_escuela	../programa/models.py	/^    cod_escuela = models.ForeignKey(Escuela, null=True)$/;"	kind:variable	line:16
+codigo	../curso/models.py	/^    codigo = models.CharField(max_length=7, unique=True)$/;"	kind:variable	line:28
+competencia	../resultado_aprendizaje/models.py	/^    competencia = models.ForeignKey(Competencia)$/;"	kind:variable	line:12
+creditos	../curso/models.py	/^    creditos = models.IntegerField()$/;"	kind:variable	line:29
+creditos	../programa/models.py	/^    creditos = models.IntegerField()$/;"	kind:variable	line:14
+curso	../competencia/models.py	/^    curso = models.ForeignKey(Curso)$/;"	kind:variable	line:12
+delete	../actividad/models.py	/^    def delete(self):$/;"	kind:member	line:12
+delete	../actividad/models.py	/^    def delete(self):$/;"	kind:member	line:30
+delete	../competencia/models.py	/^    def delete(self):$/;"	kind:member	line:15
+delete	../curso/models.py	/^    def delete(self):$/;"	kind:member	line:14
+delete	../curso/models.py	/^    def delete(self):$/;"	kind:member	line:41
+delete	../escuela/models.py	/^    def delete(self):$/;"	kind:member	line:13
+delete	../indicador/models.py	/^    def delete(self):$/;"	kind:member	line:17
+delete	../programa/models.py	/^    def delete(self):$/;"	kind:member	line:19
+delete	../resultado_aprendizaje/models.py	/^    def delete(self):$/;"	kind:member	line:16
+delete	../usuario/models.py	/^    def delete(self):$/;"	kind:member	line:14
+delete	../usuario/models.py	/^    def delete(self):$/;"	kind:member	line:39
+dependencies	../actividad/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:13
+dependencies	../competencia/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../competencia/migrations/0002_competencia_curso.py	/^    dependencies = [$/;"	kind:variable	line:13
+dependencies	../curso/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../curso/migrations/0002_auto_20180614_1958.py	/^    dependencies = [$/;"	kind:variable	line:14
+dependencies	../escuela/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../indicador/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:13
+dependencies	../programa/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:13
+dependencies	../programa/migrations/0002_programa_dir_programa.py	/^    dependencies = [$/;"	kind:variable	line:14
+dependencies	../resultado_aprendizaje/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:13
+dependencies	../usuario/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:16
+descripcion	../actividad/models.py	/^    descripcion = models.CharField(max_length=150)$/;"	kind:variable	line:26
+descripcion	../competencia/models.py	/^    descripcion = models.CharField(max_length=250)$/;"	kind:variable	line:11
+descripcion	../indicador/models.py	/^    descripcion = models.CharField(max_length=250)$/;"	kind:variable	line:12
+descripcion	../resultado_aprendizaje/models.py	/^    descripcion = models.CharField(max_length=250)$/;"	kind:variable	line:11
+dir_programa	../programa/models.py	/^    dir_programa = models.OneToOneField(Usuario, null=True)$/;"	kind:variable	line:17
+docente_encargado	../curso/models.py	/^    docente_encargado = models.ForeignKey(Usuario, null=True)$/;"	kind:variable	line:36
+eliminar	../escuela/views.py	/^def eliminar(request):$/;"	kind:function	line:60
+eliminar	../programa/views.py	/^def eliminar(request):$/;"	kind:function	line:56
+escuela	../usuario/models.py	/^    escuela = models.ForeignKey('escuela.Escuela', null=True)$/;"	kind:variable	line:36
+estado	../actividad/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:10
+estado	../actividad/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:28
+estado	../competencia/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:13
+estado	../curso/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:12
+estado	../curso/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:34
+estado	../escuela/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:11
+estado	../indicador/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:14
+estado	../programa/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:15
+estado	../resultado_aprendizaje/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:13
+estado	../usuario/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:12
+estado	../usuario/models.py	/^    estado = models.BooleanField(default=True)$/;"	kind:variable	line:37
+field	../actividad/migrations/0001_initial.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='actividad.TipoActividad'),$/;"	kind:variable	line:37
+field	../competencia/migrations/0002_competencia_curso.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='curso.Curso'),$/;"	kind:variable	line:22
+field	../curso/migrations/0002_auto_20180614_1958.py	/^            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='curso.TipoCurso'),$/;"	kind:variable	line:39
+field	../curso/migrations/0002_auto_20180614_1958.py	/^            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='programa.Programa'),$/;"	kind:variable	line:34
+field	../curso/migrations/0002_auto_20180614_1958.py	/^            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:24
+field	../curso/migrations/0002_auto_20180614_1958.py	/^            field=models.ManyToManyField(blank=True, related_name='_curso_prerrequisitos_+', to='curso.Curso'),$/;"	kind:variable	line:29
+field	../programa/migrations/0002_programa_dir_programa.py	/^            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:23
+field	../usuario/migrations/0001_initial.py	/^            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='usuario.Rol'),$/;"	kind:variable	line:60
+field	../usuario/migrations/0001_initial.py	/^            field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions'),$/;"	kind:variable	line:65
+fields	../actividad/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:19
+fields	../actividad/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:28
+fields	../competencia/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:18
+fields	../curso/forms.py	/^        fields=[$/;"	kind:variable	line:30
+fields	../curso/forms.py	/^        fields=[$/;"	kind:variable	line:9
+fields	../curso/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:18
+fields	../curso/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:33
+fields	../escuela/forms.py	/^        fields=[$/;"	kind:variable	line:9
+fields	../escuela/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:18
+fields	../indicador/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:21
+fields	../programa/forms.py	/^    	fields=[$/;"	kind:variable	line:9
+fields	../programa/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:20
+fields	../resultado_aprendizaje/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:21
+fields	../usuario/forms.py	/^        fields=[$/;"	kind:variable	line:11
+fields	../usuario/forms.py	/^        fields=[$/;"	kind:variable	line:44
+fields	../usuario/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:24
+fields	../usuario/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:51
+form_class	../curso/views.py	/^    form_class = CursoForm$/;"	kind:variable	line:32
+form_class	../curso/views.py	/^    form_class = CursoForm$/;"	kind:variable	line:45
+form_class	../curso/views.py	/^    form_class = CursoForm$/;"	kind:variable	line:72
+form_class	../curso/views.py	/^    form_class = PrerrequisitosForm$/;"	kind:variable	line:59
+form_class	../escuela/views.py	/^    form_class = EscuelaForm$/;"	kind:variable	line:34
+form_class	../escuela/views.py	/^    form_class = EscuelaForm$/;"	kind:variable	line:48
+form_class	../escuela/views.py	/^    form_class = EscuelaForm$/;"	kind:variable	line:73
+form_class	../programa/views.py	/^    form_class = ProgramaForm$/;"	kind:variable	line:31
+form_class	../programa/views.py	/^    form_class = ProgramaForm$/;"	kind:variable	line:44
+form_class	../programa/views.py	/^    form_class = ProgramaForm$/;"	kind:variable	line:69
+form_class	../usuario/views.py	/^    form_class = UsuarioCreateForm$/;"	kind:variable	line:23
+form_class	../usuario/views.py	/^    form_class = UsuarioForm$/;"	kind:variable	line:29
+forms.py	../curso/forms.py	1;"	kind:file	line:1
+forms.py	../escuela/forms.py	1;"	kind:file	line:1
+forms.py	../programa/forms.py	1;"	kind:file	line:1
+forms.py	../usuario/forms.py	1;"	kind:file	line:1
+get_context_data	../curso/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:23
+get_context_data	../curso/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:36
+get_context_data	../curso/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:49
+get_context_data	../curso/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:63
+get_context_data	../curso/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:76
+get_context_data	../escuela/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:24
+get_context_data	../escuela/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:38
+get_context_data	../escuela/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:52
+get_context_data	../escuela/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:77
+get_context_data	../programa/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:22
+get_context_data	../programa/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:35
+get_context_data	../programa/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:48
+get_context_data	../programa/views.py	/^    def get_context_data(self, **kwargs):$/;"	kind:member	line:73
+habilitable	../curso/models.py	/^    habilitable = models.BooleanField()$/;"	kind:variable	line:39
+horas_catedra	../curso/models.py	/^    horas_catedra = models.IntegerField()$/;"	kind:variable	line:31
+horas_individual	../curso/models.py	/^    horas_individual = models.IntegerField()$/;"	kind:variable	line:32
+index	../curso/views.py	/^def index(request):$/;"	kind:function	line:14
+index	../escuela/views.py	/^def index(request):$/;"	kind:function	line:15
+index	../login/views.py	/^def index(request):$/;"	kind:function	line:16
+index	../programa/views.py	/^def index(request):$/;"	kind:function	line:14
+index	../usuario/views.py	/^def index(request):$/;"	kind:function	line:13
+initial	../actividad/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:11
+initial	../competencia/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:10
+initial	../competencia/migrations/0002_competencia_curso.py	/^    initial = True$/;"	kind:variable	line:11
+initial	../curso/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:10
+initial	../curso/migrations/0002_auto_20180614_1958.py	/^    initial = True$/;"	kind:variable	line:12
+initial	../escuela/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:10
+initial	../indicador/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:11
+initial	../programa/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:11
+initial	../programa/migrations/0002_programa_dir_programa.py	/^    initial = True$/;"	kind:variable	line:12
+initial	../resultado_aprendizaje/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:11
+initial	../usuario/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:14
+labels	../curso/forms.py	/^        labels={$/;"	kind:variable	line:14
+labels	../curso/forms.py	/^        labels={$/;"	kind:variable	line:44
+labels	../escuela/forms.py	/^        labels={$/;"	kind:variable	line:14
+labels	../programa/forms.py	/^    	labels={$/;"	kind:variable	line:16
+labels	../usuario/forms.py	/^        labels={$/;"	kind:variable	line:20
+labels	../usuario/forms.py	/^        labels={$/;"	kind:variable	line:53
+manage.py	../manage.py	1;"	kind:file	line:1
+managers	../usuario/migrations/0001_initial.py	/^            managers=[$/;"	kind:variable	line:45
+model	../curso/forms.py	/^        model = Curso$/;"	kind:variable	line:28
+model	../curso/forms.py	/^        model = Curso$/;"	kind:variable	line:7
+model	../curso/views.py	/^    model = Curso$/;"	kind:variable	line:19
+model	../curso/views.py	/^    model = Curso$/;"	kind:variable	line:31
+model	../curso/views.py	/^    model = Curso$/;"	kind:variable	line:44
+model	../curso/views.py	/^    model = Curso$/;"	kind:variable	line:58
+model	../curso/views.py	/^    model = Curso$/;"	kind:variable	line:71
+model	../escuela/forms.py	/^        model = Escuela$/;"	kind:variable	line:7
+model	../escuela/views.py	/^    model = Escuela$/;"	kind:variable	line:20
+model	../escuela/views.py	/^    model = Escuela$/;"	kind:variable	line:33
+model	../escuela/views.py	/^    model = Escuela$/;"	kind:variable	line:47
+model	../escuela/views.py	/^    model = Escuela$/;"	kind:variable	line:72
+model	../programa/forms.py	/^    	model = Programa$/;"	kind:variable	line:8
+model	../programa/views.py	/^    model = Programa$/;"	kind:variable	line:18
+model	../programa/views.py	/^    model = Programa$/;"	kind:variable	line:30
+model	../programa/views.py	/^    model = Programa$/;"	kind:variable	line:43
+model	../programa/views.py	/^    model = Programa$/;"	kind:variable	line:68
+model	../usuario/forms.py	/^        model = Usuario$/;"	kind:variable	line:42
+model	../usuario/forms.py	/^        model = Usuario$/;"	kind:variable	line:9
+model	../usuario/views.py	/^    model = Usuario$/;"	kind:variable	line:17
+model	../usuario/views.py	/^    model = Usuario$/;"	kind:variable	line:22
+model	../usuario/views.py	/^    model = Usuario$/;"	kind:variable	line:28
+model	../usuario/views.py	/^    model = Usuario$/;"	kind:variable	line:34
+model_name	../actividad/migrations/0001_initial.py	/^            model_name='actividad',$/;"	kind:variable	line:35
+model_name	../competencia/migrations/0002_competencia_curso.py	/^            model_name='competencia',$/;"	kind:variable	line:20
+model_name	../curso/migrations/0002_auto_20180614_1958.py	/^            model_name='curso',$/;"	kind:variable	line:22
+model_name	../curso/migrations/0002_auto_20180614_1958.py	/^            model_name='curso',$/;"	kind:variable	line:27
+model_name	../curso/migrations/0002_auto_20180614_1958.py	/^            model_name='curso',$/;"	kind:variable	line:32
+model_name	../curso/migrations/0002_auto_20180614_1958.py	/^            model_name='curso',$/;"	kind:variable	line:37
+model_name	../programa/migrations/0002_programa_dir_programa.py	/^            model_name='programa',$/;"	kind:variable	line:21
+model_name	../usuario/migrations/0001_initial.py	/^            model_name='usuario',$/;"	kind:variable	line:58
+model_name	../usuario/migrations/0001_initial.py	/^            model_name='usuario',$/;"	kind:variable	line:63
+models.py	../actividad/models.py	1;"	kind:file	line:1
+models.py	../competencia/models.py	1;"	kind:file	line:1
+models.py	../curso/models.py	1;"	kind:file	line:1
+models.py	../escuela/models.py	1;"	kind:file	line:1
+models.py	../indicador/models.py	1;"	kind:file	line:1
+models.py	../login/models.py	1;"	kind:file	line:1
+models.py	../programa/models.py	1;"	kind:file	line:1
+models.py	../resultado_aprendizaje/models.py	1;"	kind:file	line:1
+models.py	../usuario/models.py	1;"	kind:file	line:1
+name	../actividad/apps.py	/^    name = 'actividad'$/;"	kind:variable	line:8
+name	../actividad/migrations/0001_initial.py	/^            name='Actividad',$/;"	kind:variable	line:18
+name	../actividad/migrations/0001_initial.py	/^            name='TipoActividad',$/;"	kind:variable	line:27
+name	../actividad/migrations/0001_initial.py	/^            name='tipo',$/;"	kind:variable	line:36
+name	../competencia/apps.py	/^    name = 'competencia'$/;"	kind:variable	line:8
+name	../competencia/migrations/0001_initial.py	/^            name='Competencia',$/;"	kind:variable	line:17
+name	../competencia/migrations/0002_competencia_curso.py	/^            name='curso',$/;"	kind:variable	line:21
+name	../curso/apps.py	/^    name = 'curso'$/;"	kind:variable	line:8
+name	../curso/migrations/0001_initial.py	/^            name='Curso',$/;"	kind:variable	line:17
+name	../curso/migrations/0001_initial.py	/^            name='TipoCurso',$/;"	kind:variable	line:32
+name	../curso/migrations/0002_auto_20180614_1958.py	/^            name='docente_encargado',$/;"	kind:variable	line:23
+name	../curso/migrations/0002_auto_20180614_1958.py	/^            name='prerrequisitos',$/;"	kind:variable	line:28
+name	../curso/migrations/0002_auto_20180614_1958.py	/^            name='programa',$/;"	kind:variable	line:33
+name	../curso/migrations/0002_auto_20180614_1958.py	/^            name='tipo',$/;"	kind:variable	line:38
+name	../escuela/apps.py	/^    name = 'escuela'$/;"	kind:variable	line:8
+name	../escuela/migrations/0001_initial.py	/^            name='Escuela',$/;"	kind:variable	line:17
+name	../indicador/apps.py	/^    name = 'indicador'$/;"	kind:variable	line:8
+name	../indicador/migrations/0001_initial.py	/^            name='IndicadorLogro',$/;"	kind:variable	line:20
+name	../login/apps.py	/^    name = 'login'$/;"	kind:variable	line:8
+name	../programa/apps.py	/^    name = 'programa'$/;"	kind:variable	line:8
+name	../programa/migrations/0001_initial.py	/^            name='Programa',$/;"	kind:variable	line:19
+name	../programa/migrations/0002_programa_dir_programa.py	/^            name='dir_programa',$/;"	kind:variable	line:22
+name	../resultado_aprendizaje/apps.py	/^    name = 'resultado_aprendizaje'$/;"	kind:variable	line:8
+name	../resultado_aprendizaje/migrations/0001_initial.py	/^            name='ResultadoAprendizaje',$/;"	kind:variable	line:20
+name	../usuario/apps.py	/^    name = 'usuario'$/;"	kind:variable	line:8
+name	../usuario/migrations/0001_initial.py	/^            name='Rol',$/;"	kind:variable	line:50
+name	../usuario/migrations/0001_initial.py	/^            name='Usuario',$/;"	kind:variable	line:23
+name	../usuario/migrations/0001_initial.py	/^            name='rol',$/;"	kind:variable	line:59
+name	../usuario/migrations/0001_initial.py	/^            name='user_permissions',$/;"	kind:variable	line:64
+nombre	../actividad/models.py	/^    nombre = models.CharField(max_length=30)$/;"	kind:variable	line:25
+nombre	../actividad/models.py	/^    nombre = models.CharField(max_length=30)$/;"	kind:variable	line:9
+nombre	../curso/models.py	/^    nombre = models.CharField(max_length=50)$/;"	kind:variable	line:27
+nombre	../curso/models.py	/^    nombre = models.CharField(max_length=50, unique=True)$/;"	kind:variable	line:11
+nombre	../programa/models.py	/^    nombre = models.CharField(max_length=50,unique=True)$/;"	kind:variable	line:12
+nombre	../usuario/models.py	/^    nombre = models.CharField(max_length=20, unique=True)$/;"	kind:variable	line:11
+nombre_corto	../escuela/models.py	/^    nombre_corto = models.CharField(max_length=10, unique=True)$/;"	kind:variable	line:10
+nombre_largo	../escuela/models.py	/^    nombre_largo = models.CharField(max_length=100, unique=True)$/;"	kind:variable	line:9
+operations	../actividad/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:16
+operations	../competencia/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:15
+operations	../competencia/migrations/0002_competencia_curso.py	/^    operations = [$/;"	kind:variable	line:18
+operations	../curso/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:15
+operations	../curso/migrations/0002_auto_20180614_1958.py	/^    operations = [$/;"	kind:variable	line:20
+operations	../escuela/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:15
+operations	../indicador/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:18
+operations	../programa/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:17
+operations	../programa/migrations/0002_programa_dir_programa.py	/^    operations = [$/;"	kind:variable	line:19
+operations	../resultado_aprendizaje/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:18
+operations	../usuario/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:21
+options	../usuario/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:40
+prerrequisitos	../curso/models.py	/^    prerrequisitos = models.ManyToManyField('self', blank=True)$/;"	kind:variable	line:35
+programa	../curso/models.py	/^    programa = models.ForeignKey(Programa, null=True)$/;"	kind:variable	line:30
+queryset	../curso/views.py	/^    queryset = Curso.objects.filter(estado=True)$/;"	kind:variable	line:20
+queryset	../escuela/views.py	/^    queryset = Escuela.objects.filter(estado=True)$/;"	kind:variable	line:21
+queryset	../programa/views.py	/^    queryset = Programa.objects.filter(estado=True)$/;"	kind:variable	line:19
+queryset	../usuario/views.py	/^    queryset = Usuario.objects.filter(estado=True)$/;"	kind:variable	line:18
+resultado	../indicador/models.py	/^    resultado = models.ForeignKey(ResultadoAprendizaje)$/;"	kind:variable	line:13
+rol	../usuario/models.py	/^    rol = models.ForeignKey(Rol, null=True)$/;"	kind:variable	line:35
+semestre	../curso/models.py	/^    semestre = models.IntegerField()$/;"	kind:variable	line:37
+semestres	../programa/models.py	/^    semestres = models.IntegerField()$/;"	kind:variable	line:13
+settings.py	../asistente_reforma_curricular/settings.py	1;"	kind:file	line:1
+success_url	../curso/views.py	/^    success_url = reverse_lazy('curso:curso_listar')$/;"	kind:variable	line:34
+success_url	../curso/views.py	/^    success_url = reverse_lazy('curso:curso_listar')$/;"	kind:variable	line:47
+success_url	../curso/views.py	/^    success_url = reverse_lazy('curso:curso_listar')$/;"	kind:variable	line:61
+success_url	../curso/views.py	/^    success_url = reverse_lazy('curso:curso_listar')$/;"	kind:variable	line:74
+success_url	../escuela/views.py	/^    success_url = reverse_lazy('escuela:escuela_listar')$/;"	kind:variable	line:36
+success_url	../escuela/views.py	/^    success_url = reverse_lazy('escuela:escuela_listar')$/;"	kind:variable	line:50
+success_url	../escuela/views.py	/^    success_url = reverse_lazy('escuela:escuela_listar')$/;"	kind:variable	line:75
+success_url	../programa/views.py	/^    success_url = reverse_lazy('programa:programa_listar')$/;"	kind:variable	line:33
+success_url	../programa/views.py	/^    success_url = reverse_lazy('programa:programa_listar')$/;"	kind:variable	line:46
+success_url	../programa/views.py	/^    success_url = reverse_lazy('programa:programa_listar')$/;"	kind:variable	line:71
+success_url	../usuario/views.py	/^    success_url = reverse_lazy('usuario:usuario_listar')$/;"	kind:variable	line:25
+success_url	../usuario/views.py	/^    success_url = reverse_lazy('usuario:usuario_listar')$/;"	kind:variable	line:31
+success_url	../usuario/views.py	/^    success_url = reverse_lazy('usuario:usuario_listar')$/;"	kind:variable	line:36
+template_name	../curso/views.py	/^    template_name = "curso\/curso_delete.html"$/;"	kind:variable	line:73
+template_name	../curso/views.py	/^    template_name = "curso\/curso_form.html"$/;"	kind:variable	line:33
+template_name	../curso/views.py	/^    template_name = "curso\/curso_form.html"$/;"	kind:variable	line:46
+template_name	../curso/views.py	/^    template_name = "curso\/curso_form.html"$/;"	kind:variable	line:60
+template_name	../curso/views.py	/^    template_name = "curso\/curso_list.html"$/;"	kind:variable	line:21
+template_name	../escuela/views.py	/^    template_name = "escuela\/escuela_delete.html"$/;"	kind:variable	line:74
+template_name	../escuela/views.py	/^    template_name = "escuela\/escuela_form.html"$/;"	kind:variable	line:35
+template_name	../escuela/views.py	/^    template_name = "escuela\/escuela_form.html"$/;"	kind:variable	line:49
+template_name	../escuela/views.py	/^    template_name = "escuela\/escuela_list.html"$/;"	kind:variable	line:22
+template_name	../programa/views.py	/^    template_name = "programas\/programa_delete.html"$/;"	kind:variable	line:70
+template_name	../programa/views.py	/^    template_name = "programas\/programa_form.html"$/;"	kind:variable	line:32
+template_name	../programa/views.py	/^    template_name = "programas\/programa_form.html"$/;"	kind:variable	line:45
+template_name	../programa/views.py	/^    template_name = "programas\/programa_list.html"$/;"	kind:variable	line:20
+template_name	../usuario/views.py	/^    template_name = "usuario\/usuario_delete.html"$/;"	kind:variable	line:35
+template_name	../usuario/views.py	/^    template_name = "usuario\/usuario_form.html"$/;"	kind:variable	line:24
+template_name	../usuario/views.py	/^    template_name = "usuario\/usuario_form.html"$/;"	kind:variable	line:30
+template_name	../usuario/views.py	/^    template_name = "usuario\/usuario_list.html"$/;"	kind:variable	line:19
+tests.py	../actividad/tests.py	1;"	kind:file	line:1
+tests.py	../competencia/tests.py	1;"	kind:file	line:1
+tests.py	../curso/tests.py	1;"	kind:file	line:1
+tests.py	../escuela/tests.py	1;"	kind:file	line:1
+tests.py	../indicador/tests.py	1;"	kind:file	line:1
+tests.py	../login/tests.py	1;"	kind:file	line:1
+tests.py	../programa/tests.py	1;"	kind:file	line:1
+tests.py	../resultado_aprendizaje/tests.py	1;"	kind:file	line:1
+tests.py	../usuario/tests.py	1;"	kind:file	line:1
+tipo	../actividad/models.py	/^    tipo = models.ForeignKey(TipoActividad)$/;"	kind:variable	line:27
+tipo	../curso/models.py	/^    tipo = models.ForeignKey(TipoCurso, null=True)$/;"	kind:variable	line:33
+urlpatterns	../asistente_reforma_curricular/urls.py	/^urlpatterns = [$/;"	kind:variable	line:22
+urlpatterns	../curso/urls.py	/^urlpatterns = [$/;"	kind:variable	line:6
+urlpatterns	../escuela/urls.py	/^urlpatterns = [$/;"	kind:variable	line:6
+urlpatterns	../login/urls.py	/^urlpatterns = [$/;"	kind:variable	line:6
+urlpatterns	../programa/urls.py	/^urlpatterns = [$/;"	kind:variable	line:7
+urlpatterns	../usuario/urls.py	/^urlpatterns = [$/;"	kind:variable	line:7
+urls.py	../asistente_reforma_curricular/urls.py	1;"	kind:file	line:1
+urls.py	../curso/urls.py	1;"	kind:file	line:1
+urls.py	../escuela/urls.py	1;"	kind:file	line:1
+urls.py	../login/urls.py	1;"	kind:file	line:1
+urls.py	../programa/urls.py	1;"	kind:file	line:1
+urls.py	../usuario/urls.py	1;"	kind:file	line:1
+validable	../curso/models.py	/^    validable = models.BooleanField()$/;"	kind:variable	line:38
+views.py	../actividad/views.py	1;"	kind:file	line:1
+views.py	../competencia/views.py	1;"	kind:file	line:1
+views.py	../curso/views.py	1;"	kind:file	line:1
+views.py	../escuela/views.py	1;"	kind:file	line:1
+views.py	../indicador/views.py	1;"	kind:file	line:1
+views.py	../login/views.py	1;"	kind:file	line:1
+views.py	../programa/views.py	1;"	kind:file	line:1
+views.py	../resultado_aprendizaje/views.py	1;"	kind:file	line:1
+views.py	../usuario/views.py	1;"	kind:file	line:1
+widgets	../curso/forms.py	/^        widgets={$/;"	kind:variable	line:18
+widgets	../curso/forms.py	/^        widgets={$/;"	kind:variable	line:59
+widgets	../escuela/forms.py	/^        widgets={$/;"	kind:variable	line:20
+widgets	../programa/forms.py	/^    	widgets={$/;"	kind:variable	line:23
+widgets	../usuario/forms.py	/^        widgets={$/;"	kind:variable	line:30
+widgets	../usuario/forms.py	/^        widgets={$/;"	kind:variable	line:63
+wsgi.py	../asistente_reforma_curricular/wsgi.py	1;"	kind:file	line:1

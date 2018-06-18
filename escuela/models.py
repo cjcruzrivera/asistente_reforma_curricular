@@ -12,6 +12,8 @@ class Escuela(models.Model):
 
     def delete(self):
         if self.estado:
+            self.nombre_corto = self.nombre_corto + '_borrado'
+            self.nombre_largo = self.nombre_largo + '_borrado'
             self.estado = False
             self.save()
             return True
