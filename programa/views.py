@@ -5,10 +5,11 @@ from django.shortcuts import render
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
+from django.core import serializers
 
-from programa.models import Programa
-from programa.forms import ProgramaForm
-
+from .models import Programa
+from .forms import ProgramaForm
+from usuario.models import Usuario
 # Create your views here.
 
 def index(request):
@@ -63,6 +64,20 @@ def eliminar(request):
 
     return JsonResponse(response)
 
+
+def listar_dir(request):
+    id_escuela = request.POST.get('id_escuela')
+    if id_escuela == '':
+        return JsonResponse({'vacio':'vacio'}, safe=False)
+
+    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela), fields=('id', 'first_name', 'last_name'))
+
+    if True:#no vacio
+        response = data
+    else:
+        response = {'resultado': 'error'}
+
+    return JsonResponse(response, safe=False)
 
 class ProgramaDeleteView(DeleteView):
     model = Programa
