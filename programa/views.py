@@ -9,7 +9,7 @@ from django.core import serializers
 
 from .models import Programa
 from .forms import ProgramaForm
-from usuario.models import Usuario
+from usuario.models import Usuario, Rol
 # Create your views here.
 
 def index(request):
@@ -70,7 +70,8 @@ def listar_dir(request):
     if id_escuela == '':
         return JsonResponse({'vacio':'vacio'}, safe=False)
 
-    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela), fields=('id', 'first_name', 'last_name'))
+    rol = Rol.objects.get(nombre='Director de Programa')
+    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela, rol=rol), fields=('id', 'first_name', 'last_name'))
 
     if True:#no vacio
         response = data
