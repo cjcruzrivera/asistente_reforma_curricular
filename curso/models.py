@@ -13,6 +13,7 @@ class TipoCurso(models.Model):
 
     def delete(self):
         if self.estado:
+            self.nombre = self.nombre+'_borrado'            
             self.estado = False
             self.save()
             return True
@@ -27,19 +28,20 @@ class Curso(models.Model):
     nombre = models.CharField(max_length=50)
     codigo = models.CharField(max_length=7, unique=True)
     creditos = models.IntegerField()
-    programa = models.ForeignKey(Programa, null=True)
+    programa = models.ForeignKey(Programa, blank=True, null=True)
     horas_catedra = models.IntegerField()
     horas_individual = models.IntegerField()
-    tipo = models.ForeignKey(TipoCurso, null=True)
+    tipo = models.ForeignKey(TipoCurso)
     estado = models.BooleanField(default=True)
     prerrequisitos = models.ManyToManyField('self', blank=True)
-    docente_encargado = models.ForeignKey(Usuario, null=True)
+    docente_encargado = models.ForeignKey(Usuario, null=True, blank=True)
     semestre = models.IntegerField()
     validable = models.BooleanField()
     habilitable = models.BooleanField()
 
     def delete(self):
         if self.estado:
+            self.codigo = self.codigo+'_borrado'            
             self.estado = False
             self.save()
             return True

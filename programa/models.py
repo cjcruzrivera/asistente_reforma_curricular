@@ -13,11 +13,12 @@ class Programa(models.Model):
     semestres = models.IntegerField()
     creditos = models.IntegerField()
     estado = models.BooleanField(default=True)
-    cod_escuela = models.ForeignKey(Escuela, null=True)
-    dir_programa = models.OneToOneField(Usuario, null=True)
+    cod_escuela = models.ForeignKey(Escuela)
+    dir_programa = models.OneToOneField(Usuario,blank=True, null=True)
 
     def delete(self):
         if self.estado:
+            self.nombre = self.nombre+'_borrado'
             self.estado = False
             self.save()
             return True
