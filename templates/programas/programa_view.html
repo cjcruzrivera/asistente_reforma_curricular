@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="formulario">
+        <div id="div_tabla" class="col-md-7 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>{{programa.nombre}} </h2>
+                {% if usuario.rol.nombre == "Administrador" or usuario.rol.nombre == "Decano"%}
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'programa:programa_listar' %}">
+                        <i class='icon-reply icon-large'></i> Programas</a>
+                </div>
+                {% endif %}
+                
+                <br>
+
+                {% if cursos %}
+                <table id="cursos" class="table table-bordered">
+                    <thead>
+                        <tr>
+                                <td style="color: black">Codigo del curso</td>
+                                <td style="color: black">Nombre</td>
+                                <td style="color: black">Creditos</td>
+                                <td style="color: black">Horas de clase magistral</td>
+                                <td style="color: black">Horas de estudio individual</td>
+                                <td style="color: black">Tipo de curso</td>
+                                <td style="color: black">Validable</td>
+                                <td style="color: black">Habilitable</td>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for curso in cursos %}
+                        {% if curso.estado %}
+                        <tr>
+                                <td>{{ curso.codigo }}</td>
+                                <td>{{ curso.nombre }}</td>
+                                <td>{{ curso.creditos }}</td>
+                                <td>{{ curso.horas_catedra }}</td>
+                                <td>{{ curso.horas_individual }}</td>
+                                <td>{{ curso.tipo.nombre }}</td>
+                                <td>
+                                    {% if curso.validable %} SI {% else %} NO {% endif %}
+                                </td>
+                                <td>
+                                    {% if curso.habilitable %} SI {% else %} NO {% endif %}
+                                </td>
+                            
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>El programa no registra cursos </h4>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+{% block extrajs %}
+<script>
+    $('#cursos').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ cursos",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        }
+    });
+</script> {% endblock %}

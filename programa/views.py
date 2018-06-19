@@ -10,10 +10,21 @@ from django.core import serializers
 from .models import Programa
 from .forms import ProgramaForm
 from usuario.models import Usuario, Rol
+from curso.models import Curso
 # Create your views here.
 
 def index(request):
     render(request, 'programas/index.html')
+
+def view_one(request, pk):
+    programa = Programa.objects.get(pk=pk)
+    cursos = Curso.objects.filter(programa=programa)
+    return render(request, 'programas/programa_view.html',{
+        'programa':programa,
+        'usuario': request.user,
+        'cursos': cursos,
+    })
+ 
 
 class ProgramaListView(ListView):
     model = Programa

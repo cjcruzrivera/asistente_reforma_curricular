@@ -8,11 +8,21 @@ from django.core.urlresolvers import reverse_lazy
 
 from .models import Usuario
 from .forms import UsuarioCreateForm, UsuarioForm
+from programa.models import Programa
 
 # Create your views here.
 
 def index(request):
     return render(request, 'usuario/index.html')
+
+def consulta_programa(request):
+    pk = request.POST.get('id_usuario')
+    usuario = Usuario.objects.get(pk=pk)
+    programa = Programa.objects.get(dir_programa=usuario)
+    response = {'resultado': 'exito','programa':programa.id}
+    return JsonResponse(response)
+
+
 
 class UsuarioListView(ListView):
     model = Usuario

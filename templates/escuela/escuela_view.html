@@ -4,10 +4,10 @@
 <section id="formulario">
         <div id="div_tabla" class="col-md-7 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Escuela {{escuela.nombre_largo}}</h2>
+                <h2>{{escuela.nombre_largo}} - {{escuela.nombre_corto}}</h2>
                 <div style="float: right;">
                     <a class="btn btn-primary" href="{% url 'escuela:escuela_listar' %}">
-                        <i class='icon-step-backward icon-large'></i> Escuelas</a>
+                        <i class='icon-reply icon-large'></i> Escuelas</a>
                 </div>
                 <br>
 
@@ -51,7 +51,7 @@
 <script>
     $('#programas').DataTable({
         "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
+            "lengthMenu": "Mostrando _MENU_ programas academicos",
             "info": "Página _PAGE_ de _PAGES_",
             "search": "Buscar:",
             "paginate": {
