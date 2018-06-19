@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="formulario">
+        <div id="div_tabla" class="col-md-7 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Escuela {{escuela.nombre_largo}}</h2>
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'escuela:escuela_listar' %}">
+                        <i class='icon-step-backward icon-large'></i> Escuelas</a>
+                </div>
+                <br>
+
+                {% if programas %}
+                <table id="programas" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <!-- <td style="color: black">Codigo</td> -->
+                            <td style="color: black; width:220px">Nombre</td>
+                            <td class="text-center" style="color: black; width: 6px">Número semestres</td>
+                            <td class="text-center" style="color: black; width: 6px">Creditos</td>
+                            <td style="color: black">Escuela</td>
+			    <td style="color: black">Director de Programa</td>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for programa in programas %}
+                        {% if programa.estado %}
+                        <tr>
+                            <td>{{ programa.nombre }}</td>
+                            <td class="text-center">{{ programa.semestres }}</td>
+                            <td class="text-center">{{ programa.creditos }}</td>
+                            <td>{{ programa.cod_escuela.nombre_largo }}</td>
+                            <td>{{ programa.dir_programa }}</td>
+                            
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>La escuela no registra programas academicos</h4>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+{% block extrajs %}
+<script>
+    $('#programas').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        }
+    });
+</script> {% endblock %}

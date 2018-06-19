@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
 
 from .models import Escuela
+from programa.models import Programa
 from .forms import EscuelaForm
 # Create your views here.
 
@@ -15,6 +16,15 @@ from .forms import EscuelaForm
 def index(request):
     return render(request, 'escuela/index.html')
 
+def view_one(request, pk):
+    escuela = Escuela.objects.get(pk=pk)
+    programas = Programa.objects.filter(cod_escuela=escuela)
+    return render(request, 'escuela/escuela_view.html',{
+        'escuela':escuela,
+        'usuario': request.user,
+        'programas': programas,
+    })
+    
 
 class EscuelaListView(ListView):
     model = Escuela

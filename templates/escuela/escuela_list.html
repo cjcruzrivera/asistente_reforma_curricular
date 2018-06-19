@@ -8,10 +8,11 @@
                     <a class="btn btn-primary" href="{% url 'escuela:escuela_crear' %}">
                         <i class='icon-plus-sign-alt icon-large'></i> Nueva Escuela</a>
                 </div>
-                <hr> {% if object_list %}
+                 {% if object_list %}
                 <table id="escuelas" class="table table-bordered">
                     <thead>
                         <tr>
+                            <td hidden>id</td>
                             <td style="color: black">Nombre Corto</td>
                             <td style="color: black">Nombre Largo</td>
                             <td style="color: black"> Acciones</td>
@@ -20,6 +21,7 @@
                     <tbody>
                         {% for escuela in object_list %} {% if escuela.estado %}
                         <tr>
+                            <td hidden>{{escuela.id}}</td>
                             <td>{{ escuela.nombre_corto }}</td>
                             <td>{{ escuela.nombre_largo }}</td>
                             <td class="text-center" style="padding: 10px 10px 10px 10px">
@@ -42,18 +44,5 @@
 
 
 {% endblock %} {% block extrajs %}
-<script>
-    $('#escuelas').DataTable({
-        "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
-            "info": "Página _PAGE_ de _PAGES_",
-            "search": "Buscar:",
-            "paginate": {
-                "first": "Primera",
-                "previous": "Pág. Anterior",
-                "next": "Siguiente",
-                "last": "Última"
-            }
-        }
-    });
-</script> {% endblock %}
+<script src="{% static 'js/escuela.js' %}" type="text/javascript"></script>
+ {% endblock %}
