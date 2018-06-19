@@ -4,7 +4,7 @@
         <li class="sidebar-brand">
         </li>
         <li>
-            <a href="#">Perfil</a>
+            <a href="{% url 'usuario:perfil' usuario.id %}">Perfil</a>
         </li>
         <div id="acordion-cursos" class="panel-group">
             <li>
@@ -14,7 +14,7 @@
         </div>
         <div id="acordion-programas" class="panel-group">
             <li>
-                <a href="#programa">
+                <a href="#" id="program" data-id="{{ usuario.id }}">
                         <!-- Aqui ira enlace a vista individual del programa de la cual es director -->
                      Programa Académico
                 </a>

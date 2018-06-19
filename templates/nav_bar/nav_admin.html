@@ -4,11 +4,11 @@
             <li class="sidebar-brand">
             </li>
             <li>
-                <a href="#">Perfil</a>
+                <a href="{% url 'usuario:perfil' usuario.id %}">Perfil</a>
             </li>
             <div id="acordion-usuarios" class="panel-group">
                 <li>
-                    <a href="{% url 'usuario:usuario_listar' %}">Usuarios</a>
+                    <a href="{% url 'usuario:usuario_listar'%}">Usuarios</a>
                 </li>
             </div>
             <div id="acordion-escuelas" class="panel-group">
