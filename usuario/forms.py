@@ -2,7 +2,8 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
 from django.contrib.auth.password_validation import validate_password
 
-from .models import Usuario
+from .models import Usuario, Rol
+from escuela.models import Escuela
 
 class UsuarioCreateForm(UserCreationForm):
     error_messages = {
@@ -38,7 +39,7 @@ class UsuarioCreateForm(UserCreationForm):
             'last_name': forms.TextInput(attrs={'class':'form-control','id':'apellidos', 'placeholder': 'Ingrese los apellidos del usuario'}),
             'email': forms.EmailInput(attrs={'class':'form-control','id':'email', 'placeholder': 'Ingrese el correo electronico'}),
             'escuela': forms.Select(attrs={'class':'form-control','id':'escuela'}),
-            'roles': forms.Select(attrs={'class':'form-control','id':'rol'}),
+            'rol': forms.Select(attrs={'class':'form-control','id':'rol'}),
         }
 
     def clean_username(self):
@@ -71,6 +72,11 @@ class UsuarioCreateForm(UserCreationForm):
                 code='password_mismatch',
             )
         return password2
+    
+    def __init__(self, *args, **kwargs):
+        super(UsuarioCreateForm, self).__init__(*args, **kwargs)
+        self.fields['escuela'].queryset = Escuela.objects.filter(estado=True)
+        self.fields['rol'].queryset = Rol.objects.filter(estado=True)
 
 
 
@@ -104,7 +110,7 @@ class UsuarioForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class':'form-control','id':'apellidos', 'placeholder': 'Ingrese los apellidos del usuario'}),
             'email': forms.EmailInput(attrs={'class':'form-control','id':'email', 'placeholder': 'Ingrese el correo electronico'}),
             'escuela': forms.Select(attrs={'class':'form-control','id':'escuela'}),
-            'roles': forms.Select(attrs={'class':'form-control','id':'escuela'}),
+            'rol': forms.Select(attrs={'class':'form-control','id':'rol'}),
         }
 
 

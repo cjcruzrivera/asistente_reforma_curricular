@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
 
 from .models import Curso
 from .forms import CursoForm, PrerrequisitosForm
@@ -14,6 +15,15 @@ from .forms import CursoForm, PrerrequisitosForm
 def index(request):
     return render(request, 'curso/index.html')
 
+def eliminar(request):
+    pk = request.POST.get('id_curso')
+    curso_borrar = Curso.objects.get(pk=pk)
+    if curso_borrar.delete():
+        response = {'resultado': 'exito','nombre':curso_borrar.nombre}
+    else:
+        response = {'resultado': 'error'}
+
+    return JsonResponse(response)
 
 class CursoListView(ListView):
     model = Curso

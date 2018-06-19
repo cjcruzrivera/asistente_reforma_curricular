@@ -1,5 +1,7 @@
 from django import forms
-from .models import Curso
+from .models import Curso, TipoCurso
+from usuario.models import Usuario, Rol
+from programa.models import Programa
 
 class PrerrequisitosForm(forms.ModelForm):
 
@@ -69,6 +71,14 @@ class CursoForm(forms.ModelForm):
             'tipo': forms.Select(attrs={'class':'form-control','id':'tipo'}),
             'docente_encargado':forms.Select(attrs={'class':'form-control','id':'docente'}),
         }
+    
+    def __init__(self, *args, **kwargs):
+        super(CursoForm, self).__init__(*args, **kwargs)
+        self.fields['programa'].queryset = Programa.objects.filter(estado=True)
+        rol = Rol.objects.get(nombre='Docente')
+        self.fields['docente_encargado'].queryset = Usuario.objects.filter(estado=True, rol=rol)
+        self.fields['tipo'].queryset = TipoCurso.objects.filter(estado=True)
+
 
 
 

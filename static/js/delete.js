@@ -18,6 +18,11 @@ $(document).on('click', '#delete', function () {
             usuario = $(this).attr('data-nombre');
             mensaje = 'el usuario ' + usuario;
             break;
+        case 'curso':
+            var curso = "";
+            curso = $(this).attr('data-nombre');
+            mensaje = 'el curso ' + curso;
+            break;
         default:
             break;
     }
@@ -52,9 +57,51 @@ function deleteElement(id, tipo) {
         case 'usuario':
             return deleteUsuario(id);
             break;
+        case 'curso':
+            return deleteCurso(id);
+            break;
+
         default:
             break;
     }
+}
+
+function deleteCurso(id) {
+    borrado = false;
+    $.ajax({
+        type: "POST",
+        data: {
+            id_curso: id
+        },
+        url: "/curso/eliminar/",
+        success: function (msg) {
+            borrado = true;
+            swal({
+                title: "Borrado con éxito",
+                text: "El curso " + msg.nombre + " ha sido borrado con éxito",
+                icon: "success",
+                buttons: false,
+                timer: 1500,
+            });
+        },
+        async: false,
+        dataType: "json",
+        cache: "false",
+        error: function (msg) {
+            swal({
+                title: "Error AJAX",
+                text: msg.responseText,
+                html: true,
+                type: "warning",
+                confirmButtonColor: "#d51b23"
+            });
+            console.log("AJAXerror");
+            console.log(msg);
+
+        },
+    });
+    return borrado;
+
 }
 
 function deleteUsuario(id) {

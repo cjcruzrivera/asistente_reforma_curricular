@@ -26,7 +26,7 @@ class TipoCurso(models.Model):
 
 class Curso(models.Model):
     nombre = models.CharField(max_length=50)
-    codigo = models.CharField(max_length=7, unique=True)
+    codigo = models.CharField(max_length=25, unique=True)
     creditos = models.IntegerField()
     programa = models.ForeignKey(Programa, blank=True, null=True)
     horas_catedra = models.IntegerField()
