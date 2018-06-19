@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'asistente_reforma_curricular.wsgi.application'
 
 DATABASES = {
     # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # 'ENGINE': 'django.db.backends.sqlite3',
+    # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
-# 
+    #
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'asistente_reforma_curricular',
@@ -111,6 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',

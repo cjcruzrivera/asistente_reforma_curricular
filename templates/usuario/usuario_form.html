@@ -10,70 +10,8 @@ ADMINISTRADOR {% endblock %} {% block content %}
                 <h2>Agregar Usuario</h2>                
                 <form method="POST">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label>Nombre</label>
-                                {{ form.first_name }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Apellidos</label>
-                                {{ form.last_name }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Nombre de usuario</label>
-                                {{ form.username }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Correo</label>
-                                {{ form.email }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Escuela</label>
-                                {{ form.escuela }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Rol</label>
-                                {{ form.rol }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Contraseña</label>
-                                <input class="form-control" type="password" name="password1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="form-group">
-                                <label >Confirmar contraseña</label>
-                                <input class="form-control" type="password" name="password2">
-                            </div>
-                        </div>
-                    </div>
+                    {{ form.as_p }}
+                    
                     <div class="text-center form-group">
                         <button id="agregar" type="submit" class="btn btn-primary">Guardar</button>
                         <button id="limpiar" type="reset" class="btn btn-primary">Limpiar</button>

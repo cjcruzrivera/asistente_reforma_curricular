@@ -12,6 +12,12 @@ $(document).on('click', '#delete', function () {
             var programa = "";
             programa = $(this).attr('data-nombre');
             mensaje = 'el programa ' + programa;
+            break;
+        case 'usuario':
+            var usuario = "";
+            usuario = $(this).attr('data-nombre');
+            mensaje = 'el usuario ' + usuario;
+            break;
         default:
             break;
     }
@@ -43,12 +49,53 @@ function deleteElement(id, tipo) {
         case 'programa':
             return deletePrograma(id);
             break;
+        case 'usuario':
+            return deleteUsuario(id);
+            break;
         default:
             break;
     }
 }
 
-function deletePrograma(id){
+function deleteUsuario(id) {
+    borrado = false;
+    $.ajax({
+        type: "POST",
+        data: {
+            id_usuario: id
+        },
+        url: "/usuario/eliminar/",
+        success: function (msg) {
+            borrado = true;
+            swal({
+                title: "Borrado con éxito",
+                text: "El usuario " + msg.nombre + " ha sido borrado con éxito",
+                icon: "success",
+                buttons: false,
+                timer: 1500,
+            });
+        },
+        async: false,
+        dataType: "json",
+        cache: "false",
+        error: function (msg) {
+            swal({
+                title: "Error AJAX",
+                text: msg.responseText,
+                html: true,
+                type: "warning",
+                confirmButtonColor: "#d51b23"
+            });
+            console.log("AJAXerror");
+            console.log(msg);
+
+        },
+    });
+    return borrado;
+
+}
+
+function deletePrograma(id) {
     borrado = false;
     $.ajax({
         type: "POST",
