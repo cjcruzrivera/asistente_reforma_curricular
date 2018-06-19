@@ -1,8 +1,5 @@
-{% extends 'base.html' %} {% block sidebar %}
-<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
-<!-- Se debe cargar dinamicamente -->
-ADMINISTRADOR {% endblock %} {% block content %}
+{% extends 'base.html' %} 
+ {% block content %}
 
 <div style="background-color: #E1E1E1">
     <section id="perfil">
@@ -12,19 +9,19 @@ ADMINISTRADOR {% endblock %} {% block content %}
                 <form method="POST">                    
                     <div class="form-group">
                     	<label>Nombre Completo:</label>
-                    	<input type="text" id="nom-completo" readonly>
+                    	<input class="form-control" type="text" id="nom-completo" value="{{usuario_perfil.first_name}} {{usuario_perfil.lastname}}" readonly>
                     </div>
                     <div class="form-group">
-                    	<label>Nombre Corto:</label>
-                    	<input type="text" id="nom-corto" readonly>
+                    	<label>Nombre de usuario:</label>
+                    	<input class="form-control" type="text" id="nom-corto" value="{{usuario_perfil.username}}" readonly>
                     </div>
                     <div class="form-group">
                     	<label>Email:</label>
-                    	<input type="email" id="correo" readonly>
+                    	<input class="form-control" type="email" id="correo" value="{{usuario_perfil.email}}" readonly>
                     </div>
                     <div class="form-group">
                     	<label>Rol:</label>
-                    	<input type="text" id="rol" readonly>
+                    	<input class="form-control" type="text" id="rol" value="{{usuario_perfil.rol.nombre}}" readonly>
                     </div>                    
                 </form>
             </div>
