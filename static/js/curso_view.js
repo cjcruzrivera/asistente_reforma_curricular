@@ -68,3 +68,14 @@ $(document).on('click','#guardar', function () {
         },
     });
 })
+
+$(document).on('click', '#cursos tbody tr td', function() {
+    var pagina = "view/";
+    var table = $("#cursos").DataTable();
+    var colIndex = table.cell(this).index().column;
+    
+    if (colIndex <= 2) {
+        location.href = "/curso/" + pagina + table.cell(table.row(this).index(), 0).data()
+        // window.location.replace(pagina + table.cell(table.row(this).index(), 0).data());
+    }
+});
