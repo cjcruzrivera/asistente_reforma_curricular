@@ -1,13 +1,11 @@
 {% extends 'base.html' %} 
 {% load staticfiles %}
-
-<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
  {% block content %}
 <div style="background-color:  #E1E1E1">
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Agregar Curso</h2>                
+                <h2>{{accion}} Curso</h2>                
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}

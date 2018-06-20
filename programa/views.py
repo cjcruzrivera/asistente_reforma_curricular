@@ -48,6 +48,7 @@ class ProgramaCreateView(CreateView):
         # Llamamos ala implementacion para traer un primer context
         context = super(ProgramaCreateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
+        context['accion'] = 'Registrar'
         context['usuario'] = self.request.user
         return context
 
@@ -60,7 +61,7 @@ class ProgramaUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         # Llamamos ala implementacion para traer un primer context
         context = super(ProgramaUpdateView, self).get_context_data(**kwargs)
-        # Agregamos un QuerySet de todos los books
+        context['accion'] = 'Editar'
         context['usuario'] = self.request.user
         return context
 

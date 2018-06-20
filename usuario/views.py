@@ -37,6 +37,7 @@ class UsuarioListView(ListView):
         # Llamamos ala implementacion para traer un primer context
         context = super(UsuarioListView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
+        context['accion'] = 'Registrar'
         context['usuario'] = self.request.user
         return context
 
@@ -50,6 +51,7 @@ class UsuarioCreateView(CreateView):
         context = super(UsuarioCreateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
+        context['accion'] = 'Editar'
         return context
 
 class UsuarioUpdateView(UpdateView):

@@ -50,6 +50,8 @@ class EscuelaCreateView(CreateView):
         context = super(EscuelaCreateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
+        context['accion'] = 'Registrar'
+
         return context
 
 
@@ -64,6 +66,8 @@ class EscuelaUpdateView(UpdateView):
         context = super(EscuelaUpdateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
+        context['accion'] = 'Editar'
+
         return context
 
 

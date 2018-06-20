@@ -49,14 +49,21 @@ def eliminar(request):
 
 class CursoListView(ListView):
     model = Curso
-    queryset = Curso.objects.filter(estado=True)
     template_name = "curso/curso_list.html"
+
+    def get_queryset(self):
+        usuario =  self.request.user
+        if usuario.rol.nombre == 'Docente':
+            cursos = Curso.objects.filter(docente_encargado=usuario)
+        else:
+            cursos = Curso.objects.all()
+        return cursos
 
     def get_context_data(self, **kwargs):
         # Llamamos ala implementacion para traer un primer context
         context = super(CursoListView, self).get_context_data(**kwargs)
-        # Agregamos un QuerySet de todos los books
-        context['usuario'] = self.request.user
+        usuario = self.request.user
+        context['usuario'] = usuario
         return context
 
 class CursoCreateView(CreateView):
@@ -70,6 +77,7 @@ class CursoCreateView(CreateView):
         context = super(CursoCreateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
+        context['accion'] = 'Registrar'
         return context
 
 class CursoUpdateView(UpdateView):
@@ -83,6 +91,7 @@ class CursoUpdateView(UpdateView):
         context = super(CursoUpdateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
         context['usuario'] = self.request.user
+        context['accion'] = 'Editar'
         return context
 
 
