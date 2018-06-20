@@ -22,8 +22,7 @@ $(document).on('click', '#competencias tbody tr td', function() {
     var colIndex = table.cell(this).index().column;
     
     if (colIndex <= 1) {
-        alert(table.cell(table.row(this).index(), 0).data());
-    //    location.href = pagina + table.cell(table.row(this).index(), 0).data();
+       location.href = '/competencia/' + pagina + table.cell(table.row(this).index(), 0).data();
     }
 });
 

@@ -8,7 +8,11 @@ from actividad.models import Actividad
 # Create your models here.
 
 class ResultadoAprendizaje(models.Model):
-    descripcion = models.CharField(max_length=250)
+    verbos = (('1','Distingue'),('2', 'Analiza'), ('3','Reconoce'), ('4','Resuelve'), ('5','Genera'), ('6','Asimila'),('7', 'Retroalimenta'))
+    verbo = models.CharField(max_length=250, choices=verbos)
+    contenido = models.CharField(max_length=250)
+    contexto  = models.CharField(max_length=250)
+    proposito = models.CharField(max_length=250)
     competencia = models.ForeignKey(Competencia)
     estado = models.BooleanField(default=True)
     actividades = models.ManyToManyField(Actividad)

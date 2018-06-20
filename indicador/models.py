@@ -9,7 +9,9 @@ from actividad.models import Actividad
 # Create your models here.
 
 class IndicadorLogro(models.Model):
-    descripcion = models.CharField(max_length=250)
+    habilidad = models.CharField(max_length=250)
+    contenido = models.CharField(max_length=250)
+    contexto = models.CharField(max_length=250)
     resultado = models.ForeignKey(ResultadoAprendizaje)
     estado = models.BooleanField(default=True)
     actividades = models.ManyToManyField(Actividad)

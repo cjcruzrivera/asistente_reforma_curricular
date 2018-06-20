@@ -10,8 +10,20 @@ from django.http import HttpResponseRedirect, JsonResponse
 from .models import Competencia
 from .forms import CompetenciaForm
 from curso.models import Curso
+from resultado_aprendizaje.models import ResultadoAprendizaje
 
 # Create your views here.
+
+def view_one(request, pk):
+    competencia = Competencia.objects.get(pk=pk)
+    curso = competencia.curso
+    resultados = ResultadoAprendizaje.objects.filter(competencia=competencia)
+    return render(request, 'competencias/competencia_view.html',{
+        'curso':curso,
+        'usuario': request.user,
+        'competencia': competencia,
+        'resultados': resultados,
+    })
 
 class CompetenciaCreateView(CreateView):
     model = Competencia
