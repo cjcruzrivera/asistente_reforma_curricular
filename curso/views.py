@@ -15,6 +15,28 @@ from .forms import CursoForm, PrerrequisitosForm
 def index(request):
     return render(request, 'curso/index.html')
 
+def view_one(request, pk):
+    curso = Curso.objects.get(pk=pk)
+    prerrequisitos = curso.prerrequisitos.all()
+    posibles_pre = Curso.objects.filter(estado=True, semestre__lt=curso.semestre)
+    pos = posibles_pre.difference(prerrequisitos)
+    return render(request, 'curso/curso_view.html',{
+        'curso':curso,
+        'usuario': request.user,
+        'prerrequisitos': prerrequisitos,
+        'posibles_pre': pos,
+    })
+
+def prerrequisito(request):
+    id_curso = request.POST.get('id_curso')
+    id_pre = request.POST.get('id_pre')
+    curso = Curso.objects.get(pk=id_curso)
+    prerrequis = Curso.objects.get(pk=id_pre)
+    curso.prerrequisitos.add(prerrequis)
+    curso.save()
+    response = {'resultado': 'exito', 'nombre':prerrequis.nombre}
+    return JsonResponse(response)
+
 def eliminar(request):
     pk = request.POST.get('id_curso')
     curso_borrar = Curso.objects.get(pk=pk)

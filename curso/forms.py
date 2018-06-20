@@ -18,7 +18,7 @@ class PrerrequisitosForm(forms.ModelForm):
             'prerrequisitos':'Prerrequisitos',
         }
         widgets={
-            'nombre': forms.TextInput(attrs={'class':'form-control','id':'nombre','disabled':'true', 'placeholder': 'Ingrese el nombre del curso'}),
+            'nombre': forms.TextInput(attrs={'class':'form-control','id':'nombre','readonly':'true', 'placeholder': 'Ingrese el nombre del curso'}),
             'prerrequisitos': forms.CheckboxSelectMultiple(),
         }
 
@@ -65,7 +65,7 @@ class CursoForm(forms.ModelForm):
             'programa': forms.Select(attrs={'class':'form-control','id':'programa'}),
             'horas_catedra': forms.NumberInput(attrs={'class':'form-control','id':'horas_magistral', 'placeholder': 'Ingrese el numero de horas de clase magistral'}),
             'horas_individual': forms.NumberInput(attrs={'class':'form-control','id':'horas_independientes', 'placeholder': 'Ingrese el numero de horas de clase independiente'}),
-            'semestre': forms.Select(attrs={'class':'form-control','id':'semestre', 'placeholder': 'Ingrese el semestre al que pertenece el curso'}),
+            'semestre': forms.NumberInput(attrs={'class':'form-control','id':'semestre', 'placeholder': 'Ingrese el semestre al que pertenece el curso'}),
             'validable': forms.CheckboxInput(attrs={'class':'form-control','id':'validable'}),
             'habilitable': forms.CheckboxInput(attrs={'class':'form-control','id':'habilitable'}),
             'tipo': forms.Select(attrs={'class':'form-control','id':'tipo'}),

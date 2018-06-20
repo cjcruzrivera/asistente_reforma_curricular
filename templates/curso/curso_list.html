@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load staticfiles %}
+{% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-12 mx-auto">
@@ -12,6 +14,7 @@
                 <table id="cursos" class="table table-bordered">
                     <thead>
                         <tr>
+                            <td hidden>id</td>
                             <td style="color: black">Codigo del curso</td>
                             <td style="color: black">Nombre</td>
                             <td style="color: black">Creditos</td>
@@ -31,6 +34,7 @@
                     <tbody>
                         {% for curso in object_list %} {% if curso.estado %}
                         <tr>
+                            <td hidden> {{curso.id}} </td>
                             <td>{{ curso.codigo }}</td>
                             <td>{{ curso.nombre }}</td>
                             <td>{{ curso.creditos }}</td>
@@ -67,18 +71,5 @@
 
 
 {% endblock %} {% block extrajs %}
-<script>
-    $('#cursos').DataTable({
-        "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
-            "info": "Página _PAGE_ de _PAGES_",
-            "search": "Buscar:",
-            "paginate": {
-                "first": "Primera",
-                "previous": "Pág. Anterior",
-                "next": "Siguiente",
-                "last": "Última"
-            }
-        }
-    });
-</script> {% endblock %}
+<script src="{% static 'js/curso_list.js' %}"></script>
+ {% endblock %}
