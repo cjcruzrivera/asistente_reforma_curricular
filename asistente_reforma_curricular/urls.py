@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^programa/', include('programa.urls', namespace="programa")),
     url(r'^escuela/', include('escuela.urls', namespace="escuela")),
     url(r'^curso/', include('curso.urls', namespace="curso")),
+    url(r'^competencia/', include('competencia.urls', namespace="competencia")),
     url(r'^logout/', logout, name="salir", kwargs={'next_page': '/'}),
 ]

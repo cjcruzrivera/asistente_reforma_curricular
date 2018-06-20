@@ -1,17 +1,20 @@
-{% extends 'base.html' %} {% block sidebar %}
-<!-- Se debe cargar dinamicamente segun el rol que ingrese -->
-{% include 'nav_bar/nav_admin.html' %} {% endblock %} {% block rolename %}
-<!-- Se debe cargar dinamicamente -->
-ADMINISTRADOR {% endblock %} {% block content %}
+{% extends 'base.html' %} 
+{% load staticfiles %}
+{% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
-        <div style="background-color: #FFFFFF" class="col-md-112 mx-auto">
+        <div style="background-color: #FFFFFF" class="col-md-12 mx-auto">
             <div id="iniciar" class="panel-group">
                 <h2>Consultar Curso</h2>
-                <hr> {% if object_list %}
-                <table class="table table-bordered">
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'curso:curso_crear' %}">
+                        <i class='icon-plus-sign-alt icon-large'></i> Nuevo Curso</a>
+                </div>
+                {% if object_list %}
+                <table id="cursos" class="table table-bordered">
                     <thead>
                         <tr>
+                            <td hidden>id</td>
                             <td style="color: black">Codigo del curso</td>
                             <td style="color: black">Nombre</td>
                             <td style="color: black">Creditos</td>
@@ -21,12 +24,17 @@ ADMINISTRADOR {% endblock %} {% block content %}
                             <td style="color: black">Validable</td>
                             <td style="color: black">Habilitable</td>
                             <td style="color: black">Programa</td>
-                            <td class="text-center" colspan="3"> Acciones</td>
+                            {% if not usuario.rol.nombre == "Decano" %}
+
+                            <td class="text-center" style="width: 130px"> Acciones</td>
+                            {% endif %}
+
                         </tr>
                     </thead>
                     <tbody>
                         {% for curso in object_list %} {% if curso.estado %}
                         <tr>
+                            <td hidden> {{curso.id}} </td>
                             <td>{{ curso.codigo }}</td>
                             <td>{{ curso.nombre }}</td>
                             <td>{{ curso.creditos }}</td>
@@ -40,15 +48,15 @@ ADMINISTRADOR {% endblock %} {% block content %}
                                 {% if curso.habilitable %} SI {% else %} NO {% endif %}
                             </td>
                             <td>{{ curso.programa.nombre }}</td>
+                            {% if not usuario.rol.nombre == "Decano" %}
+
                             <td class="text-center" style="padding: 10px 10px 10px 10px">
                                 <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
+                                <a id="delete" class="btn btn-danger btn-sm" data-tipo="curso" data-id="{{ curso.id }}" data-nombre="{{ curso.nombre }}"
+                                    href="#">Eliminar</a>
                             </td>
-                            <td class="text-center">
-                                    <a class="btn btn-warning btn-sm" href="{% url 'curso:curso_listar' %}">Prerrequisitos</a>                                
-                            </td>
-                            <td class="text-center">
-                                    <a class="btn btn-danger btn-sm" href="{% url 'curso:curso_eliminar' curso.id %}">Eliminar</a>                                
-                            </td>
+                            {% endif %}
+
                         </tr>
                         {% endif %} {% endfor %}
                     </tbody>
@@ -62,4 +70,6 @@ ADMINISTRADOR {% endblock %} {% block content %}
 </div>
 
 
-{% endblock %}
+{% endblock %} {% block extrajs %}
+<script src="{% static 'js/curso_list.js' %}"></script>
+ {% endblock %}

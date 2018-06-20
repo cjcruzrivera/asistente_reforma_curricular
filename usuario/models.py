@@ -4,16 +4,16 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import AbstractUser
 
 from django.db import models
-from escuela.models import Escuela
 
 # Create your models here
 
 class Rol(models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20, unique=True)
     estado = models.BooleanField(default=True)
 
     def delete(self):
         if self.estado:
+            self.nombre = self.nombre+'_borrado'            
             self.estado = False
             self.save()
             return True
@@ -32,12 +32,14 @@ class Usuario(AbstractUser):
     email = models.EmailField()
     password = models.CharField(max_length=20)
     '''
+
     rol = models.ForeignKey(Rol, null=True)
-    escuela = models.ForeignKey(Escuela, null=True)
+    escuela = models.ForeignKey('escuela.Escuela', null=True)
     estado = models.BooleanField(default=True)
 
     def delete(self):
         if self.estado:
+            self.username = self.username+'_borrado'
             self.estado = False
             self.save()
             return True

@@ -4,41 +4,21 @@
         <li class="sidebar-brand">
         </li>
         <li>
-            <a href="#">Perfil</a>
+            <a href="{% url 'usuario:perfil' usuario.id %}">Perfil</a>
         </li>
         <div id="acordion-cursos" class="panel-group">
             <li>
-                <a href="#curso" data-toggle="collapse" data-parent="#acordion-cursos">Cursos</a>
+                <a href="{% url 'curso:curso_listar' %}" >Cursos</a>
             </li>
-            <section>
-                <div id="curso" class="panel-collapse collapse in">
-                    <ul>
-                        <li>
-                            <a href="{% url 'curso:curso_crear' %}">Agregar Curso</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'curso:curso_listar' %}">Consultar Curso</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+
         </div>
         <div id="acordion-programas" class="panel-group">
             <li>
-                <a href="#programa" data-toggle="collapse" data-parent="#acordion-programas">Programa Académico</a>
+                <a href="#" id="program" data-id="{{ usuario.id }}">
+                        <!-- Aqui ira enlace a vista individual del programa de la cual es director -->
+                     Programa Académico
+                </a>
             </li>
-            <section>
-                <div id="programa" class="panel-collapse collapse in">
-                    <ul>
-                        <li>
-                            <a href="{% url 'programa:programa_crear' %}">Agregar Programa</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'programa:programa_listar' %}">Consultar Programa</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
         </div>
         <li>
             <a href="{% url 'salir' %}">Cerrar sesión</a>
