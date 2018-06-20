@@ -10,10 +10,21 @@ from django.core import serializers
 from .models import Programa
 from .forms import ProgramaForm
 from usuario.models import Usuario, Rol
+from curso.models import Curso
 # Create your views here.
 
 def index(request):
     render(request, 'programas/index.html')
+
+def view_one(request, pk):
+    programa = Programa.objects.get(pk=pk)
+    cursos = Curso.objects.filter(programa=programa)
+    return render(request, 'programas/programa_view.html',{
+        'programa':programa,
+        'usuario': request.user,
+        'cursos': cursos,
+    })
+ 
 
 class ProgramaListView(ListView):
     model = Programa
@@ -37,6 +48,7 @@ class ProgramaCreateView(CreateView):
         # Llamamos ala implementacion para traer un primer context
         context = super(ProgramaCreateView, self).get_context_data(**kwargs)
         # Agregamos un QuerySet de todos los books
+        context['accion'] = 'Registrar'
         context['usuario'] = self.request.user
         return context
 
@@ -49,7 +61,7 @@ class ProgramaUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         # Llamamos ala implementacion para traer un primer context
         context = super(ProgramaUpdateView, self).get_context_data(**kwargs)
-        # Agregamos un QuerySet de todos los books
+        context['accion'] = 'Editar'
         context['usuario'] = self.request.user
         return context
 
@@ -71,7 +83,7 @@ def listar_dir(request):
         return JsonResponse({'vacio':'vacio'}, safe=False)
 
     rol = Rol.objects.get(nombre='Director de Programa')
-    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela, rol=rol), fields=('id', 'first_name', 'last_name'))
+    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela, rol=rol , estado=True), fields=('id', 'first_name', 'last_name'))
 
     return JsonResponse(data, safe=False)
 

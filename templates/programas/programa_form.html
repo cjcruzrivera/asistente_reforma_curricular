@@ -3,7 +3,7 @@
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-6 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Agregar Programa</h2>                
+                <h2>{{accion}} Programa</h2>                  
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -20,5 +20,5 @@
 
 {% endblock %}
 {% block extrajs %}
-<script src="{% static 'js/programa.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/programa_form.js' %}" type="text/javascript"></script>
  {% endblock %}

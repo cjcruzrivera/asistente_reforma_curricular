@@ -8,18 +8,22 @@
 ADMINISTRADOR {% endblock %} {% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
-        <div style="background-color: #FFFFFF" class="col-md-7 mx-auto">
+        <div id="div_tabla"  style="background-color: #FFFFFF" class="col-md-7 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2>Consultar Usuarios</h2>                
+                <h2>Usuarios</h2>  
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'usuario:usuario_crear' %}">
+                        <i class='icon-plus-sign-alt icon-large'></i> Nuevo Usuario</a>
+                </div>              
                 <hr> {% if object_list %}
-                <table class="table table-bordered">
+                <table id="usuarios" class="table table-bordered">
                     <thead>
                         <tr>
-                            <td style="color: black">Nombre de usuario</td>
-                            <td style="color: black">Nombre</td>
-                            <td style="color: black">Apellidos</td>
+                            <td style="width: 120px;color: black">Nombre de usuario</td>
+                            <td style="width: 150px;color: black">Nombre</td>
+                            <td style="width: 150px;color: black">Apellidos</td>
                             <td style="color: black">Correo Electronico</td>
-                            <td> Acciones</td>
+                            <td style="width: 130px"> Acciones</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,9 +34,9 @@ ADMINISTRADOR {% endblock %} {% block content %}
                             <td>{{ usuario.first_name }}</td>
                             <td>{{ usuario.last_name }}</td>
                             <td>{{ usuario.email }}</td>
-                            <td class="text-center" style="width:100%;padding: 10px 10px 10px 10px">
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
                                 <a class="btn btn-primary btn-sm" href="{% url 'usuario:usuario_editar' usuario.id %}">Editar</a>
-                                <a class="btn btn-danger btn-sm" href="{% url 'usuario:usuario_eliminar' usuario.id %}">Eliminar</a>
+                                <a id="delete" class="btn btn-danger btn-sm" data-tipo="usuario" data-id="{{usuario.id}}" data-nombre="{{usuario.first_name}} {{usuario.last_name}}" href="#">Eliminar</a>
                             </td>
                         </tr>
                         {% endif %}
@@ -49,3 +53,19 @@ ADMINISTRADOR {% endblock %} {% block content %}
 
 
 {% endblock %}
+{% block extrajs %}
+<script>
+    $('#usuarios').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        }
+    });
+</script> {% endblock %}

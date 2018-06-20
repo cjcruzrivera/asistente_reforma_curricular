@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<div style="background-color: #E1E1E1">
+    <section id="formulario">
+        <div id="div_tabla" style="background-color: #FFFFFF" class="col-md-8 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>Competencias del curso {{curso.nombre}}</h2>
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'curso:view' curso.id %}">
+                        <i class='icon-reply icon-large'></i> Volver al curso</a>
+                </div>
+                <div>
+                    <a class="btn btn-primary" href="{% url 'competencia:competencia_crear' curso.id %}">
+                        <i class='icon-plus-sign-alt icon-large'></i> Nueva Competencia</a>
+                </div>
+                {% if object_list %}
+                <table id="competencias" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td hidden>id</td>
+                            <td style="color: black">Descripcion de la competencia</td>
+                            <td style="width: 130px"> Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for competencia in object_list %} {% if competencia.estado %}
+                        <tr>
+                            <td hidden>{{ competencia.id }}</td>
+                            <td>{{ competencia.descripcion }}</td>
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_editar' curso.id competencia.id  %}"> Editar </a>
+                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="competencia" data-id="{{ competencia.id }}" data-nombre="{{ competencia.descripcion }}"
+                                    href="#">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endif %} {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <br>
+                <h4>NO HAY COMPETENCIAS REGISTRADAS</h4>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %} {% block extrajs %}
+<script src="{% static 'js/competencias_list.js' %}" type="text/javascript"></script> {% endblock %}

@@ -4,7 +4,7 @@
             <li class="sidebar-brand">
             </li>
             <li>
-                <a href="#">Perfil</a>
+                <a href="{% url 'usuario:perfil' usuario.id %}">Perfil</a>
             </li> 
             <div id="acordion-escuelas" class="panel-group">
                 <li>
@@ -16,6 +16,10 @@
                     <a href="{% url 'programa:programa_listar' %}">Programas Académicos</a>
                 </li>
             </div>                    
+            <li>
+                <a href="{% url 'curso:curso_listar' %}" >Cursos</a>
+            </li>
+
             <li>
                 <a href="{% url 'salir' %}">Cerrar sesión</a>
             </li>

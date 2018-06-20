@@ -15,7 +15,7 @@ from programa.models import Programa
 
 # Create your views here.
 
-@login_required(login_url='/')
+@login_required(login_url='/login')
 def index(request):
     usuario = request.user
     return render(request,'index.html' ,{'usuario': usuario})
@@ -30,10 +30,10 @@ def carga_datos_inicial(request):
                 {'corto':'EICG','largo':'Escuela de Ingeniería Civil y Geomática'},
                 {'corto':'EIDENAR','largo':'Escuela de Ingenieria de Recursos Naturales y del Ambiente'},]
     usuarios = [{'username':'raul_g', 'first_name':'Raul','last_name':'Gutierrez', 'rol': 'Director de Programa', 'password':'eisc_dir', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},
-                {'username':'diego_g', 'first_name':'Diego Fernando','last_name':'Garcia', 'rol': 'Director de Programa', 'password':'eiee_dir', 'email':'raul_g@eisc.com', 'escuela': 'EIEE'},
-                {'username':'cjcruzrivera', 'first_name':'Camilo José','last_name':'Cruz Rivera', 'rol': 'Administrador', 'password':'admin_cj', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},
-                {'username':'beatriz_f', 'first_name':'Beatriz','last_name':'Florian', 'rol': 'Docente', 'password':'eisc_1234', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},
-                {'username':'carlos_loz', 'first_name':'Carlos Arturo','last_name':'Lozano Moncada', 'rol': 'Decano', 'password':'eisc_1234', 'email':'raul_g@eisc.com', 'escuela': 'EISC'},]
+                {'username':'diego_g', 'first_name':'Diego Fernando','last_name':'Garcia', 'rol': 'Director de Programa', 'password':'eiee_dir', 'email':'diego_g@eiee.com', 'escuela': 'EIEE'},
+                {'username':'cjcruzrivera', 'first_name':'Camilo José','last_name':'Cruz Rivera', 'rol': 'Administrador', 'password':'admin_cj', 'email':'cjcruzrivera@eisc.com', 'escuela': 'EISC'},
+                {'username':'beatriz_f', 'first_name':'Beatriz','last_name':'Florian', 'rol': 'Docente', 'password':'eisc_1234', 'email':'beatriz_f@eisc.com', 'escuela': 'EISC'},
+                {'username':'carlos_loz', 'first_name':'Carlos Arturo','last_name':'Lozano Moncada', 'rol': 'Decano', 'password':'eisc_1234', 'email':'carlos_loz@eisc.com', 'escuela': 'EISC'},]
     
     programas = [{'nombre':'Ingenieria en Sistemas',
                   'semestres': 10,
@@ -65,13 +65,15 @@ def carga_datos_inicial(request):
 
     for usuario in usuarios:
         if not Usuario.objects.filter(username=usuario['username']).exists():
-            registro = Usuario(username=usuario['username'], 
-                               first_name=usuario['first_name'], 
-                               last_name=usuario['last_name'], 
-                               password=usuario['password'], 
-                               email=usuario['email'], 
-                               rol=Rol.objects.get(nombre=usuario['rol']), 
-                               escuela=Escuela.objects.get(nombre_corto=usuario['escuela']))
+            registro = Usuario.objects.create_user(username=usuario['username'],
+                                 email=usuario['email'],
+                                 password=usuario['password'])
+            registro.first_name = usuario['first_name']
+            registro.last_name = usuario['last_name']
+            registro.rol = Rol.objects.get(nombre=usuario['rol'])
+            registro.escuela = Escuela.objects.get(nombre_corto=usuario['escuela'])
+                            #    rol=Rol.objects.get(nombre=usuario['rol']), 
+                            #    escuela=Escuela.objects.get(nombre_corto=usuario['escuela']))
             registro.save()
    
     for tipo in tipos_act:
