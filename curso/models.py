@@ -44,8 +44,8 @@ class Curso(models.Model):
         curso = Curso.objects.get(pk=self.id)
         if Competencia.objects.filter(curso=curso, estado=True).exists():
             for competencia in Competencia.objects.filter(curso=curso, estado=True):
-                if not competencia.validateCompleto():
-                    return False
+                if competencia.validateCompleto():
+                    return True
 
             return True
         else:
