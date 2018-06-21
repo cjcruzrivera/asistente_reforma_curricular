@@ -1,17 +1,4 @@
 $(document).ready(function() {
-    $('#indicadores').DataTable({
-        "language": {
-            "lengthMenu": "Mostrando _MENU_ programas academicos",
-            "info": "Página _PAGE_ de _PAGES_",
-            "search": "Buscar:",
-            "paginate": {
-                "first": "Primera",
-                "previous": "Pág. Anterior",
-                "next": "Siguiente",
-                "last": "Última"
-            }
-        }
-    });
 
     $('#actividades').DataTable({
         "language": {
@@ -49,7 +36,7 @@ $(document).on('click', '#actualizar', function () {
     }
 
     var descripcion_act = $('#descripcion').val();
-    if(descripcion == ''){
+    if(descripcion_act === ''){
         swal({
             title: "Ingrese la descripcion de la actividad",
             text: '',
@@ -127,7 +114,7 @@ $(document).on('click', '#guardar', function () {
     }
 
     var descripcion_act = $('#descripcion').val();
-    if(descripcion_act == ''){
+    if(descripcion == ''){
         swal({
             title: "Ingrese la descripcion de la actividad",
             text: '',
@@ -139,16 +126,16 @@ $(document).on('click', '#guardar', function () {
         return
     }
 
-    var resultado = $(this).attr('data-resultado')
+    var indicador = $(this).attr('data-indicador')
 
     $.ajax({
         type: "POST",
         data: {
-            id_resultado: resultado,
+            id_indicador: indicador,
             tipo: tipo_act,
             descripcion: descripcion_act,
         },
-        url: "/resultado/actividad/",
+        url: "/indicador/actividad/",
         success: function (msg) {
             swal({
                 title: "Almacenado con éxito",
@@ -177,15 +164,3 @@ $(document).on('click', '#guardar', function () {
         },
     });
 })
-
-
-$(document).on('click', '#indicadores tbody tr td', function() {
-    var pagina = "view/";
-    var table = $("#indicadores").DataTable();
-    var colIndex = table.cell(this).index().column;
-    
-    if (colIndex <= 2) {
-        location.href = "/indicador/" + pagina + table.cell(table.row(this).index(), 0).data()
-        // window.location.replace(pagina + table.cell(table.row(this).index(), 0).data());
-    }
-});
