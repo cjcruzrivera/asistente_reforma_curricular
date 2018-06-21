@@ -57,6 +57,8 @@ class CursoListView(ListView):
             cursos = Curso.objects.filter(docente_encargado=usuario)
         else:
             cursos = Curso.objects.all()
+        for curso in cursos:
+            curso.completo = curso.validateCompleto()
         return cursos
 
     def get_context_data(self, **kwargs):

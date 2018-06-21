@@ -37,7 +37,11 @@
                     </thead>
                     <tbody>
                         {% for res in indicadores %} {% if res.estado %}
-                        <tr>
+                        {% if res.completo %}
+                        <tr id="verde">
+                        {% else %}
+                        <tr id="rojo">
+                        {% endif %}
                             <td class="text-center"> {{res.id}} </td>
                             <td>
                                 <label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado for="resultado">

@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-from resultado_aprendizaje.models import ResultadoAprendizaje
 from actividad.models import Actividad
 
 # Create your models here.
@@ -13,9 +12,15 @@ class IndicadorLogro(models.Model):
     habilidad = models.CharField(max_length=250, choices=habilidades)
     contenido = models.CharField(max_length=250)
     contexto = models.CharField(max_length=250)
-    resultado = models.ForeignKey(ResultadoAprendizaje)
+    resultado = models.ForeignKey('resultado_aprendizaje.ResultadoAprendizaje')
     estado = models.BooleanField(default=True)
     actividades = models.ManyToManyField(Actividad)
+
+    def validateCompleto(self):
+        if self.actividades.all():
+            return True
+        else:
+            return False
 
     def delete(self):
         if self.estado:

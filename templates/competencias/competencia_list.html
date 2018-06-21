@@ -22,17 +22,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for competencia in object_list %} {% if competencia.estado %}
-                        <tr>
-                            <td hidden>{{ competencia.id }}</td>
-                            <td>{{ competencia.descripcion }}</td>
-                            <td class="text-center" style="padding: 10px 10px 10px 10px">
-                                <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_editar' curso.id competencia.id  %}"> Editar </a>
-                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="competencia" data-id="{{ competencia.id }}" data-nombre="{{ competencia.descripcion }}"
-                                    href="#">Eliminar</a>
-                            </td>
-                        </tr>
-                        {% endif %} {% endfor %}
+                        {% for competencia in object_list %} {% if competencia.estado %} {% if competencia.completo %}
+                        <tr id="verde">
+                            {% else %}
+                            <tr id="rojo">
+                                {%endif%}
+                                <td hidden>{{ competencia.id }}</td>
+                                <td>{{ competencia.descripcion }}</td>
+                                <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                    <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_editar' curso.id competencia.id  %}"> Editar </a>
+                                    <a class="btn btn-danger btn-sm" id="delete" data-tipo="competencia" data-id="{{ competencia.id }}" data-nombre="{{ competencia.descripcion }}"
+                                        href="#">Eliminar</a>
+                                </td>
+                            </tr>
+                            {% endif %} {% endfor %}
                     </tbody>
                 </table>
                 {% else %}

@@ -5,6 +5,7 @@ from django.db import models
 
 from programa.models import Programa
 from usuario.models import Usuario
+from competencia.models import Competencia
 # Create your models here.
 
 class TipoCurso(models.Model):
@@ -38,6 +39,17 @@ class Curso(models.Model):
     semestre = models.IntegerField()
     validable = models.BooleanField()
     habilitable = models.BooleanField()
+
+    def validateCompleto(self):
+        curso = Curso.objects.get(pk=self.id)
+        if Competencia.objects.filter(curso=curso, estado=True).exists():
+            for competencia in Competencia.objects.filter(curso=curso, estado=True):
+                if not competencia.validateCompleto():
+                    return False
+
+            return True
+        else:
+            return False        
 
     def delete(self):
         if self.estado:

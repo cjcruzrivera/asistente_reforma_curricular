@@ -33,13 +33,17 @@
                     </thead>
                     <tbody>
                         {% for res in resultados %} {% if res.estado %}
-                        <tr>
+                        {% if res.completo %}
+                        <tr id="verde">
+                        {% else %}
+                        <tr id="rojo">
+                        {% endif %}
                             <td class="text-center"> {{res.id}} </td>
                             <td><label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado for="resultado">
-                                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ res.verbo}}</p>
-                                    <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{res.contenido}}</p>
+                                    <p id="verbo" style="padding-right: 0;display: inline;color:rgb(184, 125, 17);padding: 5px 10px 0px 10px">{{ res.verbo}}</p>
+                                    <p id="contenido" style="display: inline;color:rgb(245, 10, 10);padding: 5px 10px 0px 10px">{{res.contenido}}</p>
                                     <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{res.contexto}}</p>
-                                    <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">{{res.proposito}}</p>
+                                    <p id="proposito" style="display: inline;color:rgb(19, 90, 10);padding: 5px 10px 0px 10px">{{res.proposito}}</p>
                                 </label></td>
                                 <td class="text-center" style="padding: 10px 10px 10px 10px">
                                         <a class="btn btn-primary btn-sm" href="{% url 'resultado:resultadoAprendizaje_editar' res.id  %}"> Editar </a>
