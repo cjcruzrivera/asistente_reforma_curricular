@@ -22,7 +22,7 @@
                 {% if indicadores %}
                 <h3>Indicadores de logros</h3>
                 <div style="float: right;">
-                    <a href="#" class="btn btn-primary">
+                    <a href="{% url 'indicador:indicador_crear' ResultadoAprendizaje.id %}" class="btn btn-primary">
                         <i class='icon-plus-sign-alt icon-large'></i> Registrar Indicador de Logro</a>
                 </div>
 
@@ -36,18 +36,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for res in resultados %} {% if res.estado %}
+                        {% for res in indicadores %} {% if res.estado %}
                         <tr>
                             <td class="text-center"> {{res.id}} </td>
                             <td><label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado for="resultado">
-                                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ res.verbo}}</p>
+                                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ res.habilidad}}</p>
                                     <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{res.contenido}}</p>
                                     <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{res.contexto}}</p>
-                                    <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">{{res.proposito}}</p>
                                 </label></td>
                                 <td class="text-center" style="padding: 10px 10px 10px 10px">
-                                        <a class="btn btn-primary btn-sm" href="{% url 'resultado:resultadoAprendizaje_editar' res.id  %}"> Editar </a>
-                                        <a class="btn btn-danger btn-sm" id="delete" data-tipo="resultado" data-id="{{ res.id }}" data-nombre=""
+                                        <a class="btn btn-primary btn-sm" href="{% url 'indicador:indicador_editar' res.id  %}"> Editar </a>
+                                        <a class="btn btn-danger btn-sm" id="delete" data-tipo="indicador" data-id="{{ res.id }}" data-nombre=""
                                             href="#">Eliminar</a>
                                     </td>
 
@@ -60,7 +59,7 @@
                     <h4 style="float: left;">El resultado de aprendizaje no registra indicadores de logro</h4>
 
                     <div style="float: right;">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{% url 'indicador:indicador_crear' ResultadoAprendizaje.id %}" class="btn btn-primary">
                                     <i class='icon-plus-sign-alt icon-large'></i> Registrar Indicador de Logros</a>
             
                     </div>

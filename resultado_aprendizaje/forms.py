@@ -25,6 +25,6 @@ class ResultadoAprendizajeForm(forms.ModelForm):
         widgets = {
             'verbo': forms.Select(attrs={'class': 'form-control', 'id': 'verbo_form'}),
             'contenido': forms.TextInput(attrs={'class': 'letras form-control', 'id': 'contenido_form', 'placeholder': 'Tema o herramienta sobre el que se trabaja'}),
-            'contexto': forms.TextInput(attrs={'class': 'letras form-control', 'id': 'contexto_form', 'placeholder': 'Se espera que esa habilidad/destreza/conocimiento/actitud se aplique o transfiera'}),
+            'contexto': forms.TextInput(attrs={'class': 'letras form-control', 'id': 'contexto_form', 'placeholder': 'Donde se espera que esa habilidad/destreza/conocimiento/actitud se aplique o transfiera'}),
             'proposito': forms.TextInput(attrs={'class': 'letras form-control', 'id': 'proposito_form', 'placeholder': 'Generalmente empieza con “a fin de” o “con el proposito de” o “con la finalidad de” o “para”'}),
         }

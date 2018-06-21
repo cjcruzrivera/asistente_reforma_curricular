@@ -11,13 +11,17 @@ from .models import ResultadoAprendizaje
 from .forms import ResultadoAprendizajeForm
 from competencia.models import Competencia
 from curso.models import Curso
+from indicador.models import IndicadorLogro
+
 
 # Create your views here.
 
 def view_one(request, pk):
     resultadoAprendizaje = ResultadoAprendizaje.objects.get(pk=pk)
+    indicadores = IndicadorLogro.objects.filter(resultado=resultadoAprendizaje)
     return render(request, 'resultado/resultados_view.html',{
         'usuario': request.user,
+        'indicadores': indicadores,
         'ResultadoAprendizaje': resultadoAprendizaje,
     })
 
