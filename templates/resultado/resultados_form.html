@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<div style="width: 1000px;background-color:  #FFFFFF">
+    <section id="formulario">
+        <div style="width: 1000px !important;background-color: #FFFFFF" class="col-md-6 mx-auto">
+            <div style="width: 1000px;background-color: #FFFFFF"  class="panel-group">
+                <h2>{{accion}} Resultado de Aprendizaje</h2> 
+                <label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" class="border" id=resultado for="resultado">
+                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">VERBO</p>
+                    <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">CONTENIDO</p>
+                    <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">CONTEXTO</p>
+                    <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">PROPOSITOS</p>
+                </label>
+
+                <div style="width: 1000px;"  class="container">
+                    
+                        <form style="padding: 5px 10px 5px 10px" class="form border" method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                            <br>
+                            <button id="agregar" type="submit" class="btn btn-default">Guardar</button>
+                            <button id="limpiar" type="reset" class="btn btn-default">Limpiar</button>
+                            <a id="cancelar" class="btn btn-default" href="{% url 'competencia:view_one' competencia.id %}" >Cancelar</a>                
+                                                    </form>
+            
+                    </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block extrajs %}
+<script src="{% static 'js/resultado_form.js' %}" type="text/javascript"></script>
+ {% endblock %}
