@@ -3,13 +3,13 @@
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-12 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2 class="text-center" style="font-size: 40px">Compentencia </h2>
+                <h2 class="text-center">Compentencia </h2>
 
                 <div style="float: right;">
                     <a class="btn btn-primary" href="{% url 'competencia:competencia_listar' competencia.curso.id %}">
                         <i class='icon-reply icon-large'></i> volver</a>
                 </div>
-                <div style="padding: 0 0px 0 320px">
+                <div style="padding: 0 0px 0 300px">
                     <label style="width: 80%;height: 150%" class="border" for="competencia">{{competencia.descripcion}}</label>
                     <!-- <textarea readonly name="competencia" id="competencia" cols="60" rows="4">{{competencia.descripcion}}</textarea> -->
 
@@ -70,20 +70,5 @@
 </div>
 
 {% endblock %} {% block extrajs %}
-<script>
-    $('#resultados').DataTable({
-        "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
-            "info": "Página _PAGE_ de _PAGES_",
-            "search": "Buscar:",
-            "paginate": {
-                "first": "Primera",
-                "previous": "Pág. Anterior",
-                "next": "Siguiente",
-                "last": "Última"
-            }
-        }
-    });
-</script>
-<!-- <script src="{% static 'js/curso_view.js' %}"></script> -->
+<script src="{% static 'js/competencia_view.js' %}"></script>
 {% endblock %}
