@@ -28,5 +28,7 @@ urlpatterns = [
     url(r'^escuela/', include('escuela.urls', namespace="escuela")),
     url(r'^curso/', include('curso.urls', namespace="curso")),
     url(r'^competencia/', include('competencia.urls', namespace="competencia")),
+    url(r'^resultado/', include('resultado_aprendizaje.urls', namespace="resultado")),
+    url(r'^indicador/', include('indicador.urls', namespace="indicador")),
     url(r'^logout/', logout, name="salir", kwargs={'next_page': '/'}),
 ]

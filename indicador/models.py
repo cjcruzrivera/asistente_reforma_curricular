@@ -9,7 +9,8 @@ from actividad.models import Actividad
 # Create your models here.
 
 class IndicadorLogro(models.Model):
-    habilidad = models.CharField(max_length=250)
+    habilidades = (('Distingue','Distingue'),('Analiza', 'Analiza'), ('Reconoce','Reconoce'), ('Resuelve','Resuelve'), ('Genera','Genera'), ('Asimila','Asimila'),('Retroalimenta', 'Retroalimenta'))
+    habilidad = models.CharField(max_length=250, choices=habilidades)
     contenido = models.CharField(max_length=250)
     contexto = models.CharField(max_length=250)
     resultado = models.ForeignKey(ResultadoAprendizaje)

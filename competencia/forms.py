@@ -16,6 +16,3 @@ class CompetenciaForm(forms.ModelForm):
         widgets = {
             'descripcion': forms.TextInput(attrs={'class': 'form-control', 'id': 'descripcion', 'placeholder': 'Competencia de aprendizaje'}),
         }
-
-    def __init__(self, *args, **kwargs):
-        super(CompetenciaForm, self).__init__(*args, **kwargs)
