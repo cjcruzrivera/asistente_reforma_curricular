@@ -89,7 +89,7 @@ function deleteElement(id, tipo) {
         case 'indicador':
             return deleteIndicador(id);
             break;
-        case 'Actividad':
+        case 'actividad':
             return deleteActividad(id);
             break;
         default:
@@ -109,7 +109,7 @@ function deleteActividad(id) {
             borrado = true;
             swal({
                 title: "Borrado con éxito",
-                text: "La actividad de logro ha sido borrado con éxito",
+                text: "La actividad ha sido borrada con éxito",
                 icon: "success",
                 buttons: false,
                 timer: 1500,

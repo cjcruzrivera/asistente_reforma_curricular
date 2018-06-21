@@ -10,16 +10,16 @@
                         <i class='icon-reply icon-large'></i> volver</a>
                 </div>
                 <div style="padding: 0 0px 0 320px">
-                        <label style="padding: 0px 10px 0px 10px;width: 70%;height: 100%" class="border" id=resultado for="resultado">
-                                <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ ResultadoAprendizaje.verbo}}</p>
-                                <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{ResultadoAprendizaje.contenido}}</p>
-                                <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{ResultadoAprendizaje.contexto}}</p>
-                                <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">{{ResultadoAprendizaje.proposito}}</p>
-                            </label>
+                    <label style="padding: 0px 10px 0px 10px;width: 70%;height: 100%" class="border" id=resultado for="resultado">
+                        <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ ResultadoAprendizaje.verbo}}</p>
+                        <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{ResultadoAprendizaje.contenido}}</p>
+                        <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{ResultadoAprendizaje.contexto}}</p>
+                        <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">{{ResultadoAprendizaje.proposito}}</p>
+                    </label>
 
                 </div>
-                <br><hr>
-                {% if indicadores %}
+                <br>
+                <hr> {% if indicadores %}
                 <h3>Indicadores de logros</h3>
                 <div style="float: right;">
                     <a href="{% url 'indicador:indicador_crear' ResultadoAprendizaje.id %}" class="btn btn-primary">
@@ -39,16 +39,17 @@
                         {% for res in indicadores %} {% if res.estado %}
                         <tr>
                             <td class="text-center"> {{res.id}} </td>
-                            <td><label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado for="resultado">
+                            <td>
+                                <label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado for="resultado">
                                     <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ res.habilidad}}</p>
                                     <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{res.contenido}}</p>
                                     <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{res.contexto}}</p>
-                                </label></td>
-                                <td class="text-center" style="padding: 10px 10px 10px 10px">
-                                        <a class="btn btn-primary btn-sm" href="{% url 'indicador:indicador_editar' res.id  %}"> Editar </a>
-                                        <a class="btn btn-danger btn-sm" id="delete" data-tipo="indicador" data-id="{{ res.id }}" data-nombre=""
-                                            href="#">Eliminar</a>
-                                    </td>
+                                </label>
+                            </td>
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                <a class="btn btn-primary btn-sm" href="{% url 'indicador:indicador_editar' res.id  %}"> Editar </a>
+                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="indicador" data-id="{{ res.id }}" data-nombre="" href="#">Eliminar</a>
+                            </td>
 
                         </tr>
                         {% endif %} {% endfor %}
@@ -59,20 +60,20 @@
                     <h4 style="float: left;">El resultado de aprendizaje no registra indicadores de logro</h4>
 
                     <div style="float: right;">
-                            <a href="{% url 'indicador:indicador_crear' ResultadoAprendizaje.id %}" class="btn btn-primary">
-                                    <i class='icon-plus-sign-alt icon-large'></i> Registrar Indicador de Logros</a>
-            
+                        <a href="{% url 'indicador:indicador_crear' ResultadoAprendizaje.id %}" class="btn btn-primary">
+                            <i class='icon-plus-sign-alt icon-large'></i> Registrar Indicador de Logros</a>
+
                     </div>
                 </div>
                 <br>
                 <br>
                 <hr> {% endif %}
 
-                <br><hr>
-                {% if actividades.all %}
+                <br>
+                <hr> {% if actividades.all %}
                 <h3>Actividades</h3>
                 <div style="float: right;">
-                    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+                    <button id="nuevo" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">
                         <i class='icon-plus-sign-alt icon-large'></i> Registrar actividad</button>
 
                 </div>
@@ -82,6 +83,7 @@
                         <tr>
                             <td style="width: 30px;" class="text-center">Identificador</td>
                             <td style="color: black">Descripcion</td>
+                            <td style="color: black">Tipo</td>
                             <td style="width: 155px"> Acciones</td>
 
                         </tr>
@@ -90,12 +92,13 @@
                         {% for actividad in actividades.all %} {% if actividad.estado %}
                         <tr>
                             <td class="text-center"> {{actividad.id}} </td>
-                            <td>{{actividad.descripcion}}</td>
-                                <td class="text-center" style="padding: 10px 10px 10px 10px">
-                                        <a class="btn btn-primary btn-sm" id="editar" href="#" data-id="{{ actividad.id }}"> Editar </a>
-                                        <a class="btn btn-danger btn-sm" id="delete" data-tipo="indicador" data-id="{{ actividad.id }}" data-nombre=""
-                                            href="#">Eliminar</a>
-                                    </td>
+                            <td id="description{{actividad.id}}">{{actividad.descripcion}}</td>
+                            <td id="type{{actividad.id}}" data-tipo="{{actividad.tipo.id}}">{{actividad.tipo.nombre}}</td>
+                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary" id="editar" data-id="{{ actividad.id }}">
+                                Editar </button>
+                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="actividad" data-id="{{ actividad.id }}" href="#">Eliminar</a>
+                            </td>
 
                         </tr>
                         {% endif %} {% endfor %}
@@ -129,11 +132,11 @@
             <div class="modal-body">
                 <div class="text-center">
                     <label class="control-label">Seleccione tipo de actividad</label>
-                    
+
                     <select class="form-control" name="tipo" id="tipo">
                         <option value="0">----------</option>
                         {% for tipo in tipos %}
-                            <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                        <option value="{{tipo.id}}">{{tipo.nombre}}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -144,12 +147,11 @@
             </div>
             <div class="modal-footer">
                 <button id="guardar" type="button" data-resultado='{{ResultadoAprendizaje.id}}' class="btn btn-success">Guardar</button>
+                <button hidden id="actualizar" type="button" data-id='' class="btn btn-success">Actualizar</button>
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>
 </div>
 {% endblock %} {% block extrajs %}
-<script src="{% static 'js/resultados_view.js' %}"></script>
-
-{% endblock %}
+<script src="{% static 'js/resultados_view.js' %}"></script> {% endblock %}

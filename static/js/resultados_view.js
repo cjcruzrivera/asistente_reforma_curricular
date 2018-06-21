@@ -29,7 +29,12 @@ $(document).ready(function() {
 
 });
 
-$(document).on('click','#editar', function () {
+$(document).on('click','#nuevo', function () {
+    $('#actualizar').attr('hidden', true);;
+    $('#guardar').attr('hidden', false);;
+})
+
+$(document).on('click', '#actualizar', function () {
     var tipo_act = $('#tipo').val();
     if(tipo_act == 0){
         swal({
@@ -64,11 +69,11 @@ $(document).on('click','#editar', function () {
             tipo: tipo_act,
             descripcion: descripcion_act,
         },
-        url: "/resultado/actividad/",
+        url: "/actividad/editar/",
         success: function (msg) {
             swal({
                 title: "Almacenado con éxito",
-                text: "La actividad ha sido registrada correctamente",
+                text: "La actividad ha sido modificada correctamente",
                 icon: "success",
                 buttons: false,
                 timer: 1500,
@@ -92,7 +97,18 @@ $(document).on('click','#editar', function () {
 
         },
     });
+});
 
+$(document).on('click','#editar', function () {
+    
+    var actividad = $(this).attr('data-id')
+    var tipo = $('#type'+actividad).attr('data-tipo')
+    var descripcion = $('#description'+actividad).text()
+    $('#actualizar').attr('data-id', actividad)
+    $('#descripcion').val(descripcion)
+    $("#tipo").val(tipo)
+    $('#guardar').attr('hidden', true);
+    $('#actualizar').attr('hidden', false);
 
 })
 
