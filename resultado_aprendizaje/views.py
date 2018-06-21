@@ -12,17 +12,36 @@ from .forms import ResultadoAprendizajeForm
 from competencia.models import Competencia
 from curso.models import Curso
 from indicador.models import IndicadorLogro
+from actividad.models import Actividad, TipoActividad
 
 
 # Create your views here.
 
+def actividad(request):
+    id_resultado = request.POST.get('id_resultado')
+    tipo = request.POST.get('tipo')
+    descripcion = request.POST.get('descripcion')
+    actividad = Actividad(tipo=TipoActividad.objects.get(pk=tipo), descripcion=descripcion)
+    actividad.save()
+    resultado = ResultadoAprendizaje.objects.get(pk=id_resultado)
+    resultado.actividades.add(actividad)
+    resultado.save()
+    response = {'resultado': 'exito'}
+    return JsonResponse(response)
+
+
 def view_one(request, pk):
     resultadoAprendizaje = ResultadoAprendizaje.objects.get(pk=pk)
     indicadores = IndicadorLogro.objects.filter(resultado=resultadoAprendizaje)
+    actividades = resultadoAprendizaje.actividades
+    tipos_act = TipoActividad.objects.filter(estado=True)
     return render(request, 'resultado/resultados_view.html',{
         'usuario': request.user,
         'indicadores': indicadores,
         'ResultadoAprendizaje': resultadoAprendizaje,
+        
+        'actividades': actividades,
+        'tipos': tipos_act,
     })
 
 class ResultadoAprendizajeCreateView(CreateView):

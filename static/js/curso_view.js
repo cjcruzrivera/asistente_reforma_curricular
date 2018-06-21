@@ -33,6 +33,18 @@ $(document).ready(function () {
 $(document).on('click','#guardar', function () {
     var curso = $(this).attr('data-course');
     var pos = $('#prerreq').val();
+    if(pos == 0){
+        swal({
+            title: "Seleccione un curso",
+            text: '',
+            html: true,
+            icon:'warning',
+            type: "warning",
+            confirmButtonColor: "#d51b23"
+        });
+        return
+    }
+
     $.ajax({
         type: "POST",
         data: {

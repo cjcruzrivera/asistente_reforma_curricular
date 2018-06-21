@@ -38,6 +38,11 @@ $(document).on('click', '#delete', function () {
             indicador = $(this).attr('data-id');
             mensaje = 'el indicador de logro número ' + indicador;
             break;
+        case 'actividad':
+            var actividad = "";
+            actividad = $(this).attr('data-id');
+            mensaje = 'la actividad de logro número ' + actividad;
+            break;
         default:
             break;
     }
@@ -84,9 +89,50 @@ function deleteElement(id, tipo) {
         case 'indicador':
             return deleteIndicador(id);
             break;
+        case 'actividad':
+            return deleteActividad(id);
+            break;
         default:
             break;
     }
+}
+
+function deleteActividad(id) {
+    borrado = false;
+    $.ajax({
+        type: "POST",
+        data: {
+            id_actividad: id
+        },
+        url: "/actividad/eliminar/",
+        success: function (msg) {
+            borrado = true;
+            swal({
+                title: "Borrado con éxito",
+                text: "La actividad ha sido borrada con éxito",
+                icon: "success",
+                buttons: false,
+                timer: 1500,
+            });
+        },
+        async: false,
+        dataType: "json",
+        cache: "false",
+        error: function (msg) {
+            swal({
+                title: "Error AJAX",
+                text: msg.responseText,
+                html: true,
+                type: "warning",
+                confirmButtonColor: "#d51b23"
+            });
+            console.log("AJAXerror");
+            console.log(msg);
+
+        },
+    });
+    return borrado;
+
 }
 
 function deleteIndicador(id) {

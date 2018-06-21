@@ -8,7 +8,7 @@ from actividad.models import Actividad
 # Create your models here.
 
 class ResultadoAprendizaje(models.Model):
-    verbos = (('Distingue','Distingue'),('Analiza', 'Analiza'), ('Reconoce','Reconoce'), ('Resuelve','Resuelve'), ('Genera','Genera'), ('Asimila','Asimila'),('Retroalimenta', 'Retroalimenta'))
+    verbos = (('Distingue','Distingue'),('Describe','Describe'),('Analiza', 'Analiza'), ('Reconoce','Reconoce'), ('Resuelve','Resuelve'), ('Genera','Genera'), ('Asimila','Asimila'),('Retroalimenta', 'Retroalimenta'))
     verbo = models.CharField(max_length=250, choices=verbos)
     contenido = models.CharField(max_length=250)
     contexto  = models.CharField(max_length=250)
