@@ -18,11 +18,6 @@
                             <td style="color: black">Codigo del curso</td>
                             <td style="color: black">Nombre</td>
                             <td style="color: black">Creditos</td>
-                            <td style="color: black">Horas de clase magistral</td>
-                            <td style="color: black">Horas de estudio individual</td>
-                            <td style="color: black">Tipo de curso</td>
-                            <td style="color: black">Validable</td>
-                            <td style="color: black">Habilitable</td>
                             <td style="color: black">Programa</td>
                             {% if not usuario.rol.nombre == "Decano" %}
 
@@ -38,15 +33,6 @@
                             <td>{{ curso.codigo }}</td>
                             <td>{{ curso.nombre }}</td>
                             <td>{{ curso.creditos }}</td>
-                            <td>{{ curso.horas_catedra }}</td>
-                            <td>{{ curso.horas_individual }}</td>
-                            <td>{{ curso.tipo.nombre }}</td>
-                            <td>
-                                {% if curso.validable %} SI {% else %} NO {% endif %}
-                            </td>
-                            <td>
-                                {% if curso.habilitable %} SI {% else %} NO {% endif %}
-                            </td>
                             <td>{{ curso.programa.nombre }}</td>
                             {% if not usuario.rol.nombre == "Decano" %}
 

@@ -16,10 +16,8 @@ from resultado_aprendizaje.models import ResultadoAprendizaje
 
 def view_one(request, pk):
     competencia = Competencia.objects.get(pk=pk)
-    curso = competencia.curso
     resultados = ResultadoAprendizaje.objects.filter(competencia=competencia)
     return render(request, 'competencias/competencia_view.html',{
-        'curso':curso,
         'usuario': request.user,
         'competencia': competencia,
         'resultados': resultados,
