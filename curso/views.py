@@ -9,6 +9,10 @@ from django.http import JsonResponse
 
 from .models import Curso
 from .forms import CursoForm, PrerrequisitosForm
+
+from indicador.models import IndicadorLogro
+from competencia.models import Competencia
+from resultado_aprendizaje.models import ResultadoAprendizaje
 # Create your views here.
 
 
@@ -20,8 +24,12 @@ def view_one(request, pk):
     prerrequisitos = curso.prerrequisitos.all()
     posibles_pre = Curso.objects.filter(estado=True, semestre__lt=curso.semestre)
     pos = posibles_pre.difference(prerrequisitos)
+    competencias = Competencia.objects.filter(curso=curso)
+    resultados = ResultadoAprendizaje.objects.filter(competencia__in=competencias)
+    reporte = IndicadorLogro.objects.filter(resultado__in=resultados)
     return render(request, 'curso/curso_view.html',{
         'curso':curso,
+        'reporte':reporte,
         'usuario': request.user,
         'prerrequisitos': prerrequisitos,
         'posibles_pre': pos,
