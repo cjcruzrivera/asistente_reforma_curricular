@@ -9,13 +9,17 @@ from django.http import HttpResponseRedirect, JsonResponse
 from .models import IndicadorLogro
 from .forms import IndicadorForm
 from resultado_aprendizaje.models import ResultadoAprendizaje
+from actividad.models import Actividad, TipoActividad
 # Create your views here.
 
 def view_one(request, pk):
     indicador = IndicadorLogro.objects.get(pk=pk)
+    tipos_act = TipoActividad.objects.filter(estado=True)
     return render(request, 'indicador/indicador_view.html',{
         'usuario': request.user,
         'indicador': indicador,
+        'tipos': tipos_act,
+
     })
 
 def eliminar(request):
@@ -27,6 +31,19 @@ def eliminar(request):
         response = {'indicador': 'error'}
 
     return JsonResponse(response)
+
+def actividad(request):
+    id_indicador = request.POST.get('id_indicador')
+    tipo = request.POST.get('tipo')
+    descripcion = request.POST.get('descripcion')
+    actividad = Actividad(tipo=TipoActividad.objects.get(pk=tipo), descripcion=descripcion)
+    actividad.save()
+    indicador = IndicadorLogro.objects.get(pk=id_indicador)
+    indicador.actividades.add(actividad)
+    indicador.save()
+    response = {'resultado': 'exito'}
+    return JsonResponse(response)
+
 
 
 class IndicadorCreateView(CreateView):

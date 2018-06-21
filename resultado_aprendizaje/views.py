@@ -17,6 +17,19 @@ from actividad.models import Actividad, TipoActividad
 
 # Create your views here.
 
+def actividad(request):
+    id_resultado = request.POST.get('id_resultado')
+    tipo = request.POST.get('tipo')
+    descripcion = request.POST.get('descripcion')
+    actividad = Actividad(tipo=TipoActividad.objects.get(pk=tipo), descripcion=descripcion)
+    actividad.save()
+    resultado = ResultadoAprendizaje.objects.get(pk=id_resultado)
+    resultado.actividades.add(actividad)
+    resultado.save()
+    response = {'resultado': 'exito'}
+    return JsonResponse(response)
+
+
 def view_one(request, pk):
     resultadoAprendizaje = ResultadoAprendizaje.objects.get(pk=pk)
     indicadores = IndicadorLogro.objects.filter(resultado=resultadoAprendizaje)
@@ -26,7 +39,8 @@ def view_one(request, pk):
         'usuario': request.user,
         'indicadores': indicadores,
         'ResultadoAprendizaje': resultadoAprendizaje,
-        # 'actividades': actividades,
+        
+        'actividades': actividades,
         'tipos': tipos_act,
     })
 
