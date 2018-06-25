@@ -33,7 +33,9 @@ def actividad(request):
 def view_one(request, pk):
     resultadoAprendizaje = ResultadoAprendizaje.objects.get(pk=pk)
     indicadores = IndicadorLogro.objects.filter(resultado=resultadoAprendizaje)
-    actividades = resultadoAprendizaje.actividades
+    actividades = resultadoAprendizaje.actividades.all()
+    for indicador in indicadores:
+        indicador.completo = indicador.validateCompleto()
     tipos_act = TipoActividad.objects.filter(estado=True)
     return render(request, 'resultado/resultados_view.html',{
         'usuario': request.user,

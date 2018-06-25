@@ -14,6 +14,20 @@ $(document).ready(function () {
         }
     });
 
+    $('#reporte').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        }
+    });
+
     $('#curso').DataTable({
         "language": {
             "lengthMenu": "Mostrando _MENU_ registros",

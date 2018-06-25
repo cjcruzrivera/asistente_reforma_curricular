@@ -28,9 +28,13 @@
                     </thead>
                     <tbody>
                         {% for curso in object_list %} {% if curso.estado %}
-                        <tr>
+                        {% if curso.completo %}
+                        <tr id="verde">
+                        {% else %}
+                        <tr id="rojo">
+                        {% endif %}
                             <td hidden> {{curso.id}} </td>
-                            <td>{{ curso.codigo }}</td>
+                            <td>{{ curso.codigo }} </td>
                             <td>{{ curso.nombre }}</td>
                             <td>{{ curso.creditos }}</td>
                             <td>{{ curso.programa.nombre }}</td>

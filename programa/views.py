@@ -11,6 +11,7 @@ from .models import Programa
 from .forms import ProgramaForm
 from usuario.models import Usuario, Rol
 from curso.models import Curso
+from competencia.models import Competencia
 # Create your views here.
 
 def index(request):
@@ -23,6 +24,17 @@ def view_one(request, pk):
         'programa':programa,
         'usuario': request.user,
         'cursos': cursos,
+    })
+
+
+def reporte(request, pk):
+    programa = Programa.objects.get(pk=pk)
+    cursos = Curso.objects.filter(programa=programa)
+    competencias = Competencia.objects.filter(curso__in=cursos)
+    return render(request, 'reportes/reporte_programas.html',{
+        'programa':programa,
+        'competencias':competencias,
+        'usuario': request.user,
     })
  
 

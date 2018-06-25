@@ -17,6 +17,8 @@ from resultado_aprendizaje.models import ResultadoAprendizaje
 def view_one(request, pk):
     competencia = Competencia.objects.get(pk=pk)
     resultados = ResultadoAprendizaje.objects.filter(competencia=competencia)
+    for resultado in resultados:
+        resultado.completo = resultado.validateCompleto()
     return render(request, 'competencias/competencia_view.html',{
         'usuario': request.user,
         'competencia': competencia,
@@ -93,6 +95,8 @@ class CompetenciaListView(ListView):
     def get_queryset(self):
         self.curso = Curso.objects.get(pk=self.kwargs['pk'])
         competencias = Competencia.objects.filter(curso=self.curso)
+        for competencia in competencias:
+            competencia.completo = competencia.validateCompleto()
         return competencias
 
     def get_context_data(self, **kwargs):

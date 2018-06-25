@@ -19,6 +19,7 @@
                             <td style="color: black">Escuela</td>
 			    <td style="color: black">Director Programa</td>
                             <td style="width: 130px"> Acciones</td>
+                            <td>Competencias</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,11 @@
                                 <a class="btn btn-primary btn-sm" href="{% url 'programa:programa_editar' programa.id  %}"> Editar </a>
                                 <a class="btn btn-danger btn-sm" id="delete" data-tipo="programa" data-id="{{ programa.id }}" data-nombre="{{ programa.nombre }}"
                                 href="#">Eliminar</a>                            </td>
+                                <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                    <a class="btn btn-primary btn-sm" href="{% url 'programa:reporte' programa.id %}">
+                                        <img src="{% static 'images/reporte.png' %}" alt="">
+                                    </a>
+                                </td>
                         </tr>
                         {% endif %}
                         {% endfor %}

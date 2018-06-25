@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="formulario">
+        <div id="div_tabla" class="col-md-7 mx-auto">
+            <div id="iniciar" class="panel-group">
+                <h2>{{programa.nombre}} </h2>
+                {% if usuario.rol.nombre == "Administrador" or usuario.rol.nombre == "Decano"%}
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'programa:programa_listar' %}">
+                        <i class='icon-reply icon-large'></i> Programas</a>
+                </div>
+                {% endif %}
+                
+                <br>
+
+                {% if competencias %}
+                <table id="competencias" class="table table-bordered">
+                    <thead>
+                        <tr>
+                                <td style="color: black">Codigo del curso</td>
+                                <td style="color: black">Nombre Curso</td>
+                                <td style="color: black">Semestre</td>
+                                <td style="color: black">Competencia</td>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for competencia in competencias %}
+                        {% if competencia.estado %}
+                        <tr>
+                                <td>{{ competencia.curso.codigo }}</td>
+                                <td>{{ competencia.curso.nombre }}</td>
+                                <td>{{ competencia.curso.semestre }}</td>
+                                <td>{{ competencia.descripcion }}</td>
+                            
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h4>El programa no registra cursos </h4>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+{% block extrajs %}
+<script>
+    $('#competencias').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ cursos",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        }
+    });
+</script> {% endblock %}
