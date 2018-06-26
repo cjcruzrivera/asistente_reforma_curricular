@@ -38,4 +38,4 @@ class ResultadoAprendizaje(models.Model):
             return False
 
     def __unicode__(self):
-        return '{}'.format(self.descripcion)
+        return '{} {} {} {}'.format(self.verbo, self.contenido, self.contexto, self.proposito)

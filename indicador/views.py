@@ -4,12 +4,13 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import UpdateView, CreateView
 from django.core.urlresolvers import reverse_lazy
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse ,HttpResponseRedirect, JsonResponse
 
-from .models import IndicadorLogro
+from .models import IndicadorLogro, Evaluaciones
 from .forms import IndicadorForm
 from resultado_aprendizaje.models import ResultadoAprendizaje
 from actividad.models import Actividad, TipoActividad
+from competencia.models import Competencia
 # Create your views here.
 
 def view_one(request, pk):
@@ -72,6 +73,21 @@ class IndicadorCreateView(CreateView):
         form.save()
         return HttpResponseRedirect(self.get_success_url())
 
+
+def max_Porcentaje(request, pk):
+        indicador = IndicadorLogro.objects.get(pk=pk)
+        porcentaje = 100
+        
+        curso = indicador.resultado.competencia.curso
+        competencias = Competencia.objects.filter(curso=curso)
+        resultados = ResultadoAprendizaje.objects.filter(competencia__in=competencias)
+        indicadores = IndicadorLogro.objects.filter(resultado__in=resultados)
+        evaluaciones = Evaluaciones.objects.filter(indicador__in=indicadores)
+
+        for evalu in evaluaciones:
+            porcentaje -= evalu.porcentaje
+
+        return HttpResponse('max porcentaje:' + str(porcentaje))
 
 class IndicadorUpdateView(UpdateView):
     model = IndicadorLogro

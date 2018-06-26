@@ -4,8 +4,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 from actividad.models import Actividad
-from competencia.models import Competencia
-from resultado_aprendizaje.models import ResultadoAprendizaje
 
 # Create your models here.
 
@@ -24,21 +22,6 @@ class IndicadorLogro(models.Model):
         else:
             return False
 
-    def get_curso(self):
-        return self.resultado.competencia.curso
-
-    def max_Porcentaje(self):
-        porcentaje = 100
-        
-        curso = self.get_curso()
-        competencias = Competencia.objects.filter(curso=curso)
-        resultados = ResultadoAprendizaje.objects.filter(competencia__in=competencias)
-        indicadores = IndicadorLogro.objects.filter(resultado__in=resultados)
-        evaluaciones = Evaluaciones.objects.fliter(indicador__in=indicadores)
-
-
-
-        return porcentaje
 
     def delete(self):
         if self.estado:
@@ -49,7 +32,7 @@ class IndicadorLogro(models.Model):
             return False
 
     def __unicode__(self):
-        return '{}'.format(self.descripcion)
+        return '{} {} {}'.format(self.habilidad, self.contenido, self.contexto)
 
 
 class Evaluaciones(models.Model):
