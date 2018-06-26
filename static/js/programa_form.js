@@ -34,7 +34,7 @@ $(document).on('change', '#escuela', function () {
             }
             var data = JSON.parse(msg);
             for (var i in data) {
-                selector += "<option value = '" + data[i].pk + "'>" + data[i].fields.first_name + " " + data[i].fields.last_name + " </option>";
+                selector += "<option value = '" + data[i].pk + "'>" + data[i].first_name + " " + data[i].last_name + " </option>";
                 $('#dir_programa').html('');
                 $('#dir_programa').append(selector);
                 console.log(data[i]);  // (o el campo que necesites)

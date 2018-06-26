@@ -95,7 +95,11 @@ def listar_dir(request):
         return JsonResponse({'vacio':'vacio'}, safe=False)
 
     rol = Rol.objects.get(nombre='Director de Programa')
-    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela, rol=rol , estado=True), fields=('id', 'first_name', 'last_name'))
+    pos_directores = Usuario.objects.filter(escuela=id_escuela, rol=rol , estado=True)
+    for dire in pos_directores:
+        if(dire.is_dir):
+            print "SI"
+    data = serializers.serialize('json', pos_directores, fields=('id', 'first_name', 'last_name'))
 
     return JsonResponse(data, safe=False)
 

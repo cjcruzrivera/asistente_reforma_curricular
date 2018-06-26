@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 from django.db import models
 
+from programa.models import Programa
 # Create your models here
 
 class Rol(models.Model):
@@ -36,6 +37,13 @@ class Usuario(AbstractUser):
     rol = models.ForeignKey(Rol, null=True)
     escuela = models.ForeignKey('escuela.Escuela', null=True)
     estado = models.BooleanField(default=True)
+
+    def is_dir(self):
+        programas = Programa.objects.all()
+        for programa in programas:
+            if(self == programa.dir_programa):
+                return True
+        return False
 
     def delete(self):
         if self.estado:
