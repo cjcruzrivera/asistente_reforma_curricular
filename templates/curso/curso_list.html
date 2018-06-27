@@ -41,7 +41,7 @@
                                     <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
                                     <a id="delete" class="btn btn-danger btn-sm" data-tipo="curso" data-id="{{ curso.id }}" data-nombre="{{ curso.nombre }}"
                                         href="#">Eliminar</a>
-                                    <a class="btn btn-primary btn-sm" href="#Detalle"> Detalle </a>
+                                    <a id='detail' class="btn btn-primary btn-sm" data-id="{{ curso.id }}" href="#"> Detalle </a>
 
                                 </td>
                                 {% endif %}
