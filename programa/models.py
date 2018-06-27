@@ -19,6 +19,7 @@ class Programa(models.Model):
         if self.estado:
             self.nombre = self.nombre+'_borrado'
             self.estado = False
+            self.dir_programa = None
             self.save()
             return True
         else:
