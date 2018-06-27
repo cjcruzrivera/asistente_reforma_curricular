@@ -34,4 +34,4 @@ class ProgramaForm(forms.ModelForm):
         super(ProgramaForm, self).__init__(*args, **kwargs)
         self.fields['cod_escuela'].queryset = Escuela.objects.filter(
             estado=True)
-        self.fields['dir_programa'].queryset = Usuario.objects.none()
+        self.fields['dir_programa'].queryset = Usuario.objects.all()

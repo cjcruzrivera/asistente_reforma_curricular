@@ -39,7 +39,7 @@ class Usuario(AbstractUser):
     estado = models.BooleanField(default=True)
 
     def is_dir(self):
-        programas = Programa.objects.all()
+        programas = Programa.objects.filter(estado=True)
         for programa in programas:
             if(self == programa.dir_programa):
                 return True

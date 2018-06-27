@@ -57,7 +57,6 @@ class IndicadorCreateView(CreateView):
         context = super(IndicadorCreateView, self).get_context_data(**kwargs)
         self.resultadoAprendizaje = ResultadoAprendizaje.objects.get(pk=self.kwargs['pk'])
 
-        # Agregamos un QuerySet de todos los books
         context['accion'] = 'Registrar'
         context['resultado'] = self.resultadoAprendizaje
         context['usuario'] = self.request.user
