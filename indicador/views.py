@@ -40,8 +40,8 @@ def actividad(request):
     actividad = Actividad(tipo=TipoActividad.objects.get(pk=tipo), descripcion=descripcion)
     actividad.save()
     indicador = IndicadorLogro.objects.get(pk=id_indicador)
-    indicador.actividades.add(actividad)
-    indicador.save()
+    ev = Evaluaciones(indicador=indicador, actividad=actividad, porcentaje=10)
+    ev.save()
     response = {'resultado': 'exito'}
     return JsonResponse(response)
 

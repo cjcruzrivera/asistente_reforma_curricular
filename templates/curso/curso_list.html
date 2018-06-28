@@ -13,13 +13,13 @@
                     <thead>
                         <tr>
                             <td hidden>id</td>
-                            <td style="color: black">Codigo del curso</td>
-                            <td style="color: black">Nombre</td>
+                            <td style="color: black;width: 120px">Codigo del curso</td>
+                            <td style="color: black;width: 320px">Nombre</td>
                             <td style="color: black;width: 20px;">Creditos</td>
                             <td style="color: black">Programa</td>
                             {% if not usuario.rol.nombre == "Decano" %}
 
-                            <td class="text-center" style="width: 190px"> Acciones</td>
+                            <td class="text-center" style="width: 250px"> Acciones</td>
                             {% endif %}
 
                         </tr>
@@ -42,6 +42,10 @@
                                     <a id="delete" class="btn btn-danger btn-sm" data-tipo="curso" data-id="{{ curso.id }}" data-nombre="{{ curso.nombre }}"
                                         href="#">Eliminar</a>
                                     <a id='detail' class="btn btn-primary btn-sm" data-id="{{ curso.id }}" href="#"> Detalle </a>
+                                        <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_listar' curso.id %}">
+                                            <img style="width: 20px" src="{% static 'images/reporte.png' %}" alt="">
+                                        </a>
+                                    
 
                                 </td>
                                 {% endif %}

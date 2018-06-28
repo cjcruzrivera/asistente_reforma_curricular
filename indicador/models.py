@@ -17,7 +17,7 @@ class IndicadorLogro(models.Model):
     actividades = models.ManyToManyField(Actividad,through='Evaluaciones', symmetrical=False)
 
     def validateCompleto(self):
-        if self.actividades.all():
+        if Evaluaciones.objects.filter(estado=True, indicador=self).exists():
             return True
         else:
             return False

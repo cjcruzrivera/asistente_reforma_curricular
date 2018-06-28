@@ -17,16 +17,15 @@
                             <tr>
                                 <td hidden>id</td>
                                 <td style="color: black">Codigo</td>
-                                <td style="color: black">Nombre</td>
-                                <td style="color: black">Creditos</td>
-                                <td style="color: black">Horas de clase magistral</td>
-                                <td style="color: black">Horas de estudio individual</td>
+                                <td style="color: black; width: 300px">Nombre</td>
+                                <td style="color: black; width: 25px">Creditos</td>
+                                <td style="color: black; width: 25px">Horas de clase magistral</td>
+                                <td style="color: black; width: 25px">Horas de estudio individual</td>
                                 <td style="color: black">Tipo de curso</td>
                                 <td style="color: black">Validable</td>
                                 <td style="color: black">Habilitable</td>
                                 <td style="color: black">Programa</td>
-                                <td class="text-center" style="width: 130px"> Competencias</td>
-
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -34,24 +33,17 @@
                                 <td hidden> {{curso.id}} </td>
                                 <td>{{ curso.codigo }}</td>
                                 <td>{{ curso.nombre }}</td>
-                                <td>{{ curso.creditos }}</td>
-                                <td>{{ curso.horas_catedra }}</td>
-                                <td>{{ curso.horas_individual }}</td>
+                                <td class="text-center">{{ curso.creditos }}</td>
+                                <td class="text-center">{{ curso.horas_catedra }}</td>
+                                <td class="text-center">{{ curso.horas_individual }}</td>
                                 <td>{{ curso.tipo.nombre }}</td>
-                                <td>
+                                <td class="text-center">
                                     {% if curso.validable %} SI {% else %} NO {% endif %}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {% if curso.habilitable %} SI {% else %} NO {% endif %}
                                 </td>
                                 <td>{{ curso.programa.nombre }}</td>
-
-
-                                <td class="text-center" style="padding: 10px 10px 10px 10px">
-                                    <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_listar' curso.id %}">
-                                        <img src="{% static 'images/reporte.png' %}" alt="">
-                                    </a>
-                                </td>
 
                             </tr>
                         </tbody>

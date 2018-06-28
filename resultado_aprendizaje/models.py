@@ -22,10 +22,10 @@ class ResultadoAprendizaje(models.Model):
             resultado = ResultadoAprendizaje.objects.get(pk=self.id)
             if IndicadorLogro.objects.filter(resultado=resultado, estado=True).exists():
                 for indicador in IndicadorLogro.objects.filter(resultado=resultado, estado=True):
-                    if indicador.validateCompleto():
-                        return True
+                    if not indicador.validateCompleto():
+                        return False
                 
-                return False
+                return True
         else:
             return False
 
