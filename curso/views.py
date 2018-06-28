@@ -31,15 +31,15 @@ def detail(request):
     resul_completos = 0
     indic_completos = 0
 
-
     competencias = Competencia.objects.filter(curso=curso, estado=True)
     num_competencias = competencias.count()
     if num_competencias != 0:
         for comp in competencias:
             if comp.validateCompleto():
                 comp_completas += 1
-    
-    resultados = ResultadoAprendizaje.objects.filter(competencia__in=competencias, estado=True)
+
+    resultados = ResultadoAprendizaje.objects.filter(
+        competencia__in=competencias, estado=True)
     num_resultados = resultados.count()
 
     if num_resultados != 0:
@@ -47,20 +47,27 @@ def detail(request):
             if result.validateCompleto():
                 resul_completos += 1
 
-    indicadores = IndicadorLogro.objects.filter(resultado__in=resultados, estado=True)
+    indicadores = IndicadorLogro.objects.filter(
+        resultado__in=resultados, estado=True)
     num_indicadores = indicadores.count()
 
     if num_indicadores != 0:
         for indi in indicadores:
             if indi.validateCompleto():
                 indic_completos += 1
-    info_competencias = 'Hay ' + str(num_competencias) + ' competencia/s registrada/s. ' + str(comp_completas) + " completa/s" 
-    info_resultados = 'Hay ' + str(num_resultados) + ' resultado/s registrado/s. ' + str(comp_completas) + " completo/s"
-    info_indicadores = 'Hay ' + str(num_indicadores) + ' indicador/es registrado/s. ' + str(comp_completas) + " completo/s"
+    info_competencias = 'Hay ' + \
+        str(num_competencias) + ' competencia/s registrada/s. ' + \
+        str(comp_completas) + " completa/s"
+    info_resultados = 'Hay ' + \
+        str(num_resultados) + ' resultado/s registrado/s. ' + \
+        str(comp_completas) + " completo/s"
+    info_indicadores = 'Hay ' + \
+        str(num_indicadores) + ' indicador/es registrado/s. ' + \
+        str(comp_completas) + " completo/s"
     detalles = {'estado': status,
-                'competencias' : info_competencias,
-                'resultados' : info_resultados,
-                'indicadores' : info_indicadores,
+                'competencias': info_competencias,
+                'resultados': info_resultados,
+                'indicadores': info_indicadores,
                 }
     return JsonResponse(detalles, safe=False)
 
@@ -102,6 +109,19 @@ def eliminar(request):
         response = {'resultado': 'exito', 'nombre': curso_borrar.nombre}
     else:
         response = {'resultado': 'error'}
+
+    return JsonResponse(response)
+
+
+def eliminar_pre(request):
+    id_borrar = request.POST.get('id_borrar')
+    id_borrar = id_borrar.split('-')
+    id_pre = id_borrar[0]
+    id_curso = id_borrar[1]
+    pre = Curso.objects.get(pk=id_pre)
+    curso = Curso.objects.get(pk=id_curso)
+    curso.prerrequisitos.remove(pre)
+    response = {'resultado': 'exito', 'nombre': pre.nombre}
 
     return JsonResponse(response)
 
