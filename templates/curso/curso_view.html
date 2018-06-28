@@ -3,141 +3,154 @@
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-12 mx-auto">
             <div id="iniciar" class="panel-group">
-                <h2 class="text-center" style="font-size: 40px" >{{curso.nombre}}</h2>
+                <h2 class="text-center" style="font-size: 40px">{{curso.nombre}}</h2>
 
-                    <div style="float: right;">
-                        <a class="btn btn-primary" href="{% url 'curso:curso_listar' %}">
-                            <i class='icon-reply icon-large'></i> Cursos</a>
+                <div style="float: right;">
+                    <a class="btn btn-primary" href="{% url 'curso:curso_listar' %}">
+                        <i class='icon-reply icon-large'></i> Cursos</a>
+                </div>
+                <br>
+                <br>
+                <hr>
+                <table id="curso" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <td hidden>id</td>
+                            <td style="color: black">Codigo</td>
+                            <td style="color: black; width: 300px">Nombre</td>
+                            <td style="color: black; width: 25px">Creditos</td>
+                            <td style="color: black; width: 25px">Horas de clase magistral</td>
+                            <td style="color: black; width: 25px">Horas de estudio individual</td>
+                            <td style="color: black">Tipo de curso</td>
+                            <td style="color: black">Validable</td>
+                            <td style="color: black">Habilitable</td>
+                            <td style="color: black">Programa</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td hidden> {{curso.id}} </td>
+                            <td>{{ curso.codigo }}</td>
+                            <td>{{ curso.nombre }}</td>
+                            <td class="text-center">{{ curso.creditos }}</td>
+                            <td class="text-center">{{ curso.horas_catedra }}</td>
+                            <td class="text-center">{{ curso.horas_individual }}</td>
+                            <td>{{ curso.tipo.nombre }}</td>
+                            <td class="text-center">
+                                {% if curso.validable %} SI {% else %} NO {% endif %}
+                            </td>
+                            <td class="text-center">
+                                {% if curso.habilitable %} SI {% else %} NO {% endif %}
+                            </td>
+                            <td>{{ curso.programa.nombre }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class='panel panel-default'>
+                    <div class='panel-heading' id = 'academic'>
+                        <h3 class='panel-title text-center'>
+                        <a id = 'academic_link' data-toggle='collapse' data-parent='#accordion_academic_historic' href='#prerrequi' aria-expanded='false' aria-controls='prerrequi'>
+                            Prerrequisitos del curso
+                        </a>
+                        </h3>
                     </div>
-                    <br>
-                    <br>
-                    <hr>
-                    <table id="curso" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <td hidden>id</td>
-                                <td style="color: black">Codigo</td>
-                                <td style="color: black; width: 300px">Nombre</td>
-                                <td style="color: black; width: 25px">Creditos</td>
-                                <td style="color: black; width: 25px">Horas de clase magistral</td>
-                                <td style="color: black; width: 25px">Horas de estudio individual</td>
-                                <td style="color: black">Tipo de curso</td>
-                                <td style="color: black">Validable</td>
-                                <td style="color: black">Habilitable</td>
-                                <td style="color: black">Programa</td>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td hidden> {{curso.id}} </td>
-                                <td>{{ curso.codigo }}</td>
-                                <td>{{ curso.nombre }}</td>
-                                <td class="text-center">{{ curso.creditos }}</td>
-                                <td class="text-center">{{ curso.horas_catedra }}</td>
-                                <td class="text-center">{{ curso.horas_individual }}</td>
-                                <td>{{ curso.tipo.nombre }}</td>
-                                <td class="text-center">
-                                    {% if curso.validable %} SI {% else %} NO {% endif %}
-                                </td>
-                                <td class="text-center">
-                                    {% if curso.habilitable %} SI {% else %} NO {% endif %}
-                                </td>
-                                <td>{{ curso.programa.nombre }}</td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                    {% if prerrequisitos %}
-                    <h3>Prerrequisitos</h3>
-                    <div style="float: right;">
-                        <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">
-                            <i class='icon-plus-sign-alt icon-large'></i> Registrar prerrequisitos</button>
-                    </div>
-
-                    <table id="cursos" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <td hidden>id</td>
-                                <td style="color: black">Codigo del curso</td>
-                                <td style="color: black">Nombre</td>
-                                <td style="color: black">Creditos</td>
-                                <td style="color: black">Validable</td>
-                                <td style="color: black">Habilitable</td>
-                                <td style="color: black">Programa</td>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for pre in prerrequisitos %} {% if pre.estado %}
-                            <tr>
-                                <td hidden> {{pre.id}} </td>
-                                <td>{{ pre.codigo }}</td>
-                                <td>{{ pre.nombre }}</td>
-                                <td>{{ pre.creditos }}</td>
-                                <td>
-                                    {% if pre.validable %} SI {% else %} NO {% endif %}
-                                </td>
-                                <td>
-                                    {% if pre.habilitable %} SI {% else %} NO {% endif %}
-                                </td>
-                                <td>{{ pre.programa.nombre }}</td>
-
-                            </tr>
-                            {% endif %} {% endfor %}
-                        </tbody>
-                    </table>
-                    {% else %}
-                    <div class="container">
-                        <h4 style="float: left;">El curso no registra prerrequisitos</h4>
-
-                        <div style="float: right;">
-                            <button type="button" data-toggle="modal" data-target="#myModal"  class="btn btn-primary">
-                                <i class='icon-plus-sign-alt icon-large'></i> Registrar prerrequisitos</button>
+                    <div id = 'prerrequi' class='panel-collapse collapse'>
+                        <div class = 'panel-body'>
+                                {% if prerrequisitos %}
+                                <div style="float: right;">
+                                    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+                                        <i class='icon-plus-sign-alt icon-large'></i> Registrar prerrequisitos</button>
+                                </div>
+                
+                                <table id="cursos" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td hidden>id</td>
+                                            <td style="color: black">Codigo del curso</td>
+                                            <td style="color: black">Nombre</td>
+                                            <td style="color: black">Creditos</td>
+                                            <td style="color: black">Validable</td>
+                                            <td style="color: black">Habilitable</td>
+                                            <td style="color: black">Programa</td>
+                
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for pre in prerrequisitos %} {% if pre.estado %}
+                                        <tr>
+                                            <td hidden> {{pre.id}} </td>
+                                            <td>{{ pre.codigo }}</td>
+                                            <td>{{ pre.nombre }}</td>
+                                            <td>{{ pre.creditos }}</td>
+                                            <td>
+                                                {% if pre.validable %} SI {% else %} NO {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if pre.habilitable %} SI {% else %} NO {% endif %}
+                                            </td>
+                                            <td>{{ pre.programa.nombre }}</td>
+                
+                                        </tr>
+                                        {% endif %} {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <div class="container">
+                                    <h4 style="float: left;">El curso no registra prerrequisitos</h4>
+                
+                                    <div style="float: right;">
+                                        <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+                                            <i class='icon-plus-sign-alt icon-large'></i> Registrar prerrequisitos</button>
+                                    </div>
+                                </div>
+                                <br>
+                                <hr> {% endif %} 
                         </div>
                     </div>
-                    <br>
-                    <hr> {% endif %}
+                  </div> 
+                
+                <!-- {%if reporte%}
+                <div style="overflow-x:auto;" align="middle">
+                    <table class="table table-striped table-bordered" id="reporte">
+                        <tr>
+                            <th>Competencia</th>
+                            <th>Resultado de Aprendizaje</th>
+                            <th>Indicador de Logro</th>
+                        </tr>
+                        {%for indicador in reporte%}
 
-                    {%if reporte%}
-                    <div style="overflow-x:auto;" align="middle">
-                            <table class="table table-striped table-bordered" id="reporte">
-                                <tr>
-                                    <th>Competencia</th>
-                                    <th>Resultado de Aprendizaje</th>
-                                    <th>Indicador de Logro</th>                                
-                                </tr>
-                    {%for indicador in reporte%}
-                    
-                            <tr>
-                                <td >{{indicador.resultado.competencia.descripcion}}</td>  
-                                <td ><label style="padding: 0px 10px 0px 10px;width: 70%;height: 100%" class="" id=resultado for="resultado">
-                                        <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ indicador.resultado.verbo}}</p>
-                                        <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{indicador.resultado.contenido}}</p>
-                                        <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{indicador.resultado.contexto}}</p>
-                                        <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">{{indicador.resultado.proposito}}</p>
-                                    </label>
-                                    </td> 
-                                <td>
-                                        <label style="padding: 0px 10px 0px 10px;width: 70%;height: 100%" class="" id=resultado for="resultado">
-                                                <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ indicador.habilidad}}</p>
-                                                <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{indicador.contenido}}</p>
-                                                <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{indicador.contexto}}</p>
-                                            </label>
-                                </td>                                                                           
-                            </tr> 
-                                                                                                                           
-                        
-                    </div>
-                    {%endfor%}
+                        <tr>
+                            <td>{{indicador.resultado.competencia.descripcion}}</td>
+                            <td>
+                                <label style="padding: 0px 10px 0px 10px;width: 70%;height: 100%" class="" id=resultado for="resultado">
+                                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ indicador.resultado.verbo}}</p>
+                                    <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{indicador.resultado.contenido}}</p>
+                                    <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{indicador.resultado.contexto}}</p>
+                                    <p id="proposito" style="display: inline;color:rgb(93, 194, 79);padding: 5px 10px 0px 10px">{{indicador.resultado.proposito}}</p>
+                                </label>
+                            </td>
+                            <td>
+                                <label style="padding: 0px 10px 0px 10px;width: 70%;height: 100%" class="" id=resultado for="resultado">
+                                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ indicador.habilidad}}</p>
+                                    <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{indicador.contenido}}</p>
+                                    <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{indicador.contexto}}</p>
+                                </label>
+                            </td>
+                        </tr>
+
+
+                </div>
+                {%endfor%}
                 </table>
-                    {%else%}
-                    <div class="container">
-                        <h4 style="float: left;">El curso no esta completo</h4>
-                    </div>
-                    <br>
-                    <hr> 
-                    {%endif%}
+                {%else%}
+                <div class="container">
+                    <h4 style="float: left;">El curso no esta completo</h4>
+                </div>
+                <br>
+                <hr> {%endif%} -->
             </div>
         </div>
     </section>
@@ -157,7 +170,7 @@
                     <select class="form-control" name="prerreq" id="prerreq">
                         <option value="0">----------</option>
                         {% for pos in posibles_pre %}
-                            <option value="{{pos.id}}">{{pos.nombre}}</option>
+                        <option value="{{pos.id}}">{{pos.nombre}}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -169,8 +182,5 @@
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block extrajs %}
-<script src="{% static 'js/curso_view.js' %}"></script>
-{% endblock %}
+{% endblock %} {% block extrajs %}
+<script src="{% static 'js/curso_view.js' %}"></script> {% endblock %}

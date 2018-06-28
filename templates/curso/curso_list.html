@@ -41,8 +41,8 @@
                                     <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
                                     <a id="delete" class="btn btn-danger btn-sm" data-tipo="curso" data-id="{{ curso.id }}" data-nombre="{{ curso.nombre }}"
                                         href="#">Eliminar</a>
-                                    <a id='detail' class="btn btn-primary btn-sm" data-id="{{ curso.id }}" href="#"> Detalle </a>
-                                        <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_listar' curso.id %}">
+                                    <a id='detail' class="btn btn-primary btn-sm" data-nombre="{{ curso.nombre }}" data-id="{{ curso.id }}" href="#"> Detalle </a>
+                                        <a class="btn btn-primary btn-sm" href="{% url 'curso:view' curso.id %}">
                                             <img style="width: 20px" src="{% static 'images/reporte.png' %}" alt="">
                                         </a>
                                     

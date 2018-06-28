@@ -18,3 +18,13 @@
   #rojo{
     background-color: rgb(233, 122, 122);
   }
+
+    .panel-default{
+      max-width: 1200px;
+      border-radius: 20px;
+      border-color: darkgray;
+      border: solid;
+      border-width: 2px;
+      padding-left: 25px;
+      padding-right: 25px
+    }

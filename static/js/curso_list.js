@@ -18,6 +18,7 @@ $(document).ready(function () {
 
 $(document).on('click', '#detail', function () {
     id = $(this).attr('data-id');
+    nombre = $(this).attr('data-nombre');
     $.ajax({
         type: "POST",
         data: {
@@ -26,7 +27,7 @@ $(document).on('click', '#detail', function () {
         url: "/curso/detail/",
         success: function (msg) {
             swal({
-                title: "El curso se encuentra " + msg.estado,
+                title: "El curso "+nombre+" se encuentra " + msg.estado,
                 text: msg.competencias + '\n' + msg.resultados + '\n' + msg.indicadores,
                 html: true,
                 type: "info",
