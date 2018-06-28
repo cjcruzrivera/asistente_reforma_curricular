@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $('#cursos').DataTable({
         "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
+            "lengthMenu": "Mostrando _MENU_ cursos",
             "info": "Página _PAGE_ de _PAGES_",
             "search": "Buscar:",
             "paginate": {
@@ -28,6 +28,7 @@ $(document).on('click', '#detail', function () {
             swal({
                 title: "El curso se encuentra " + msg.estado,
                 text: msg.competencias + '\n' + msg.resultados + '\n' + msg.indicadores,
+                html: true,
                 type: "info",
                 icon: 'info'
             })
@@ -50,12 +51,3 @@ $(document).on('click', '#detail', function () {
     });
 })
 
-$(document).on('click', '#cursos tbody tr td', function() {
-    var pagina = "view/";
-    var table = $("#cursos").DataTable();
-    var colIndex = table.cell(this).index().column;
-    
-    if (colIndex <= 2) {
-       location.href = pagina + table.cell(table.row(this).index(), 0).data();
-    }
-});
