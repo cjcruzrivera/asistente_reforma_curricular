@@ -66,7 +66,7 @@ class ResultadoAprendizajeCreateView(CreateView):
     
     def get_success_url(self, **kwargs):
         self.competencia = Competencia.objects.get(pk=self.kwargs['pk'])
-        return reverse_lazy('competencia:view_one', kwargs = {'pk': self.competencia.id})
+        return reverse_lazy('curso:view', kwargs = {'pk': self.competencia.curso.id})
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

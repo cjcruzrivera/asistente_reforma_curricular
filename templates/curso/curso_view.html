@@ -164,7 +164,7 @@
                                                     <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_editar' curso.id competencia.id  %}"> Editar </a>
                                                     <a class="btn btn-danger btn-sm" id="delete" data-tipo="competencia" data-id="{{ competencia.id }}" data-nombre="{{ competencia.descripcion }}"
                                                         href="#">Eliminar</a>
-                                                    <a class="btn btn-primary btn-sm" href="#"><i class="icon-small icon-plus-sign"></i></a>
+                                                    <a class="btn btn-primary btn-sm" href="{% url 'resultado:resultadoAprendizaje_crear' competencia.id%}" title="Registrar un nuevo resultado de aprendizaje"  data-competencia="{{ competencia.id }}"><i class="icon-small icon-plus-sign"></i></a>
                                                 </td>
                                             </tr>
                                             {% endif %} {% endfor %}
