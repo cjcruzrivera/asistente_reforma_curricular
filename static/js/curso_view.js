@@ -28,7 +28,7 @@ $(document).ready(function () {
         },
         "columns": [
             { "width": "1000px" },
-            { "width": "180px" },
+            { "width": "150px" },
           ],
           "autoWidth": false
     });

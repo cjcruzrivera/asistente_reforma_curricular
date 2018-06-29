@@ -140,6 +140,10 @@
                     </div>
                     <div id='competencia' class='panel-collapse collapse'>
                         <div class='panel-body'>
+                                <div style="float: right;">
+                                        <a class="btn btn-primary" href="{% url 'competencia:competencia_crear' curso.id %}">
+                                            <i class='icon-plus-sign-alt icon-large'></i> Nueva Competencia</a>
+                                    </div>
                             <div>
                                 {% if competencias %}
                                 <table id="competencias" class="table table-bordered">
@@ -160,6 +164,7 @@
                                                     <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_editar' curso.id competencia.id  %}"> Editar </a>
                                                     <a class="btn btn-danger btn-sm" id="delete" data-tipo="competencia" data-id="{{ competencia.id }}" data-nombre="{{ competencia.descripcion }}"
                                                         href="#">Eliminar</a>
+                                                    <a class="btn btn-primary btn-sm" href="#"><i class="icon-small icon-plus-sign"></i></a>
                                                 </td>
                                             </tr>
                                             {% endif %} {% endfor %}
