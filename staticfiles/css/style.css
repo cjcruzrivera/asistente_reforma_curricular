@@ -1,0 +1,58 @@
+#cargador{
+    background-color: red !important;
+    border: 2px solid black !important;
+    color: white;
+    border-radius: 7px !important;
+    margin-top: 10px !important;
+  }
+
+  #div_tabla{
+    background-color: #FFFFFF;
+    max-width: 1000px
+  }
+
+  #verde{
+    background-color: rgb(179, 223, 114);
+  }
+
+  #rojo{
+    background-color: rgb(233, 122, 122);
+  }
+
+ a{
+   color: black;
+ }
+
+ a:hover{
+   color: #FFFFFF
+ }
+
+    .panel-default{
+      margin: 10px;
+      border-radius: 20px;
+      border-color: darkgray;
+      border: solid;
+      border-width: 1px;
+      padding: 0
+    }
+
+    .panel-heading{
+      border-radius: 16px;
+      border-color: darkgray;
+      border: solid;
+      border-width: 0.5px;
+
+    }
+
+    .panel-heading:hover{
+      height: 100%;
+      width: auto;
+      border-radius: 16px;
+
+      background-color: rgb(214, 9, 9);
+
+    }
+
+    .panel-body{
+      margin: 20px;
+    }
