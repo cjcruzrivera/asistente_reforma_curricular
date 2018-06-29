@@ -81,10 +81,12 @@ def view_one(request, pk):
     competencias = Competencia.objects.filter(curso=curso)
     resultados = ResultadoAprendizaje.objects.filter(
         competencia__in=competencias)
-    reporte = IndicadorLogro.objects.filter(resultado__in=resultados)
+    indicadores = IndicadorLogro.objects.filter(resultado__in=resultados)
     return render(request, 'curso/curso_view.html', {
         'curso': curso,
-        'reporte': reporte,
+        'competencias': competencias,
+        'resultados': resultados,
+        'indicadores': indicadores,
         'usuario': request.user,
         'prerrequisitos': prerrequisitos,
         'posibles_pre': pos,

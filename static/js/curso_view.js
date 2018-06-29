@@ -14,7 +14,26 @@ $(document).ready(function () {
         }
     });
 
-    $('#reporte').DataTable({
+    $('#competencias').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ competencias",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        },
+        "columns": [
+            { "width": "1000px" },
+            { "width": "180px" },
+          ],
+          "autoWidth": false
+    });
+
+    $('#resultados').DataTable({
         "language": {
             "lengthMenu": "Mostrando _MENU_ registros",
             "info": "Página _PAGE_ de _PAGES_",
@@ -25,7 +44,31 @@ $(document).ready(function () {
                 "next": "Siguiente",
                 "last": "Última"
             }
-        }
+        },
+        "columnDefs": [
+            {"width": "500px", "targets": 1},
+            {"width": "130px", "targets": 2},
+        ],
+        "autoWidth": false
+    });
+
+    $('#indicadores').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros",
+            "info": "Página _PAGE_ de _PAGES_",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primera",
+                "previous": "Pág. Anterior",
+                "next": "Siguiente",
+                "last": "Última"
+            }
+        },
+        "columnDefs": [
+            {"width": "500px", "targets": 1},
+            {"width": "130px", "targets": 2},
+        ],
+        "autoWidth": false
     });
 
 })

@@ -140,7 +140,36 @@
                     </div>
                     <div id='competencia' class='panel-collapse collapse'>
                         <div class='panel-body'>
-                            Aqui iran las competencias
+                            <div>
+                                {% if competencias %}
+                                <table id="competencias" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td style="color: black">Descripcion de la competencia</td>
+                                            <td class="text-center" style="width: 170px"> Acciones</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for competencia in competencias %} {% if competencia.estado %} {% if competencia.completo %}
+                                        <tr id="verde">
+                                            {% else %}
+                                            <tr id="rojo">
+                                                {%endif%}
+                                                <td>{{ competencia.descripcion }}</td>
+                                                <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                                    <a class="btn btn-primary btn-sm" href="{% url 'competencia:competencia_editar' curso.id competencia.id  %}"> Editar </a>
+                                                    <a class="btn btn-danger btn-sm" id="delete" data-tipo="competencia" data-id="{{ competencia.id }}" data-nombre="{{ competencia.descripcion }}"
+                                                        href="#">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                            {% endif %} {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <br>
+                                <h4>NO HAY COMPETENCIAS REGISTRADAS</h4>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +185,56 @@
                     </div>
                     <div id='resultado' class='panel-collapse collapse'>
                         <div class='panel-body'>
-                            Aqui iran los resultados
+                            {% if resultados %}
+                            <h3>Resultados de Aprendizaje</h3>
+
+                            <table id="resultados" style="width: 1200px" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td style="width: 30px;" class="text-center">Identificador</td>
+                                        <td style="color: black">Descripcion</td>
+                                        <td style="width: 155px"> Acciones</td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for res in resultados %} {% if res.estado %} {% if res.completo %}
+                                    <tr id="verde">
+                                        {% else %}
+                                        <tr id="rojo">
+                                            {% endif %}
+                                            <td class="text-center"> {{res.id}} </td>
+                                            <td>
+                                                <label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado
+                                                    for="resultado">
+                                                    <p id="verbo" style="padding-right: 0;display: inline;color:rgb(184, 125, 17);padding: 5px 10px 0px 10px">{{ res.verbo}}</p>
+                                                    <p id="contenido" style="display: inline;color:rgb(245, 10, 10);padding: 5px 10px 0px 10px">{{res.contenido}}</p>
+                                                    <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{res.contexto}}</p>
+                                                    <p id="proposito" style="display: inline;color:rgb(19, 90, 10);padding: 5px 10px 0px 10px">{{res.proposito}}</p>
+                                                </label>
+                                            </td>
+                                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                                <a class="btn btn-primary btn-sm" href="{% url 'resultado:resultadoAprendizaje_editar' res.id  %}"> Editar </a>
+                                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="resultado" data-id="{{ res.id }}" data-nombre="" href="#">Eliminar</a>
+                                            </td>
+
+                                        </tr>
+                                        {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                            {% else %}
+                            <div class="container">
+                                <h4 style="float: left;">El curso no registra resultados de aprendizaje</h4>
+
+                                <div style="float: right;">
+                                    <a href="{% url 'resultado:resultadoAprendizaje_crear' competencia.id%}" class="btn btn-primary">
+                                        <i class='icon-plus-sign-alt icon-large'></i> Registrar resultado de aprendizaje</a>
+
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <hr> {% endif %}
                         </div>
                     </div>
                 </div>
@@ -173,8 +251,54 @@
                     </div>
                     <div id='indicador' class='panel-collapse collapse'>
                         <div class='panel-body'>
-                            Aqui iran los indicadors
-                        </div>
+                            {% if indicadores %}
+                            <h3>Indicadores de logros</h3>
+
+                            <table id="indicadores" style="width: 1200px" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td style="width: 30px;" class="text-center">Identificador</td>
+                                        <td style="color: black">Descripcion</td>
+                                        <td style="width: 155px"> Acciones</td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for res in indicadores %} {% if res.estado %} {% if res.completo %}
+                                    <tr id="verde">
+                                        {% else %}
+                                        <tr id="rojo">
+                                            {% endif %}
+                                            <td class="text-center"> {{res.id}} </td>
+                                            <td>
+                                                <label style="padding: 5px 10px 0px 10px;width: 100%;height: 150%" id=resultado for="resultado">
+                                                    <p id="verbo" style="padding-right: 0;display: inline;color:orange;padding: 5px 10px 0px 10px">{{ res.habilidad}}</p>
+                                                    <p id="contenido" style="display: inline;color:rgb(163, 43, 43);padding: 5px 10px 0px 10px">{{res.contenido}}</p>
+                                                    <p id="contexto" style="display: inline;color:rgb(104, 104, 218);padding: 5px 10px 0px 10px">{{res.contexto}}</p>
+                                                </label>
+                                            </td>
+                                            <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                                <a class="btn btn-primary btn-sm" href="{% url 'indicador:indicador_editar' res.id  %}"> Editar </a>
+                                                <a class="btn btn-danger btn-sm" id="delete" data-tipo="indicador" data-id="{{ res.id }}" data-nombre="" href="#">Eliminar</a>
+                                            </td>
+
+                                        </tr>
+                                        {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                            {% else %}
+                            <div class="container">
+                                <h4 style="float: left;">El resultado de aprendizaje no registra indicadores de logro</h4>
+
+                                <div style="float: right;">
+                                    <a href="{% url 'indicador:indicador_crear' ResultadoAprendizaje.id %}" class="btn btn-primary">
+                                        <i class='icon-plus-sign-alt icon-large'></i> Registrar Indicador de Logros</a>
+
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <hr> {% endif %} </div>
                     </div>
                 </div>
 
