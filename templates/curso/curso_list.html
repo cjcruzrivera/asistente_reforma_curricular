@@ -1,6 +1,4 @@
-{% extends 'base.html' %} 
-{% load staticfiles %}
-{% block content %}
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
 <div style="background-color: #E1E1E1">
     <section id="formulario">
         <div style="background-color: #FFFFFF" class="col-md-12 mx-auto">
@@ -15,40 +13,45 @@
                     <thead>
                         <tr>
                             <td hidden>id</td>
-                            <td style="color: black">Codigo del curso</td>
-                            <td style="color: black">Nombre</td>
-                            <td style="color: black">Creditos</td>
+                            <td style="color: black;width: 120px">Codigo del curso</td>
+                            <td style="color: black;width: 320px">Nombre</td>
+                            <td style="color: black;width: 20px;">Creditos</td>
                             <td style="color: black">Programa</td>
                             {% if not usuario.rol.nombre == "Decano" %}
 
-                            <td class="text-center" style="width: 130px"> Acciones</td>
+                            <td class="text-center" style="width: 250px"> Acciones</td>
                             {% endif %}
 
                         </tr>
                     </thead>
                     <tbody>
-                        {% for curso in object_list %} {% if curso.estado %}
-                        {% if curso.completo %}
+                        {% for curso in object_list %} {% if curso.estado %} {% if curso.completo %}
                         <tr id="verde">
-                        {% else %}
-                        <tr id="rojo">
-                        {% endif %}
-                            <td hidden> {{curso.id}} </td>
-                            <td>{{ curso.codigo }} </td>
-                            <td>{{ curso.nombre }}</td>
-                            <td>{{ curso.creditos }}</td>
-                            <td>{{ curso.programa.nombre }}</td>
-                            {% if not usuario.rol.nombre == "Decano" %}
+                            {% else %}
+                            <tr id="rojo">
+                                {% endif %}
+                                <td hidden> {{curso.id}} </td>
+                                <td>{{ curso.codigo }} </td>
+                                <td>{{ curso.nombre }}</td>
+                                <td class="text-center">{{ curso.creditos }}</td>
+                                <td>{{ curso.programa.nombre }}</td>
+                                {% if not usuario.rol.nombre == "Decano" %}
 
-                            <td class="text-center" style="padding: 10px 10px 10px 10px">
-                                <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
-                                <a id="delete" class="btn btn-danger btn-sm" data-tipo="curso" data-id="{{ curso.id }}" data-nombre="{{ curso.nombre }}"
-                                    href="#">Eliminar</a>
-                            </td>
-                            {% endif %}
+                                <td class="text-center" style="padding: 10px 10px 10px 10px">
+                                    <a class="btn btn-primary btn-sm" href="{% url 'curso:curso_editar' curso.id %}"> Editar </a>
+                                    <a id="delete" class="btn btn-danger btn-sm" data-tipo="curso" data-id="{{ curso.id }}" data-nombre="{{ curso.nombre }}"
+                                        href="#">Eliminar</a>
+                                    <a id='detail' class="btn btn-primary btn-sm" data-nombre="{{ curso.nombre }}" data-id="{{ curso.id }}" href="#"> Detalle </a>
+                                        <a class="btn btn-primary btn-sm" href="{% url 'curso:view' curso.id %}">
+                                            <img style="width: 20px" src="{% static 'images/reporte.png' %}" alt="">
+                                        </a>
+                                    
 
-                        </tr>
-                        {% endif %} {% endfor %}
+                                </td>
+                                {% endif %}
+
+                            </tr>
+                            {% endif %} {% endfor %}
                     </tbody>
                 </table>
                 {% else %}
@@ -61,5 +64,4 @@
 
 
 {% endblock %} {% block extrajs %}
-<script src="{% static 'js/curso_list.js' %}"></script>
- {% endblock %}
+<script src="{% static 'js/curso_list.js' %}"></script> {% endblock %}

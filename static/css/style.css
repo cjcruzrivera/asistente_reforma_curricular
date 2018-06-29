@@ -18,3 +18,41 @@
   #rojo{
     background-color: rgb(233, 122, 122);
   }
+
+ a{
+   color: black;
+ }
+
+ a:hover{
+   color: #FFFFFF
+ }
+
+    .panel-default{
+      margin: 10px;
+      border-radius: 20px;
+      border-color: darkgray;
+      border: solid;
+      border-width: 1px;
+      padding: 0
+    }
+
+    .panel-heading{
+      border-radius: 16px;
+      border-color: darkgray;
+      border: solid;
+      border-width: 0.5px;
+
+    }
+
+    .panel-heading:hover{
+      height: 100%;
+      width: auto;
+      border-radius: 16px;
+
+      background-color: rgb(214, 9, 9);
+
+    }
+
+    .panel-body{
+      margin: 20px;
+    }

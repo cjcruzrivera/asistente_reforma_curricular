@@ -14,13 +14,14 @@ class IndicadorLogro(models.Model):
     contexto = models.CharField(max_length=250)
     resultado = models.ForeignKey('resultado_aprendizaje.ResultadoAprendizaje')
     estado = models.BooleanField(default=True)
-    actividades = models.ManyToManyField(Actividad)
+    actividades = models.ManyToManyField(Actividad,through='Evaluaciones', symmetrical=False)
 
     def validateCompleto(self):
-        if self.actividades.all():
+        if Evaluaciones.objects.filter(estado=True, indicador=self).exists():
             return True
         else:
             return False
+
 
     def delete(self):
         if self.estado:
@@ -31,4 +32,21 @@ class IndicadorLogro(models.Model):
             return False
 
     def __unicode__(self):
-        return '{}'.format(self.descripcion)
+        return '{} {} {}'.format(self.habilidad, self.contenido, self.contexto)
+
+
+class Evaluaciones(models.Model):
+    indicador = models.ForeignKey(IndicadorLogro)
+    actividad = models.ForeignKey(Actividad)
+    porcentaje = models.FloatField()
+    estado = models.BooleanField(default=True)
+
+    def delete(self):
+        if self.estado:
+            self.estado = False
+            self.save()
+            return True
+        else:
+            return False
+    
+    

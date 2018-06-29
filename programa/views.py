@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from django.core import serializers
 
 from .models import Programa
@@ -63,6 +63,8 @@ class ProgramaCreateView(CreateView):
         context['accion'] = 'Registrar'
         context['usuario'] = self.request.user
         return context
+    
+
 
 class ProgramaUpdateView(UpdateView):
     model = Programa
@@ -95,7 +97,13 @@ def listar_dir(request):
         return JsonResponse({'vacio':'vacio'}, safe=False)
 
     rol = Rol.objects.get(nombre='Director de Programa')
-    data = serializers.serialize('json', Usuario.objects.filter(escuela=id_escuela, rol=rol , estado=True), fields=('id', 'first_name', 'last_name'))
+    pos_directores = Usuario.objects.filter(escuela=id_escuela, rol=rol , estado=True)
+    directores = []
+    for dire in pos_directores:
+        if(not dire.is_dir()):
+            directores.append(dire)
+        
+    data = serializers.serialize('json', directores, fields=('id', 'first_name', 'last_name'))
 
     return JsonResponse(data, safe=False)
 

@@ -16,10 +16,10 @@ class Competencia(models.Model):
         competencia = Competencia.objects.get(pk=self.id)
         if ResultadoAprendizaje.objects.filter(competencia=competencia, estado=True).exists():
             for resultado in ResultadoAprendizaje.objects.filter(competencia=competencia, estado=True):
-                if resultado.validateCompleto():
-                    return True
+                if not resultado.validateCompleto():
+                    return False
                 
-            return False
+            return True
         else:
             return False
 
