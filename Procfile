@@ -1,0 +1,1 @@
+web: gunicorn asistente_reforma_curricular.wsgi --log-file -
