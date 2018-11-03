@@ -90,8 +90,8 @@ class ResultadoAprendizajeUpdateView(UpdateView):
         return context
 
     def get_success_url(self, **kwargs):
-        self.competencia = ResultadoAprendizaje.objects.get(pk=self.kwargs['pk']).competencia
-        return reverse_lazy('competencia:view_one', kwargs = {'pk': self.competencia.id})
+        self.curso = ResultadoAprendizaje.objects.get(pk=self.kwargs['pk']).competencia.curso
+        return reverse_lazy('curso:view', kwargs = {'pk': self.curso.id})
 
 
 

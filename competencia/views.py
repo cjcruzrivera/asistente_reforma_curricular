@@ -68,7 +68,7 @@ class CompetenciaUpdateView(UpdateView):
         return context
     
     def get_success_url(self, **kwargs):
-        return reverse_lazy('competencia:competencia_listar', kwargs = {'pk': self.kwargs['course']})
+        return reverse_lazy('curso:view', kwargs = {'pk': self.kwargs['course']})
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
